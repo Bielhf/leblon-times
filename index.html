@@ -62,6 +62,12 @@ a:hover{ text-decoration:underline; }
 .sector-title:before{ left:0; } .sector-title:after{ right:0; }
 .sector-hr{ border:0; border-top:2px solid #111; margin:2px 0 16px; }
 
+.company{ margin-bottom:6px; }
+.company-bar{ display:flex; align-items:center; justify-content:space-between; gap:14px; border-bottom:1px solid #000; padding-bottom:4px; margin:0 0 12px; min-height:30px; }
+.co-name{ font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:#9a2a2a; white-space:nowrap; }
+.quote{ flex:0 0 auto; width:230px; max-width:46%; }
+.quote.noq{ font-size:10.5px; color:#b3ada0; text-transform:uppercase; letter-spacing:.08em; width:auto; }
+
 .article{ padding:0 0 18px; margin-bottom:18px; border-bottom:1px solid #ddd6c8; }
 .article:last-child{ border-bottom:none; }
 .kicker{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:#9a2a2a; margin-bottom:3px; }
@@ -119,7 +125,7 @@ a:hover{ text-decoration:underline; }
   </div>
 
   <div class="controls">
-    <input type="search" id="search" placeholder="Filtrar por palavra, empresa ou veículo…" oninput="render()">
+    <input type="search" id="search" placeholder="Filtrar por palavra, empresa ou veículo…" oninput="applyFilter()">
     <button class="btn" onclick="openPanel()">⚙ Editar</button>
     <button class="btn" onclick="sendPromptSafe('Atualize o clipping de notícias agora, buscando notícias dos últimos 3 dias para todas as empresas que cubro (cobrindo todas as linhas de negócio de cada uma), com resumos de dois parágrafos, e atualize a página.')">↻ Atualizar</button>
   </div>
@@ -173,6 +179,26 @@ const DEFAULT_COMPANIES = [
   ["BYD","Montadoras & Baterias"],["GWM","Montadoras & Baterias"],["Volkswagen","Montadoras & Baterias"],["Stellantis","Montadoras & Baterias"],["GM","Montadoras & Baterias"],["Hyundai","Montadoras & Baterias"],["Toyota","Montadoras & Baterias"],
   ["Embraer","Aviação"]
 ];
+
+// Tickers para a cotação ao vivo (símbolos TradingView). null = empresa não listada.
+const TICKERS = {
+  "Localiza":"BMFBOVESPA:RENT3",
+  "Movida":"BMFBOVESPA:MOVI3",
+  "Rede D'Or":"BMFBOVESPA:RDOR3",
+  "SulAmérica":null,
+  "Hapvida":"BMFBOVESPA:HAPV3",
+  "Fleury":"BMFBOVESPA:FLRY3",
+  "Amil":null,
+  "Oncoclínicas":"BMFBOVESPA:ONCO3",
+  "BYD":"HKEX:1211",
+  "GWM":"HKEX:2333",
+  "Volkswagen":"XETR:VOW3",
+  "Stellantis":"NYSE:STLA",
+  "GM":"NYSE:GM",
+  "Hyundai":"KRX:005380",
+  "Toyota":"NYSE:TM",
+  "Embraer":"BMFBOVESPA:EMBR3"
+};
 
 // r = array de parágrafos (2)
 const NEWS = {
@@ -298,10 +324,8 @@ function allSources(){
 // ---------- RENDER ----------
 function render(){
   document.getElementById("dl-date").textContent = fmtLong(LAST_UPDATED);
-  const q=(document.getElementById("search").value||"").toLowerCase().trim();
   const content=document.getElementById("content");
   content.innerHTML="";
-  let shown=0, hiddenByDate=0;
 
   SECTORS.forEach(sector=>{
     const comps=config.companies.filter(c=>c.sector===sector);
@@ -309,43 +333,90 @@ function render(){
     const sec=document.createElement("div");
     sec.className="sector";
     sec.innerHTML=`<div class="sector-title">${esc(sector)}</div><hr class="sector-hr">`;
-    let has=false;
 
     comps.forEach(c=>{
       const items=(NEWS[c.name]||[]).filter(n=>{
-        if(daysOld(n.d)>MAX_DAYS){ hiddenByDate++; return false; }
+        if(daysOld(n.d)>MAX_DAYS) return false;
         if(config.hiddenSources[n.f]) return false;
-        if(q){ const blob=(c.name+" "+n.h+" "+n.f+" "+paras(n.r).join(" ")).toLowerCase(); if(!blob.includes(q)) return false; }
         return true;
       }).sort((a,b)=>b.d.localeCompare(a.d));
 
-      if(q && items.length===0 && !c.name.toLowerCase().includes(q)) return;
-      has=true; shown+=items.length;
+      const co=document.createElement("div");
+      co.className="company";
+      co.dataset.company=c.name.toLowerCase();
+      const sym=TICKERS[c.name];
+      co.innerHTML=`<div class="company-bar"><span class="co-name">${esc(c.name)}</span>`+
+        (sym?`<span class="quote" data-tv="${esc(sym)}"></span>`:`<span class="quote noq">não listada</span>`)+`</div>`;
 
       if(items.length){
         items.forEach(n=>{
           const art=document.createElement("div");
           art.className="article";
+          art.dataset.blob=(c.name+" "+n.h+" "+n.f+" "+paras(n.r).join(" ")).toLowerCase();
           art.innerHTML=`
-            <div class="kicker">${esc(c.name)}</div>
             <h2 class="headline"><a href="${esc(n.u)}" target="_blank" rel="noopener">${esc(n.h)}</a></h2>
             <div class="byline"><span class="src">${esc(n.f)}</span> &nbsp;·&nbsp; ${fmtDate(n.d)}</div>
             ${paras(n.r).map(p=>`<p class="resumo">${esc(p)}</p>`).join("")}`;
-          sec.appendChild(art);
+          co.appendChild(art);
         });
       } else {
         const art=document.createElement("div");
-        art.className="article";
-        art.innerHTML=`<div class="kicker">${esc(c.name)}</div><div class="empty">Sem notícias nos últimos 3 dias.</div>`;
-        sec.appendChild(art);
+        art.className="article empty-art";
+        art.innerHTML=`<div class="empty">Sem notícias nos últimos 3 dias.</div>`;
+        co.appendChild(art);
       }
+      sec.appendChild(co);
     });
 
-    if(has) content.appendChild(sec);
+    content.appendChild(sec);
   });
 
-  document.getElementById("filternote").textContent =
-    `${shown} matéria(s) nos últimos ${MAX_DAYS} dias` + (hiddenByDate?` · ${hiddenByDate} mais antiga(s) ocultada(s)`:"");
+  injectQuotes();
+  applyFilter();
+}
+
+// Cotação ao vivo: widget TradingView (só funciona no site público; bloqueado na visualização do Cowork)
+function injectQuotes(){
+  const live = location.protocol==='https:' && !!location.hostname;
+  document.querySelectorAll('.quote[data-tv]').forEach(slot=>{
+    if(slot.dataset.done) return;
+    if(!live){ slot.classList.add('noq'); slot.textContent='cotação no site publicado'; slot.removeAttribute('data-tv'); return; }
+    slot.dataset.done='1';
+    const cont=document.createElement('div'); cont.className='tradingview-widget-container';
+    const w=document.createElement('div'); w.className='tradingview-widget-container__widget'; cont.appendChild(w);
+    const s=document.createElement('script');
+    s.type='text/javascript'; s.async=true;
+    s.src='https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
+    s.text=JSON.stringify({symbol:slot.getAttribute('data-tv'),width:'100%',isTransparent:true,colorTheme:'light',locale:'br'});
+    cont.appendChild(s); slot.appendChild(cont);
+  });
+}
+
+// Busca: filtra mostrando/escondendo, sem recriar os widgets de cotação
+function applyFilter(){
+  const q=(document.getElementById("search").value||"").toLowerCase().trim();
+  let shown=0;
+  document.querySelectorAll('#content .sector').forEach(sec=>{
+    let secVis=false;
+    sec.querySelectorAll('.company').forEach(co=>{
+      const nameMatch = !q || co.dataset.company.includes(q);
+      let anyArt=false;
+      co.querySelectorAll('.article').forEach(art=>{
+        const isEmpty=art.classList.contains('empty-art');
+        let vis;
+        if(!q) vis=true;
+        else if(nameMatch) vis=true;
+        else vis = !isEmpty && (art.dataset.blob||'').includes(q);
+        art.style.display = vis?'':'none';
+        if(vis && !isEmpty){ anyArt=true; shown++; }
+      });
+      const coVis = !q ? true : (nameMatch || anyArt);
+      co.style.display = coVis?'':'none';
+      if(coVis) secVis=true;
+    });
+    sec.style.display = secVis?'':'none';
+  });
+  document.getElementById("filternote").textContent = `${shown} matéria(s) nos últimos ${MAX_DAYS} dias · cotações ao vivo no site publicado`;
 }
 
 // ---------- PAINEL ----------
