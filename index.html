@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leblon Times — Clipping de Cobertura</title>
+<style>
+:root{ color-scheme: light; }
+*{ box-sizing:border-box; }
+*{ font-family:Calibri,Candara,"Segoe UI","Trebuchet MS",system-ui,sans-serif !important; font-style:italic !important; }
+body{
+  margin:0; background:#f7f5f0; color:#111;
+  font-family:Georgia,"Times New Roman",Times,serif;
+  font-size:16px; line-height:1.55;
+}
+a{ color:#111; text-decoration:none; }
+a:hover{ text-decoration:underline; }
+.paper{ max-width:820px; margin:0 auto; background:#fffdf9; min-height:100vh; padding:0 0 70px; box-shadow:0 0 28px rgba(0,0,0,.06); }
+.inner{ padding:0 46px; }
+
+/* ---------- Masthead ---------- */
+.masthead{ text-align:center; padding:26px 46px 0; }
+.eyebrow{ font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#555; font-family:Georgia,serif; }
+.nameplate{
+  font-family:"Playfair Display",Georgia,"Times New Roman",serif;
+  font-size:46px; font-weight:700; letter-spacing:.01em; line-height:1.05; margin:6px 0 4px;
+}
+.nameplate .small{ display:block; font-size:14px; letter-spacing:.32em; text-transform:uppercase; font-weight:400; color:#333; margin-top:8px; }
+.rule-d{ border-top:3px double #111; border-bottom:1px solid #111; height:5px; margin:14px 0 0; }
+.dateline-top{
+  display:flex; justify-content:space-between; align-items:center; font-size:11px; text-transform:uppercase;
+  letter-spacing:.12em; color:#444; padding:7px 0; border-bottom:2px solid #111;
+}
+.dateline-top .c{ flex:1; text-align:center; }
+.dateline-top .l{ flex:1; text-align:left; }
+.dateline-top .r{ flex:1; text-align:right; }
+
+/* ---------- Controls ---------- */
+.controls{ display:flex; flex-wrap:wrap; gap:9px; align-items:center; padding:12px 46px 0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+.controls input[type=search]{
+  flex:1; min-width:180px; padding:8px 11px; border:1px solid #cfc8bb; border-radius:3px; font-size:13px; background:#fff;
+  font-family:inherit;
+}
+.btn{
+  border:1px solid #b9b1a2; background:#fff; color:#222; padding:7px 12px; border-radius:3px;
+  font-size:12px; font-weight:600; cursor:pointer; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+.btn:hover{ background:#f1ece2; }
+.btn.primary{ background:#111; border-color:#111; color:#fff; }
+.filternote{ font-size:11px; color:#777; padding:8px 46px 0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+
+/* ---------- Sectors / articles ---------- */
+.lead{ font-size:13px; color:#555; text-align:center; font-style:italic; padding:4px 46px 2px; }
+.sector{ padding:6px 46px 0; }
+.sector-title{
+  text-align:center; font-size:14px; letter-spacing:.2em; text-transform:uppercase; font-weight:700;
+  margin:26px 0 4px; position:relative;
+}
+.sector-title:before, .sector-title:after{
+  content:""; position:absolute; top:50%; width:24%; border-top:1px solid #111;
+}
+.sector-title:before{ left:0; } .sector-title:after{ right:0; }
+.sector-hr{ border:0; border-top:2px solid #111; margin:2px 0 16px; }
+
+.article{ padding:0 0 18px; margin-bottom:18px; border-bottom:1px solid #ddd6c8; }
+.article:last-child{ border-bottom:none; }
+.kicker{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:#9a2a2a; margin-bottom:3px; }
+.headline{ font-size:23px; line-height:1.18; font-weight:700; margin:0 0 5px; letter-spacing:-0.01em; }
+.headline a{ color:#111; }
+.byline{ font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:#666; font-style:normal; margin-bottom:9px; }
+.byline .src{ font-weight:700; color:#333; }
+.resumo{ margin:0 0 9px; text-align:justify; hyphens:auto; }
+.resumo:first-of-type::first-letter{
+  float:left; font-size:46px; line-height:38px; font-weight:700; padding:2px 8px 0 0; color:#111;
+}
+.empty{ color:#9a958a; font-style:italic; font-size:14px; }
+.count{ font-size:10px; color:#aaa; float:right; letter-spacing:.08em; text-transform:uppercase; font-weight:400; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+
+.foot{ font-size:12px; color:#888; padding:24px 46px 0; line-height:1.6; border-top:1px solid #ddd6c8; margin-top:22px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+
+/* ---------- Settings panel ---------- */
+.overlay{ position:fixed; inset:0; background:rgba(20,20,20,.45); display:none; z-index:50; }
+.overlay.open{ display:block; }
+.panel{
+  position:fixed; top:0; right:0; height:100%; width:380px; max-width:92vw; background:#fffdf9; z-index:51;
+  box-shadow:-4px 0 24px rgba(0,0,0,.16); transform:translateX(100%); transition:transform .18s ease;
+  display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+.panel.open{ transform:translateX(0); }
+.panel header{ padding:16px 18px; border-bottom:2px solid #111; display:flex; justify-content:space-between; align-items:center; }
+.panel header h3{ margin:0; font-size:15px; font-family:Georgia,serif; letter-spacing:.04em; }
+.panel .body{ padding:16px 18px; overflow:auto; }
+.panel h4{ font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:#777; margin:18px 0 8px; }
+.row{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:6px 0; border-bottom:1px solid #eee6d8; }
+.row span.lbl{ font-size:14px; }
+.row small{ color:#aaa; }
+.x{ color:#9a2a2a; cursor:pointer; font-size:12px; font-weight:600; border:none; background:none; }
+.addrow{ display:flex; gap:8px; margin-top:10px; }
+.addrow input, .addrow select{ flex:1; padding:8px 10px; border:1px solid #cfc8bb; border-radius:3px; font-size:13px; }
+.src-line{ display:flex; align-items:center; gap:8px; padding:5px 0; font-size:13px; }
+.src-line input{ width:16px; height:16px; }
+.note{ font-size:11px; color:#999; margin-top:22px; line-height:1.6; }
+@media(max-width:640px){ .inner,.masthead,.controls,.filternote,.sector,.foot{ padding-left:20px; padding-right:20px; } }
+</style>
+</head>
+<body>
+<div class="paper">
+
+  <div class="masthead">
+    <div class="eyebrow">Edição do Analista · Uso Interno</div>
+    <div class="nameplate">Leblon Times<span class="small">Clipping de Cobertura · Locação · Saúde · Montadoras &amp; Baterias · Aviação</span></div>
+    <div class="rule-d"></div>
+    <div class="dateline-top">
+      <span class="l" id="dl-date">—</span>
+      <span class="c">Notícias dos últimos 3 dias</span>
+      <span class="r">Brasil &amp; Global</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <input type="search" id="search" placeholder="Filtrar por palavra, empresa ou veículo…" oninput="render()">
+    <button class="btn" onclick="openPanel()">⚙ Editar</button>
+    <button class="btn" onclick="sendPromptSafe('Atualize o clipping de notícias agora, buscando notícias dos últimos 3 dias para todas as empresas que cubro (cobrindo todas as linhas de negócio de cada uma), com resumos de dois parágrafos, e atualize a página.')">↻ Atualizar</button>
+  </div>
+  <div class="filternote" id="filternote"></div>
+
+  <div id="content"></div>
+
+  <div class="foot">
+    Mostra notícias publicadas nos <b>últimos 3 dias</b> (hoje, ontem, anteontem e anteanteontem), com resumo de dois parágrafos. Cada empresa é pesquisada por suas linhas de negócio (ex.: a BYD cobre automóveis <i>e</i> baterias/armazenamento de energia). Edite a lista de empresas e as fontes em <b>Editar</b>; para puxar notícias novas use <b>Atualizar</b> ou deixe a rotina diária rodar.
+  </div>
+</div>
+
+<!-- Settings panel -->
+<div class="overlay" id="overlay" onclick="closePanel()"></div>
+<aside class="panel" id="panel">
+  <header>
+    <h3>Editar clipping</h3>
+    <button class="btn" onclick="closePanel()">Fechar</button>
+  </header>
+  <div class="body">
+    <h4>Empresas cobertas</h4>
+    <div id="companyList"></div>
+    <div class="addrow">
+      <input id="newCompany" type="text" placeholder="Nova empresa (ex: WEG)">
+      <select id="newSector"></select>
+    </div>
+    <div class="addrow">
+      <button class="btn primary" style="width:100%" onclick="addCompany()">+ Adicionar empresa</button>
+    </div>
+
+    <h4>Fontes / veículos</h4>
+    <div style="font-size:12px;color:#aaa;margin-bottom:6px">Desmarque para esconder notícias de um veículo.</div>
+    <div id="sourceList"></div>
+
+    <div class="addrow">
+      <button class="btn" style="width:100%" onclick="resetAll()">Restaurar padrão</button>
+    </div>
+    <div class="note">As mudanças valem na hora para o que é exibido. A busca automática diária passa a usar a lista nova na próxima execução.</div>
+  </div>
+</aside>
+
+<script>
+// ---------- DADOS (busca de 12/06/2026) ----------
+const LAST_UPDATED = "2026-06-12";
+const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
+const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
+
+const DEFAULT_COMPANIES = [
+  ["Localiza","Locação"],["Movida","Locação"],
+  ["Rede D'Or","Saúde"],["SulAmérica","Saúde"],["Hapvida","Saúde"],["Fleury","Saúde"],["Amil","Saúde"],["Oncoclínicas","Saúde"],
+  ["BYD","Montadoras & Baterias"],["GWM","Montadoras & Baterias"],["Volkswagen","Montadoras & Baterias"],["Stellantis","Montadoras & Baterias"],["GM","Montadoras & Baterias"],["Hyundai","Montadoras & Baterias"],["Toyota","Montadoras & Baterias"],
+  ["Embraer","Aviação"]
+];
+
+// r = array de parágrafos (2)
+const NEWS = {
+"Localiza":[],
+"Movida":[
+ {h:"Movida lança, com a Meta, aluguel de carros por IA no WhatsApp e mira triplicar a receita do canal",f:"AdNews",d:"2026-06-10",u:"https://adnews.com.br/post/movida-lanca-projeto-inedito-com-a-meta-para-realizar-aluguel-de-carros-por-ia-no-whats-app",r:[
+  "A Movida tornou-se a primeira empresa do Brasil a adotar a plataforma Meta Business Agent, lançando um agente de inteligência artificial que conduz o cliente da cotação à contratação de um aluguel inteiramente pelo WhatsApp, sem atendimento humano. Segundo a companhia, a ferramenta dobrou a taxa de conversão no canal digital e reduziu o custo de contratação de cerca de 10% para 2% do valor do contrato.",
+  "Com a novidade, a locadora projeta saltar de aproximadamente R$ 100 milhões para R$ 300 milhões de receita gerada via WhatsApp até o fim de 2026. Para o investidor de MOVI3, a combinação de maior conversão e menor custo de aquisição tende a melhorar a margem da divisão de Rent-a-Car, pressionada nos últimos trimestres pela depreciação de frota e pela concorrência dos carros chineses."]}
+],
+"Rede D'Or":[
+ {h:"Rede D'Or cancela 49 milhões de ações e aprova recompra de até R$ 1 bilhão",f:"ADVFN",d:"2026-06-11",u:"https://br.advfn.com/jornal/2026/06/rede-d-or-cancela-49-milhoes-de-acoes-e-aprova-novo-programa-de-recompra-de-ate-r-1-bilhao",r:[
+  "A Rede D'Or São Luiz (RDOR3) anunciou em 11 de junho a aprovação, pelo conselho de administração, do cancelamento de 49 milhões de ações ordinárias mantidas em tesouraria — o que reduz o número de papéis em circulação sem alterar o capital social — e de um novo programa de recompra de até R$ 1 bilhão. O programa permite adquirir até 30 milhões de ações ordinárias, com execução prevista até 10 de junho de 2027.",
+  "O mercado lê o movimento como sinal de confiança da administração, especialmente com a ação negociando bem abaixo da máxima de 52 semanas (R$ 48,41); os papéis fecharam em 10/06 a R$ 32,50. A recompra é uma prática de otimização da estrutura de capital que eleva indicadores por ação na maior rede integrada de saúde privada do país, presente em hospitais, oncologia, diagnósticos e — via SulAmérica — em planos de saúde."]}
+],
+"SulAmérica":[
+ {h:"Sindicato cobra SulAmérica por exames negados em plano do Santander na Baixada",f:"SEEB Santos e Região",d:"2026-06-11",u:"https://santosbancarios.com.br/artigo/santander-sulamerica-saude-nao-faz-exames-de-raio-x-ou-ressonancia-na-baixada/",r:[
+  "O Sindicato dos Bancários de Santos e Região denunciou que o plano SulAmérica Saúde oferecido aos funcionários do Santander deixou de cobrir exames de raio X e ressonância magnética em parte da rede credenciada na Baixada Santista, e cobrou da operadora e do banco a ampliação do atendimento.",
+  "O episódio ilustra as tensões em torno da rede credenciada e dos custos assistenciais na saúde suplementar. Para a SulAmérica, hoje controlada pela Rede D'Or, reclamações de cobertura têm peso reputacional e podem atrair a atenção da ANS, ainda que o impacto financeiro direto tenda a ser limitado."]}
+],
+"Hapvida":[
+ {h:"Ação da Hapvida (HAPV3) sofre nova pressão vendedora, aponta Ágora",f:"EuQueroInvestir",d:"2026-06-12",u:"https://euqueroinvestir.com/acoes/acao-da-hapvida-sofre-nova-pressao-vendedora",r:[
+  "Em relatório enviado a clientes na sexta-feira, 12 de junho, a Ágora Investimentos apontou que as ações da Hapvida (HAPV3) voltaram a enfrentar forte pressão vendedora. Depois da alta dos últimos meses, impulsionada pela assembleia de 30 de abril, os papéis voltaram a figurar entre os maiores volumes de free float alugado, sinal de retomada de posições vendidas (short).",
+  "O pano de fundo operacional segue desafiador: considerando o conjunto GNDI + Hapvida (que inclui a Intermédica), a companhia perdeu 48 mil beneficiários em abril, na contramão de concorrentes como Amil (+45 mil) e Bradesco Saúde (+38 mil), que lideraram o setor no mês. O quadro reforça as dúvidas do mercado sobre a velocidade do turnaround e a retomada de crescimento líquido da carteira."]}
+],
+"Fleury":[],
+"Amil":[],
+"Oncoclínicas":[],
+"BYD":[
+ {h:"BYD vai investir até R$ 500 milhões em baterias de rede no Brasil antes do 1º leilão de armazenamento",f:"The Rio Times",d:"2026-06-12",u:"https://www.riotimesonline.com/byd-battery-storage-brazil-grid-auction-china-energy-june-2026/",r:[
+  "Conhecida no Brasil pelos carros elétricos, a BYD anunciou que pretende investir até R$ 500 milhões (cerca de US$ 98 milhões) no negócio de armazenamento de energia em baterias no país. O movimento antecede o primeiro leilão brasileiro dedicado a baterias de rede, marcado para 2 e 4 de dezembro de 2026, que busca contratar cerca de 2 GW de armazenamento e pode destravar bilhões de reais em investimentos — uma das datas é reservada a projetos com conteúdo local.",
+  "Baterias de grande porte resolvem a intermitência da matriz brasileira, fortemente dependente de solar e eólica, armazenando o excedente para liberá-lo quando a geração cai. A BYD não está sozinha: CATL, Huawei e Sungrow também apresentaram propostas, aprofundando a presença chinesa na infraestrutura energética do país. Para a BYD, que já produziu baterias para milhões de carros e tem uma grande fábrica no Nordeste, a aposta estende seu ecossistema do transporte para o próprio sistema elétrico."]},
+ {h:"BYD lidera ônibus elétricos no Brasil com 44,7% de participação em maio",f:"Frota&Cia",d:"2026-06-11",u:"https://frotacia.com.br/byd-onibus-eletrico-2026/",r:[
+  "A BYD encerrou maio na liderança do mercado brasileiro de ônibus elétricos, com 59 veículos emplacados e 44,7% de participação, segundo a Fenabrave. O desempenho ajudou o segmento a registrar o melhor mês de 2026 (132 emplacamentos); de janeiro a maio foram 311 ônibus elétricos no país, 12,3% acima do mesmo período do ano anterior.",
+  "São Paulo concentra cerca de 80% da frota nacional, com aproximadamente 1.300 ônibus elétricos na capital. Para a BYD — que tem fábrica de chassis em Campinas (SP) — o avanço integra um ecossistema que reúne veículos, baterias e soluções de energia, e sinaliza que o debate no setor migrou da viabilidade tecnológica para escala e infraestrutura."]},
+ {h:"BYD mira liderança global em vendas até 2030 e corre para ampliar a bateria Blade",f:"Terra",d:"2026-06-11",u:"https://www.terra.com.br/noticias/nem-carros-eletricos-nem-baterias-baratas-superam-o-plano-implacavel-da-byd-de-vender-robos-humanoides-em-concessionarias,1e6a01cc3e38b91d2ae1730384ab90955e6dl7hk.html",r:[
+  "Na assembleia anual de acionistas (9 de junho), o fundador Wang Chuanfu afirmou que a BYD quer ser a maior fabricante de automóveis do mundo até 2030. As vendas internacionais cresceram 81%, superando 160 mil veículos, sustentadas pela produção local em países como Brasil e Tailândia, e a empresa estuda investir cerca de € 2 bilhões em 3.000 estações de recarga ultrarrápida na Europa até 2027.",
+  "Wang reconheceu que a capacidade atual ainda é insuficiente para a demanda da nova bateria Blade de segunda geração, e a BYD concentra recursos para elevar a produção dessas células de 20 mil para 30 mil unidades por mês. A companhia também desenvolve robôs humanoides e estuda vendê-los pela rede de concessionárias, aproveitando a experiência em baterias, motores elétricos e inteligência artificial."]}
+],
+"GWM":[
+ {h:"GWM lança Haval H6 2027, primeiro híbrido plug-in flex fabricado no Brasil, a partir de R$ 199.900",f:"Diário do Estado GO",d:"2026-06-11",u:"https://diariodoestadogo.com.br/gwm-haval-h6-2027-primeiro-hibrido-plug-in-flex-fabricado-no-brasil-3/",r:[
+  "A GWM apresentou o Haval H6 2027 com motorização flex, tornando o SUV a primeira linha de híbridos plug-in flex fabricada no Brasil, capaz de rodar com gasolina ou etanol em todas as versões. Os preços vão de R$ 199.900 na nova versão de entrada HEV ONE a R$ 326.000 na GT; produzido em Iracemápolis (SP), o modelo recebeu calibração liderada por engenheiros brasileiros e já está nas concessionárias desde 9 de junho.",
+  "A linha 2027 traz nova transmissão DHT, baterias atualizadas (de 1,53 kWh nas HEV até 35 kWh na PHEV35/GT) e um sensor de etanol que recalibra o motor em tempo real, com potência combinada de até 393 cv. Ao produzir localmente um híbrido plug-in flex, a GWM reforça o compromisso com o Brasil e viabiliza vantagens fiscais, como a isenção de IPVA em SP para híbridos flex até determinado valor."]}
+],
+"Volkswagen":[
+ {h:"Volkswagen confirma venda do ID.4, seu primeiro elétrico de varejo no Brasil, ainda em 2026",f:"Autoentusiastas",d:"2026-06-12",u:"https://autoentusiastas.com.br/2026/06/volkswagen-id-4-suve-eletrico-passa-a-ser-vendido-no-brasil-ainda-em-2026/",r:[
+  "A Volkswagen confirmou que o ID.4 passará a ser vendido regularmente no Brasil ainda em 2026, tornando-se o primeiro veículo 100% elétrico (BEV) comercializado pela marca no país fora do modelo de assinatura. Importado da Alemanha e construído sobre a plataforma MEB, o SUV chegará em configuração mais avançada que a do programa Sign&Drive, com ganhos de potência, torque, alcance e velocidade de recarga.",
+  "O ID.4 estreou no Brasil em 2021 e, desde 2023, integrava o programa de assinatura Sign&Drive. O lançamento reforça a estratégia de eletrificação da VW, que já entregou mais de 2 milhões de elétricos no mundo e lidera o mercado europeu; o modelo soma mais de 700 mil unidades vendidas globalmente. Preço, versões e autonomia oficiais ainda não foram divulgados."]},
+ {h:"Volkswagen confirma corte de 19.000 empregos na Alemanha até o fim de 2026",f:"Quartz",d:"2026-06-11",u:"https://qz.com/volkswagen-job-cuts-19000-germany-2026-061126",r:[
+  "O CEO da Volkswagen, Oliver Blume, deverá informar aos investidores na assembleia de 18 de junho que 19.000 empregos serão cortados na Alemanha até o fim de 2026, dentro de uma meta vinculante de 28.000 reduções na marca VW até 2030. Os cortes atingem fábricas como as da Saxônia e de Osnabrück, cujo futuro ficou incerto após o fim da produção do T-Roc.",
+  "Os números fazem parte de um plano mais amplo de 50.000 cortes em toda a Alemanha até 2030, abrangendo VW, Audi, Porsche e a subsidiária de software Cariad. As reduções serão feitas sobretudo por atrito natural, aposentadoria antecipada e saídas voluntárias, conforme acordo sindical de 2024, em meio à pressão de tarifas e à queda de vendas na China e nos EUA."]}
+],
+"Stellantis":[
+ {h:"Stellantis inicia testes em via pública de bateria de estado sólido em Dodge Charger Daytona",f:"MoparInsiders",d:"2026-06-11",u:"https://moparinsiders.com/stellantis-begins-road-testing-solid-state-battery-dodge-charger-daytona/",r:[
+  "A Stellantis e a Factorial integraram células de bateria de estado sólido (tecnologia FEST) a um Dodge Charger Daytona de desenvolvimento e iniciaram testes em via pública — a primeira vez que a tecnologia é instalada e testada em um veículo da Stellantis na América do Norte. Em laboratório, as células demonstraram densidade de 375 Wh/kg, recarga de 15% a 90% em 18 minutos e desempenho entre -30°C e 45°C.",
+  "Para integrar as células, os engenheiros criaram uma arquitetura mecânica patenteada e revisaram software e gestão do pacote de baterias. A companhia sinalizou anteriormente 2028 como meta, e a tecnologia poderá equipar futuros veículos da plataforma STLA Large; a compatibilidade com os processos de fabricação de íon-lítio é vista como caminho crítico para escalar a produção."]}
+],
+"GM":[
+ {h:"GM México realinha produção em Ramos Arizpe ao programa 'Plan Mexico'",f:"GM Authority",d:"2026-06-11",u:"https://gmauthority.com/blog/2026/06/realigned-gm-mexico-production-plan-fits-perfectly-with-government-initiative/",r:[
+  "A General Motors do México confirmou que seu novo plano de produção para a fábrica de Ramos Arizpe se encaixa na iniciativa governamental 'Plan Mexico', que busca fortalecer a produção local para atender à demanda doméstica. O plano prevê montar os modelos de alto volume Chevrolet Groove e Aveo exclusivamente para o mercado mexicano, começando em 2027 com o Groove.",
+  "O movimento integra uma estratégia de investimento de cerca de US$ 1 bilhão para substituir importações asiáticas por produção doméstica e alcançar capacidade anual de 80.000 unidades até 2030 — marcando o retorno da produção do Aveo ao México após uma década de importação. A decisão acompanha a meta federal de aumentar em 10% a produção nacional de veículos até 2030."]}
+],
+"Hyundai":[
+ {h:"Hyundai leva campanha da Copa do Mundo 2026 aos games em parceria com a Epic Games",f:"Hyundai Motor Group",d:"2026-06-10",u:"https://www.hyundaimotorgroup.com/en/news/hyundai-motor-company-expands-fifa-world-cup-2026-campaign-into-gaming-through-collaboration-with-epic-games",r:[
+  "A Hyundai anunciou uma colaboração com a Epic Games para levar a Copa do Mundo FIFA 2026 ao universo dos games, com experiências de marca em Rocket League e Fortnite. No Rocket League, os jogadores poderão desbloquear o item de veículo IONIQ 6 N Line e um decalque temático de 11 de junho a 19 de julho; o Fortnite terá evento por tempo limitado de 25 de junho a 19 de julho.",
+  "A montadora ainda sediará o torneio 'Next Starts Now Cup, presented by Hyundai', de Rocket League, com influenciadores e profissionais competindo exclusivamente com o IONIQ 6 N Line. A iniciativa amplia o investimento da marca como patrocinadora da FIFA e busca associar a linha elétrica IONIQ ao maior evento esportivo do ano, engajando torcedores e gamers."]}
+],
+"Toyota":[
+ {h:"Toyota detalha ciclo de R$ 11,5 bilhões com novos produtos e tecnologias no Brasil",f:"AutoData",d:"2026-06-10",u:"https://www.autodata.com.br/noticias/2026/06/10/toyota-tem-mais-produtos-e-tecnologias-no-ciclo-de-r-11-bilhoes/105735/",r:[
+  "A Toyota detalhou os planos dentro de seu ciclo de investimentos de R$ 11,5 bilhões no Brasil, que inclui o novo Yaris Cross, a futura segunda fábrica em Sorocaba e ao menos um produto inédito — provavelmente uma picape — além de novas tecnologias de eletrificação.",
+  "O plano reforça a aposta da montadora em híbridos flex como ponte para a descarbonização no mercado brasileiro. O ciclo acompanha a reorganização industrial da empresa, que encerra a fábrica de Indaiatuba em 30 de junho e concentra a produção do Corolla em Sorocaba."]},
+ {h:"Toyota acelera reconstrução da fábrica de motores de Porto Feliz e tenta antecipar retomada parcial",f:"AutoData",d:"2026-06-11",u:"https://www.autodata.com.br/noticias/2026/06/11/toyota-acelera-reconstrucao-de-porto-feliz-e-tenta-antecipar-retomada-parcial/105984/",r:[
+  "A reconstrução da fábrica de motores da Toyota em Porto Feliz (SP) avança dentro do cronograma, mas algumas operações poderão ser retomadas antes da reabertura completa, prevista para o início de 2028. Segundo o presidente Evandro Maggio, a antiga unidade já foi totalmente demolida e a obra divide a fábrica em três áreas — fundição, usinagem e montagem.",
+  "No momento, os esforços se concentram na fundição. Enquanto a nova estrutura é erguida, a Toyota mantém em Porto Feliz, em um galpão alugado, a montagem dos motores do Yaris Cross. A reconstrução integra o esforço de recompor a capacidade industrial no Brasil, em meio à reorganização que encerra Indaiatuba em 30 de junho e concentra o Corolla em Sorocaba."]}
+],
+"Embraer":[
+ {h:"Embraer vê avanço de licitação militar na Índia para até 80 aeronaves C-390",f:"ADVFN",d:"2026-06-08",u:"https://br.advfn.com/jornal/2026/06/embraer-ve-avanco-de-licitacao-militar-na-india-para-ate-80-aeronaves-c-390-e-reforca-potencial-de-crescimento-global",r:[
+  "A Embraer informou que espera avanços nos próximos meses em uma licitação militar da Índia para aeronaves de transporte tático. Segundo o CEO Francisco Gomes Neto, o governo indiano deverá emitir uma solicitação de proposta (RFP) para 60 a 80 aeronaves de carga — mercado em que o C-390 Millennium é um dos principais concorrentes — com decisão definitiva prevista até o fim de 2027.",
+  "Se avançar, poderá ser um dos maiores contratos internacionais já associados ao C-390, que compete diretamente com o C-130 Hercules da Lockheed Martin. Para reforçar a candidatura, a Embraer firmou parceria com a indiana Mahindra, ampliando o conteúdo local exigido em programas de defesa; as ações fecharam em 05/06 a R$ 72,33 (+3,82%)."]},
+ {h:"Embraer projeta receita bilionária com a Eve e reforça meta de crescimento até 2030",f:"ADVFN",d:"2026-06-09",u:"https://br.advfn.com/jornal/2026/06/embraer-projeta-receita-bilionaria-com-eve-e-reforca-meta-de-crescimento-ate-2030",r:[
+  "Em 9 de junho, o CEO da Embraer projetou que a controlada Eve Air Mobility poderá gerar receita anual de US$ 1 bilhão a US$ 1,5 bilhão após atingir escala comercial com suas aeronaves elétricas de pouso e decolagem vertical (eVTOL), com certificações e início de operações previstos para 2028.",
+  "A companhia reiterou a projeção de receita consolidada de US$ 8,2 bi a US$ 8,5 bi em 2026 e a meta de superar US$ 10 bilhões anuais até 2030. A confiança ocorre em meio a forte recuperação operacional, impulsionada por mais entregas comerciais, crescimento da aviação executiva e expansão dos contratos de defesa."]}
+]
+};
+
+// ---------- ESTADO EDITÁVEL (localStorage) ----------
+const LS_KEY = "clipping_config_v2";
+let config = loadConfig();
+
+function defaultConfig(){
+  return {
+    companies: DEFAULT_COMPANIES.map(([name,sector]) => ({name, sector})),
+    hiddenSources: {}
+  };
+}
+function loadConfig(){
+  try{ const s = JSON.parse(localStorage.getItem(LS_KEY)); if(s && s.companies) return s; }catch(e){}
+  return defaultConfig();
+}
+function saveConfig(){ localStorage.setItem(LS_KEY, JSON.stringify(config)); }
+
+// ---------- HELPERS ----------
+function daysOld(dateStr){
+  const today=new Date(); today.setHours(0,0,0,0);
+  const d=new Date(dateStr+"T00:00:00");
+  return Math.floor((today-d)/86400000);
+}
+function fmtDate(s){ const [y,m,d]=s.split("-"); return `${d}/${m}/${y}`; }
+function fmtLong(s){
+  const [y,m,d]=s.split("-");
+  const meses=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+  return `${parseInt(d)} de ${meses[parseInt(m)-1]} de ${y}`;
+}
+function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
+function paras(r){ return Array.isArray(r)?r:[r]; }
+function sendPromptSafe(t){ if(typeof sendPrompt==="function") sendPrompt(t); else alert("Peça no chat: \"atualizar o clipping\"."); }
+
+function allSources(){
+  const set=new Set();
+  config.companies.forEach(c=>(NEWS[c.name]||[]).forEach(n=>set.add(n.f)));
+  return [...set].sort((a,b)=>a.localeCompare(b,'pt-BR'));
+}
+
+// ---------- RENDER ----------
+function render(){
+  document.getElementById("dl-date").textContent = fmtLong(LAST_UPDATED);
+  const q=(document.getElementById("search").value||"").toLowerCase().trim();
+  const content=document.getElementById("content");
+  content.innerHTML="";
+  let shown=0, hiddenByDate=0;
+
+  SECTORS.forEach(sector=>{
+    const comps=config.companies.filter(c=>c.sector===sector);
+    if(!comps.length) return;
+    const sec=document.createElement("div");
+    sec.className="sector";
+    sec.innerHTML=`<div class="sector-title">${esc(sector)}</div><hr class="sector-hr">`;
+    let has=false;
+
+    comps.forEach(c=>{
+      const items=(NEWS[c.name]||[]).filter(n=>{
+        if(daysOld(n.d)>MAX_DAYS){ hiddenByDate++; return false; }
+        if(config.hiddenSources[n.f]) return false;
+        if(q){ const blob=(c.name+" "+n.h+" "+n.f+" "+paras(n.r).join(" ")).toLowerCase(); if(!blob.includes(q)) return false; }
+        return true;
+      }).sort((a,b)=>b.d.localeCompare(a.d));
+
+      if(q && items.length===0 && !c.name.toLowerCase().includes(q)) return;
+      has=true; shown+=items.length;
+
+      if(items.length){
+        items.forEach(n=>{
+          const art=document.createElement("div");
+          art.className="article";
+          art.innerHTML=`
+            <div class="kicker">${esc(c.name)}</div>
+            <h2 class="headline"><a href="${esc(n.u)}" target="_blank" rel="noopener">${esc(n.h)}</a></h2>
+            <div class="byline"><span class="src">${esc(n.f)}</span> &nbsp;·&nbsp; ${fmtDate(n.d)}</div>
+            ${paras(n.r).map(p=>`<p class="resumo">${esc(p)}</p>`).join("")}`;
+          sec.appendChild(art);
+        });
+      } else {
+        const art=document.createElement("div");
+        art.className="article";
+        art.innerHTML=`<div class="kicker">${esc(c.name)}</div><div class="empty">Sem notícias nos últimos 3 dias.</div>`;
+        sec.appendChild(art);
+      }
+    });
+
+    if(has) content.appendChild(sec);
+  });
+
+  document.getElementById("filternote").textContent =
+    `${shown} matéria(s) nos últimos ${MAX_DAYS} dias` + (hiddenByDate?` · ${hiddenByDate} mais antiga(s) ocultada(s)`:"");
+}
+
+// ---------- PAINEL ----------
+function openPanel(){ buildPanel(); document.getElementById("overlay").classList.add("open"); document.getElementById("panel").classList.add("open"); }
+function closePanel(){ document.getElementById("overlay").classList.remove("open"); document.getElementById("panel").classList.remove("open"); }
+function buildPanel(){
+  document.getElementById("companyList").innerHTML = config.companies.map((c,i)=>`
+    <div class="row"><span class="lbl">${esc(c.name)} <small>· ${esc(c.sector)}</small></span>
+    <button class="x" onclick="removeCompany(${i})">remover</button></div>`).join("");
+  document.getElementById("newSector").innerHTML = SECTORS.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("");
+  document.getElementById("sourceList").innerHTML = allSources().map(f=>`
+    <label class="src-line"><input type="checkbox" ${config.hiddenSources[f]?"":"checked"}
+    onchange="toggleSource('${esc(f).replace(/'/g,"\\'")}', this.checked)"> ${esc(f)}</label>`).join("")
+    || `<div class="empty">Nenhuma fonte ainda.</div>`;
+}
+function addCompany(){
+  const name=document.getElementById("newCompany").value.trim();
+  const sector=document.getElementById("newSector").value;
+  if(!name) return;
+  if(config.companies.some(c=>c.name.toLowerCase()===name.toLowerCase())){ alert("Empresa já está na lista."); return; }
+  config.companies.push({name,sector});
+  document.getElementById("newCompany").value="";
+  saveConfig(); buildPanel(); render();
+}
+function removeCompany(i){ config.companies.splice(i,1); saveConfig(); buildPanel(); render(); }
+function toggleSource(f,checked){ if(checked) delete config.hiddenSources[f]; else config.hiddenSources[f]=true; saveConfig(); render(); }
+function resetAll(){ if(!confirm("Restaurar a lista de empresas e fontes para o padrão?")) return; config=defaultConfig(); saveConfig(); buildPanel(); render(); }
+
+render();
+</script>
+</body>
+</html>
