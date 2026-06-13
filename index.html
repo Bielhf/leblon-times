@@ -65,8 +65,8 @@ a:hover{ text-decoration:underline; }
 .company{ margin-bottom:6px; }
 .company-bar{ display:flex; align-items:center; justify-content:space-between; gap:14px; border-bottom:1px solid #000; padding-bottom:4px; margin:0 0 12px; min-height:30px; }
 .co-name{ font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:#9a2a2a; white-space:nowrap; }
-.quote{ flex:0 0 auto; width:230px; max-width:46%; }
-.quote.noq{ font-size:10.5px; color:#b3ada0; text-transform:uppercase; letter-spacing:.08em; width:auto; }
+.tape{ margin:12px 0 2px; padding:0 46px; }
+.tape-note{ text-align:center; font-size:11px; color:#b3ada0; text-transform:uppercase; letter-spacing:.08em; padding:6px 0; }
 
 .article{ padding:0 0 18px; margin-bottom:18px; border-bottom:1px solid #ddd6c8; }
 .article:last-child{ border-bottom:none; }
@@ -123,6 +123,8 @@ a:hover{ text-decoration:underline; }
       <span class="r">Brasil &amp; Global</span>
     </div>
   </div>
+
+  <div id="tape" class="tape"></div>
 
   <div class="controls">
     <input type="search" id="search" placeholder="Filtrar por palavra, empresa ou veículo…" oninput="applyFilter()">
@@ -344,9 +346,7 @@ function render(){
       const co=document.createElement("div");
       co.className="company";
       co.dataset.company=c.name.toLowerCase();
-      const sym=TICKERS[c.name];
-      co.innerHTML=`<div class="company-bar"><span class="co-name">${esc(c.name)}</span>`+
-        (sym?`<span class="quote" data-tv="${esc(sym)}"></span>`:`<span class="quote noq">não listada</span>`)+`</div>`;
+      co.innerHTML=`<div class="company-bar"><span class="co-name">${esc(c.name)}</span></div>`;
 
       if(items.length){
         items.forEach(n=>{
@@ -371,25 +371,25 @@ function render(){
     content.appendChild(sec);
   });
 
-  injectQuotes();
+  injectTape();
   applyFilter();
 }
 
-// Cotação ao vivo: widget TradingView (só funciona no site público; bloqueado na visualização do Cowork)
-function injectQuotes(){
+// Fita de cotações ao vivo (TradingView Ticker Tape) — só funciona no site público
+function injectTape(){
+  const host=document.getElementById('tape');
+  if(!host) return;
+  host.innerHTML='';
   const live = location.protocol==='https:' && !!location.hostname;
-  document.querySelectorAll('.quote[data-tv]').forEach(slot=>{
-    if(slot.dataset.done) return;
-    if(!live){ slot.classList.add('noq'); slot.textContent='cotação no site publicado'; slot.removeAttribute('data-tv'); return; }
-    slot.dataset.done='1';
-    const cont=document.createElement('div'); cont.className='tradingview-widget-container';
-    const w=document.createElement('div'); w.className='tradingview-widget-container__widget'; cont.appendChild(w);
-    const s=document.createElement('script');
-    s.type='text/javascript'; s.async=true;
-    s.src='https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
-    s.text=JSON.stringify({symbol:slot.getAttribute('data-tv'),width:'100%',isTransparent:true,colorTheme:'light',locale:'br'});
-    cont.appendChild(s); slot.appendChild(cont);
-  });
+  if(!live){ host.innerHTML='<div class="tape-note">Cotações ao vivo aparecem no site publicado (leblon-times.netlify.app).</div>'; return; }
+  const syms = config.companies.map(c=>({name:c.name,sym:TICKERS[c.name]})).filter(x=>x.sym).map(x=>({proName:x.sym,title:x.name}));
+  if(!syms.length) return;
+  const cont=document.createElement('div'); cont.className='tradingview-widget-container';
+  const w=document.createElement('div'); w.className='tradingview-widget-container__widget'; cont.appendChild(w);
+  const s=document.createElement('script'); s.type='text/javascript'; s.async=true;
+  s.src='https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
+  s.text=JSON.stringify({symbols:syms, showSymbolLogo:true, colorTheme:'light', isTransparent:true, displayMode:'compact', locale:'br'});
+  cont.appendChild(s); host.appendChild(cont);
 }
 
 // Busca: filtra mostrando/escondendo, sem recriar os widgets de cotação
