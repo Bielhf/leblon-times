@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 16/06/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 17/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -174,8 +174,8 @@ a:hover{ text-decoration:underline; }
 </aside>
 
 <script>
-// ---------- DADOS (busca de 16/06/2026) ----------
-const LAST_UPDATED = "2026-06-16";
+// ---------- DADOS (busca de 17/06/2026) ----------
+const LAST_UPDATED = "2026-06-17";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -209,9 +209,9 @@ const TICKERS = {
 // r = array de parágrafos (2)
 const NEWS = {
 "Localiza":[
- {h:"Localiza aprova 47ª emissão de debêntures de até R$ 1,8 bilhão para reforçar o caixa",f:"InfoMoney",d:"2026-06-15",u:"https://www.infomoney.com.br/mercados/localiza-aprova-emissao-de-r-18-bi-em-debentures/",r:[
-  "O conselho de administração da Localiza (RENT3) aprovou em 15 de junho a 47ª emissão de debêntures simples, não conversíveis em ações, em série única, totalizando até R$ 1,8 bilhão, com prazo de 84 meses e garantia fidejussória adicional da subsidiária Localiza Fleet. Cada um dos 1,8 milhão de papéis terá valor nominal de R$ 1.000, e a oferta seguirá o rito de registro automático, conforme regras da CVM e da Anbima.",
-  "A operação é descrita pela companhia como parte de sua estratégia de gestão financeira, voltada à recomposição de caixa e ao alongamento do perfil da dívida. Para o investidor de RENT3, captações como esta sustentam a renovação e a expansão da frota num momento em que a líder de locação ainda absorve o custo de carrego e a depreciação acelerada de veículos; o apetite do mercado de crédito pelos papéis também sinaliza a percepção de risco sobre o nome."]}
+ {h:"Localiza aprova 47ª emissão de debêntures de até R$ 1,8 bilhão para reforçar o caixa",f:"Visno Invest",d:"2026-06-15",u:"https://visnoinvest.com.br/news/13731/localiza-rent3-aprova-debentures-de-ate-r-18-bi",r:[
+  "O conselho de administração da Localiza (RENT3) aprovou em 15 de junho a 47ª emissão de debêntures simples, não conversíveis em ações, em série única, no valor total de até R$ 1,8 bilhão, com prazo de 84 meses. A oferta é composta por até 1,8 milhão de papéis com valor nominal unitário de R$ 1.000 e seguirá o rito de registro automático na CVM.",
+  "A captação é apresentada pela companhia como parte da gestão financeira de rotina, voltada à recomposição de caixa e ao alongamento do perfil da dívida. Para o investidor de RENT3, operações como esta sustentam a renovação e a expansão da frota num momento em que a líder de locação ainda absorve custo de carrego e depreciação de veículos; o apetite do mercado de crédito pelos papéis também é um termômetro da percepção de risco sobre o nome."]}
 ],
 "Movida":[],
 "Rede D'Or":[],
@@ -221,40 +221,33 @@ const NEWS = {
 "Amil":[],
 "Oncoclínicas":[
  {h:"Oncoclínicas admite possível recuperação extrajudicial e convoca debenturistas para renegociar dívida",f:"Investidor10",d:"2026-06-15",u:"https://investidor10.com.br/noticias/oncoclinicas-onco3-admite-possivel-recuperacao-extrajudicial-120903/",r:[
-  "A Oncoclínicas (ONCO3) admitiu na segunda-feira, 15 de junho, que avalia entrar em recuperação extrajudicial e convocou assembleias gerais de debenturistas das 9ª e 11ª séries para tentar renegociar prazos de vencimento, datas de pagamento e taxas de remuneração de sua dívida. A companhia voltou a negar conhecimento de uma proposta de capitalização de R$ 500 milhões e disse que um eventual plano de recuperação extrajudicial 'permanece em avaliação' no âmbito das discussões conduzidas pela administração e seus assessores.",
-  "O movimento aprofunda a crise financeira da maior rede de oncologia do país, que fechou o 1º trimestre de 2026 com prejuízo líquido de R$ 438,7 milhões — mais que o triplo de um ano antes —, alavancagem de cerca de 5,2 vezes o Ebitda e dívida total perto de R$ 3,2 bilhões. Para o acionista de ONCO3, a sinalização eleva o risco de diluição ou de reestruturação que imponha perdas a credores, e ajuda a explicar o derretimento recente dos papéis na B3."]}
+  "A Oncoclínicas (ONCO3) admitiu em 15 de junho que avalia entrar em recuperação extrajudicial e convocou assembleias gerais de debenturistas das 9ª e 11ª emissões, marcadas para 6 de julho, para deliberar sobre a reestruturação da dívida — incluindo mudança de prazos de vencimento, datas de pagamento e remuneração. A companhia voltou a negar conhecimento de uma proposta de capitalização de R$ 500 milhões e disse que um eventual plano de recuperação extrajudicial 'permanece em avaliação'.",
+  "O movimento aprofunda a crise financeira da maior rede de oncologia do país, que fechou o 1º trimestre de 2026 com prejuízo líquido de R$ 438,7 milhões — mais que o triplo de um ano antes — e fluxo de caixa operacional negativo em R$ 153,1 milhões. Para o acionista de ONCO3, a sinalização eleva o risco de diluição ou de uma reestruturação que imponha perdas a credores; após o anúncio, a ação chegou a subir mais de 10% em 16 de junho, num movimento volátil típico de papéis sob estresse de crédito."]}
 ],
-"BYD":[],
+"BYD":[
+ {h:"BYD integra mais de 300 novos colaboradores e amplia a operação do complexo de Camaçari",f:"Liga da Notícia",d:"2026-06-16",u:"https://ligadanoticia.com.br/bahia/byd-integra-mais-de-300-novos-colaboradores-e-amplia-operacao-em-camacari/",r:[
+  "A BYD integrou em 16 de junho 391 novos colaboradores ao seu complexo industrial em Camaçari (BA), aproximando-se da marca de 5 mil trabalhadores diretos na unidade. Os profissionais atuarão em frentes que vão da fábrica de baterias à montagem, motores e componentes, em funções como operador de produção, operador logístico e inspetor de qualidade; segundo a empresa, a expansão deve continuar ao longo de 2026, com a inauguração das áreas de solda, pintura e estamparia.",
+  "O reforço de pessoal mostra a aceleração da fabricante chinesa no Brasil, seu maior mercado fora da China, onde combina automóveis elétricos e híbridos plug-in com a verticalização em baterias (tecnologia Blade) e demais componentes. Para o setor, o avanço de Camaçari pressiona as montadoras estabelecidas e tende a elevar o conteúdo local da BYD, reduzindo a dependência de importações à medida que a planta caminha para a produção plena."]}
+],
 "GWM":[],
 "Volkswagen":[
- {h:"Volkswagen fecha acordo para a saída de mais de 28 mil trabalhadores na Alemanha até 2030",f:"Razão Automóvel",d:"2026-06-15",u:"https://www.razaoautomovel.com/noticias/industria-volkswagen-acorodes-demissao-2026/",r:[
-  "A Volkswagen fechou um acordo que prevê a saída de mais de 28 mil trabalhadores na Alemanha até 2030 — número acima dos cerca de 25 mil cortes inicialmente anunciados. As reduções seguem o entendimento com os sindicatos firmado em 2024 e devem ocorrer sobretudo por atrito natural, aposentadoria antecipada e desligamentos voluntários, sem demissões compulsórias em massa.",
-  "O plano integra o esforço da marca para recompor margens diante da queda de vendas na China, da pressão de tarifas e da transição cara para os elétricos. Para o investidor de VOW3, a execução do corte de pessoal é central para a meta de competitividade de custos da VW, ainda que envolva provisões e tensão sindical no curto prazo; no Brasil, a montadora segue na contramão, ampliando portfólio com o ID.4 e novos lançamentos."]}
+ {h:"Volkswagen vai cortar mais de 28 mil postos de trabalho na Alemanha até 2030",f:"AutoData",d:"2026-06-16",u:"https://www.autodata.com.br/noticias/2026/06/16/volkswagen-cortara-mais-28-mil-postos-de-trabalho-na-alemanha/106371/",r:[
+  "A Volkswagen confirmou que o programa de redução de quadro na Alemanha já soma mais de 28 mil postos a serem eliminados até 2030, segundo balanço apresentado pela companhia. Só até o fim deste ano estão previstos 19 mil desligamentos nas fábricas da Saxônia e de Osnabrück, sobretudo por saídas naturais, aposentadoria antecipada e acordos voluntários; considerando as divisões VW, Audi, Porsche e Cariad, o grupo projeta chegar a cerca de 50 mil cortes até 2030.",
+  "As reduções integram o plano de competitividade de custos do grupo diante da queda de vendas na China, da concorrência acirrada e da transição cara para os elétricos — esforço que, segundo a empresa, já gerou economia de cerca de € 1 bilhão. Para o investidor de VOW3, a execução do corte é central para recompor margens, ainda que a rentabilidade de 2026 siga pressionada por custos de matéria-prima e tensões geopolíticas; no Brasil, a marca segue na contramão, ampliando portfólio e preparando lançamentos como o ID.4."]}
 ],
 "Stellantis":[
- {h:"Stellantis abre 1,5 mil vagas no Brasil para reforçar a produção de lançamentos de 2026",f:"AutoData",d:"2026-06-15",u:"https://www.autodata.com.br/noticias/2026/06/15/stellantis-anuncia-15-mil-contratacoes-para-reforcar-producao-de-lancamentos/106320/",r:[
-  "A Stellantis anunciou em 15 de junho a abertura de 1,5 mil vagas em suas fábricas brasileiras: 1,2 mil no Polo Automotivo de Betim (MG), 200 na unidade de componentes de Itaúna (MG) e 100 no Polo de Porto Real (RJ). O objetivo é reforçar o efetivo para a produção de lançamentos programados para o ano, como o novo Fiat Argo, em Betim, e o Jeep Avenger, em Porto Real.",
-  "As contratações reforçam a aposta da líder de mercado no Brasil num ciclo de lançamentos voltado a defender participação diante do avanço das montadoras chinesas. Para o investidor de STLA, a expansão de capacidade e de mão de obra no país contrasta com a reestruturação em curso na Europa e nos EUA, e sinaliza que a América do Sul segue como praça de crescimento e geração de caixa do grupo."]},
- {h:"Stellantis garante que não fechará nenhuma fábrica na Itália e promete elevar produção a partir de 2026",f:"Investing.com",d:"2026-06-15",u:"https://br.investing.com/news/stock-market-news/stellantis-garante-que-nao-fechara-nenhuma-fabrica-na-italia-93CH-1972875",r:[
-  "O chefe da Stellantis para a Europa, Emanuele Cappellano, reuniu-se em Roma com representantes sindicais na segunda-feira, 15 de junho, e garantiu que a companhia não fechará nenhuma de suas unidades fabris na Itália, com cada planta designada a uma função específica dentro da estratégia industrial. Segundo Cappellano, os compromissos do plano de 2024 para o país foram cumpridos e, em vários casos, superados, e a produção deve aumentar a partir de 2026 com o lançamento de novos modelos.",
-  "A sinalização busca acalmar sindicatos e o governo italiano após meses de incerteza sobre o futuro das fábricas locais e os repetidos alertas sobre o ritmo dos rivais chineses. Para o acionista de STLA, manter a capacidade italiana aberta tem custo, mas reduz o risco político e preserva escala num momento em que o grupo tenta reorganizar a malha industrial europeia sem rupturas trabalhistas."]}
+ {h:"Stellantis abre 1.500 vagas no Brasil para produzir um Fiat inédito e o novo Jeep Avenger",f:"Auto Show",d:"2026-06-16",u:"https://www.autoshow.com.br/noticias/2026/06/16/stellantis-abre-1-500-vagas-em-porto-real-e-betim-para-produzir-dois-novos-veiculos.html",r:[
+  "A Stellantis anunciou em 16 de junho a abertura de 1.500 vagas em suas fábricas brasileiras: cerca de 1.200 no Polo Automotivo de Betim (MG), 200 na unidade de componentes de Itaúna (MG) e 100 no Polo de Porto Real (RJ). As contratações se destinam à produção de um modelo inédito da Fiat, em Betim, e do Jeep Avenger nacional, em Porto Real, e abrangem áreas de produção, logística, manutenção e técnicas.",
+  "A expansão reforça a aposta da líder de mercado no Brasil num ciclo de lançamentos voltado a defender participação diante do avanço das montadoras chinesas. Para o investidor de STLA, ampliar capacidade e mão de obra no país contrasta com a reestruturação em curso na Europa e nos EUA, e confirma a América do Sul como praça de crescimento e geração de caixa do grupo."]}
 ],
 "GM":[],
-"Hyundai":[
- {h:"Hyundai estreia nos EUA a campanha 'Look At You Now' para o novo Kona 2026 com Regina Hall",f:"PR Newswire",d:"2026-06-15",u:"https://www.prnewswire.com/news-releases/hyundai-launches-2026-kona-campaign-look-at-you-now-featuring-regina-hall-302800357.html",r:[
-  "A Hyundai Motor America lançou em 15 de junho a campanha de marketing 'Look At You Now' para o SUV compacto Kona 2026, estrelada pela atriz Regina Hall. A ação destaca o reposicionamento do modelo, peça-chave do portfólio da marca no segmento de SUVs de entrada nos Estados Unidos, e soma-se à ofensiva publicitária global da empresa no ano da Copa do Mundo FIFA 2026, da qual é patrocinadora.",
-  "O esforço de mídia reforça a estratégia da Hyundai de sustentar volume e preço médio no mercado norte-americano, o mais relevante para a montadora fora da Ásia, num ambiente de concorrência acirrada e pressão de tarifas. Para o investidor, campanhas de marca em modelos de alto giro como o Kona ajudam a defender participação de mercado e a diluir incentivos, ainda que o retorno apareça de forma gradual nas vendas."]}
-],
+"Hyundai":[],
 "Toyota":[
- {h:"Toyota encerra a fábrica de Indaiatuba após quase 30 anos e conclui transferência do Corolla para Sorocaba",f:"ND Mais",d:"2026-06-15",u:"https://ndmais.com.br/economia/negocios/toyota-encerra0fabrica-historica-apos-30-anos/",r:[
-  "A Toyota confirmou o encerramento, em 30 de junho, da fábrica de Indaiatuba (SP), inaugurada em 1998 e responsável pela produção de mais de 1 milhão de unidades do Corolla. Pelo acordo firmado com o Sindicato dos Metalúrgicos, funcionários que optaram pelo desligamento recebem pacote equivalente a 45 salários mais adicionais por ano trabalhado, além de manutenção de plano de saúde e vale-alimentação por 36 meses; os transferidos para Sorocaba têm estabilidade garantida até julho de 2029.",
-  "O fechamento integra a reorganização industrial da montadora no Brasil, que concentra a produção do Corolla no complexo de Sorocaba e faz parte de um ciclo de investimentos de R$ 11,5 bilhões no país até 2030, com nova planta e foco em veículos híbridos flex. Para a Toyota, a consolidação fabril busca ganhos de eficiência e capacidade num momento de reposicionamento da estratégia de eletrificação no mercado brasileiro."]}
+ {h:"Toyota confirma o fim da fábrica de Indaiatuba após quase 30 anos e concentra o Corolla em Sorocaba",f:"Gazeta de São Paulo",d:"2026-06-16",u:"https://www.gazetasp.com.br/automotor/toyota-anuncia-fechamento-de-fabrica-em-indaiatuba-apos-27-anos/",r:[
+  "A Toyota confirmou o encerramento das atividades da fábrica de Indaiatuba (SP) em 30 de junho, unidade inaugurada em 1998 que produziu mais de 1 milhão de Corollas e chegou a empregar cerca de 1,5 mil trabalhadores. A planta foi pioneira ao montar os primeiros híbridos flex do mundo, e sua produção passa a ser concentrada no complexo de Sorocaba.",
+  "O fechamento integra a reorganização industrial da montadora no Brasil, que prevê inaugurar uma segunda fábrica em Sorocaba em novembro de 2026, dentro de um plano de cerca de R$ 11 bilhões em investimentos no país até 2030. Para a Toyota, a consolidação fabril busca ganhos de eficiência e capacidade num momento de reposicionamento da estratégia de eletrificação, com foco em híbridos flex no mercado brasileiro."]}
 ],
-"Embraer":[
- {h:"Primeiro C-390 da República Tcheca aparece com nova camuflagem antes da entrega prevista para o fim de junho",f:"Poder Aéreo",d:"2026-06-13",u:"https://www.aereo.jor.br/2026/06/13/primeiro-c-390-da-republica-tcheca-com-nova-camuflagem/",r:[
-  "O primeiro cargueiro multimissão C-390 Millennium destinado à República Tcheca foi flagrado já com a nova camuflagem da Força Aérea tcheca, em etapa final de preparação na linha da Embraer. A entrega da aeronave está prevista para o período entre o fim de junho e o início de julho, após a conclusão dos trabalhos de aceitação, e marca a estreia do modelo em mais um operador europeu.",
-  "A movimentação reforça a tração internacional do C-390, que acumula dezenas de pedidos firmes e opções e tem entregas previstas em 2026 para clientes como Coreia do Sul, Uzbequistão e a própria República Tcheca. Para o investidor de EMBR3, a divisão de defesa segue como um dos motores da companhia, ao lado da aviação comercial — cujo backlog superou US$ 15 bilhões — sustentando a carteira consolidada recorde de cerca de US$ 31,6 bilhões."]}
-]
+"Embraer":[]
 };
 
 // ---------- ESTADO EDITÁVEL (localStorage) ----------
