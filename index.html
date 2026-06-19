@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 17/06/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 19/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -174,8 +174,8 @@ a:hover{ text-decoration:underline; }
 </aside>
 
 <script>
-// ---------- DADOS (busca de 17/06/2026) ----------
-const LAST_UPDATED = "2026-06-17";
+// ---------- DADOS (busca de 19/06/2026) ----------
+const LAST_UPDATED = "2026-06-19";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -208,45 +208,37 @@ const TICKERS = {
 
 // r = array de parágrafos (2)
 const NEWS = {
-"Localiza":[
- {h:"Localiza aprova 47ª emissão de debêntures de até R$ 1,8 bilhão para reforçar o caixa",f:"Visno Invest",d:"2026-06-15",u:"https://visnoinvest.com.br/news/13731/localiza-rent3-aprova-debentures-de-ate-r-18-bi",r:[
-  "O conselho de administração da Localiza (RENT3) aprovou em 15 de junho a 47ª emissão de debêntures simples, não conversíveis em ações, em série única, no valor total de até R$ 1,8 bilhão, com prazo de 84 meses. A oferta é composta por até 1,8 milhão de papéis com valor nominal unitário de R$ 1.000 e seguirá o rito de registro automático na CVM.",
-  "A captação é apresentada pela companhia como parte da gestão financeira de rotina, voltada à recomposição de caixa e ao alongamento do perfil da dívida. Para o investidor de RENT3, operações como esta sustentam a renovação e a expansão da frota num momento em que a líder de locação ainda absorve custo de carrego e depreciação de veículos; o apetite do mercado de crédito pelos papéis também é um termômetro da percepção de risco sobre o nome."]}
-],
+"Localiza":[],
 "Movida":[],
 "Rede D'Or":[],
 "SulAmérica":[],
 "Hapvida":[],
 "Fleury":[],
 "Amil":[],
-"Oncoclínicas":[
- {h:"Oncoclínicas admite possível recuperação extrajudicial e convoca debenturistas para renegociar dívida",f:"Investidor10",d:"2026-06-15",u:"https://investidor10.com.br/noticias/oncoclinicas-onco3-admite-possivel-recuperacao-extrajudicial-120903/",r:[
-  "A Oncoclínicas (ONCO3) admitiu em 15 de junho que avalia entrar em recuperação extrajudicial e convocou assembleias gerais de debenturistas das 9ª e 11ª emissões, marcadas para 6 de julho, para deliberar sobre a reestruturação da dívida — incluindo mudança de prazos de vencimento, datas de pagamento e remuneração. A companhia voltou a negar conhecimento de uma proposta de capitalização de R$ 500 milhões e disse que um eventual plano de recuperação extrajudicial 'permanece em avaliação'.",
-  "O movimento aprofunda a crise financeira da maior rede de oncologia do país, que fechou o 1º trimestre de 2026 com prejuízo líquido de R$ 438,7 milhões — mais que o triplo de um ano antes — e fluxo de caixa operacional negativo em R$ 153,1 milhões. Para o acionista de ONCO3, a sinalização eleva o risco de diluição ou de uma reestruturação que imponha perdas a credores; após o anúncio, a ação chegou a subir mais de 10% em 16 de junho, num movimento volátil típico de papéis sob estresse de crédito."]}
-],
+"Oncoclínicas":[],
 "BYD":[
  {h:"BYD integra mais de 300 novos colaboradores e amplia a operação do complexo de Camaçari",f:"Liga da Notícia",d:"2026-06-16",u:"https://ligadanoticia.com.br/bahia/byd-integra-mais-de-300-novos-colaboradores-e-amplia-operacao-em-camacari/",r:[
   "A BYD integrou em 16 de junho 391 novos colaboradores ao seu complexo industrial em Camaçari (BA), aproximando-se da marca de 5 mil trabalhadores diretos na unidade. Os profissionais atuarão em frentes que vão da fábrica de baterias à montagem, motores e componentes, em funções como operador de produção, operador logístico e inspetor de qualidade; segundo a empresa, a expansão deve continuar ao longo de 2026, com a inauguração das áreas de solda, pintura e estamparia.",
-  "O reforço de pessoal mostra a aceleração da fabricante chinesa no Brasil, seu maior mercado fora da China, onde combina automóveis elétricos e híbridos plug-in com a verticalização em baterias (tecnologia Blade) e demais componentes. Para o setor, o avanço de Camaçari pressiona as montadoras estabelecidas e tende a elevar o conteúdo local da BYD, reduzindo a dependência de importações à medida que a planta caminha para a produção plena."]}
+  "O reforço de pessoal mostra a aceleração da fabricante chinesa no Brasil, seu maior mercado fora da China, onde combina automóveis elétricos e híbridos plug-in com a verticalização em baterias (tecnologia Blade) e demais componentes. Para o setor, o avanço de Camaçari pressiona as montadoras estabelecidas e tende a elevar o conteúdo local da BYD — meta de chegar a 50% de nacionalização até o início de 2027 —, reduzindo a dependência de importações à medida que a planta caminha para a produção plena."]}
 ],
 "GWM":[],
 "Volkswagen":[
  {h:"Volkswagen vai cortar mais de 28 mil postos de trabalho na Alemanha até 2030",f:"AutoData",d:"2026-06-16",u:"https://www.autodata.com.br/noticias/2026/06/16/volkswagen-cortara-mais-28-mil-postos-de-trabalho-na-alemanha/106371/",r:[
-  "A Volkswagen confirmou que o programa de redução de quadro na Alemanha já soma mais de 28 mil postos a serem eliminados até 2030, segundo balanço apresentado pela companhia. Só até o fim deste ano estão previstos 19 mil desligamentos nas fábricas da Saxônia e de Osnabrück, sobretudo por saídas naturais, aposentadoria antecipada e acordos voluntários; considerando as divisões VW, Audi, Porsche e Cariad, o grupo projeta chegar a cerca de 50 mil cortes até 2030.",
-  "As reduções integram o plano de competitividade de custos do grupo diante da queda de vendas na China, da concorrência acirrada e da transição cara para os elétricos — esforço que, segundo a empresa, já gerou economia de cerca de € 1 bilhão. Para o investidor de VOW3, a execução do corte é central para recompor margens, ainda que a rentabilidade de 2026 siga pressionada por custos de matéria-prima e tensões geopolíticas; no Brasil, a marca segue na contramão, ampliando portfólio e preparando lançamentos como o ID.4."]}
+  "A Volkswagen confirmou que o programa de redução de quadro na Alemanha já soma mais de 28 mil postos a serem eliminados até 2030 — número acima dos 25 mil inicialmente anunciados. Só até o fim deste ano estão previstos cerca de 19 mil desligamentos, sobretudo por saídas naturais, aposentadoria antecipada e acordos voluntários; considerando as divisões VW, Audi, Porsche e Cariad, o grupo projeta chegar a cerca de 50 mil cortes até o fim da década.",
+  "As reduções integram o plano de competitividade de custos do grupo diante da queda de vendas na China, da concorrência acirrada e da transição cara para os elétricos. Para o investidor de VOW3, a execução do corte é central para recompor margens, ainda que a rentabilidade de 2026 siga pressionada por custos de matéria-prima e tensões geopolíticas; no Brasil, a marca segue na contramão, ampliando portfólio e preparando a chegada do elétrico ID.4."]}
 ],
 "Stellantis":[
- {h:"Stellantis abre 1.500 vagas no Brasil para produzir um Fiat inédito e o novo Jeep Avenger",f:"Auto Show",d:"2026-06-16",u:"https://www.autoshow.com.br/noticias/2026/06/16/stellantis-abre-1-500-vagas-em-porto-real-e-betim-para-produzir-dois-novos-veiculos.html",r:[
-  "A Stellantis anunciou em 16 de junho a abertura de 1.500 vagas em suas fábricas brasileiras: cerca de 1.200 no Polo Automotivo de Betim (MG), 200 na unidade de componentes de Itaúna (MG) e 100 no Polo de Porto Real (RJ). As contratações se destinam à produção de um modelo inédito da Fiat, em Betim, e do Jeep Avenger nacional, em Porto Real, e abrangem áreas de produção, logística, manutenção e técnicas.",
-  "A expansão reforça a aposta da líder de mercado no Brasil num ciclo de lançamentos voltado a defender participação diante do avanço das montadoras chinesas. Para o investidor de STLA, ampliar capacidade e mão de obra no país contrasta com a reestruturação em curso na Europa e nos EUA, e confirma a América do Sul como praça de crescimento e geração de caixa do grupo."]}
+ {h:"Stellantis abre 1.500 vagas no Brasil para produzir um Fiat inédito e o novo Jeep Avenger",f:"O Tempo",d:"2026-06-16",u:"https://www.otempo.com.br/emprego-e-concursos/2026/6/16/stellantis-abre-1-500-vagas-para-producao-de-novos-modelos-da-fiat-e-da-jeep-a-maioria-em-betim",r:[
+  "A Stellantis anunciou em 16 de junho a abertura de 1.500 vagas em suas fábricas brasileiras: cerca de 1.200 no Polo Automotivo de Betim (MG), 200 na unidade de componentes de Itaúna (MG) e 100 no Polo de Porto Real (RJ). As contratações se destinam à produção de um modelo inédito da Fiat, em Betim, e do Jeep Avenger nacional, em Porto Real, e abrangem cargos do operacional ao gerencial.",
+  "A expansão reforça a aposta da líder de mercado no Brasil num ciclo de lançamentos voltado a defender participação diante do avanço das montadoras chinesas, dentro de um plano de R$ 32 bilhões para a região entre 2025 e 2030. Para o investidor de STLA, ampliar capacidade e mão de obra no país contrasta com a reestruturação em curso na Europa e nos EUA, e confirma a América do Sul como praça de crescimento e geração de caixa do grupo."]}
 ],
-"GM":[],
+"GM":[
+ {h:"General Motors firma parceria de defesa com a Lockheed Martin e mira diversificação além dos carros",f:"CNBC",d:"2026-06-16",u:"https://www.cnbc.com/2026/06/16/general-motors-lockheed-martin.html",r:[
+  "A General Motors anunciou em 16 de junho uma nova parceria de defesa com a Lockheed Martin para ampliar a manufatura e a capacidade de produção, em acordo viabilizado pelo Departamento de Defesa dos EUA e voltado sobretudo à fabricação de munições. No mesmo movimento, a montadora afirmou que investirá US$ 7 bilhões em pesquisa e desenvolvimento nos Estados Unidos.",
+  "A iniciativa marca uma entrada mais explícita da GM no setor de defesa, diversificando receitas para além do negócio automotivo num momento de transição custosa para os elétricos e de pressão sobre margens. Para o investidor de GM, a aproximação com a base industrial de defesa pode abrir uma fonte de receita menos cíclica, ainda que a contribuição financeira de curto prazo seja pequena diante do tamanho do negócio principal de veículos."]}
+],
 "Hyundai":[],
-"Toyota":[
- {h:"Toyota confirma o fim da fábrica de Indaiatuba após quase 30 anos e concentra o Corolla em Sorocaba",f:"Gazeta de São Paulo",d:"2026-06-16",u:"https://www.gazetasp.com.br/automotor/toyota-anuncia-fechamento-de-fabrica-em-indaiatuba-apos-27-anos/",r:[
-  "A Toyota confirmou o encerramento das atividades da fábrica de Indaiatuba (SP) em 30 de junho, unidade inaugurada em 1998 que produziu mais de 1 milhão de Corollas e chegou a empregar cerca de 1,5 mil trabalhadores. A planta foi pioneira ao montar os primeiros híbridos flex do mundo, e sua produção passa a ser concentrada no complexo de Sorocaba.",
-  "O fechamento integra a reorganização industrial da montadora no Brasil, que prevê inaugurar uma segunda fábrica em Sorocaba em novembro de 2026, dentro de um plano de cerca de R$ 11 bilhões em investimentos no país até 2030. Para a Toyota, a consolidação fabril busca ganhos de eficiência e capacidade num momento de reposicionamento da estratégia de eletrificação, com foco em híbridos flex no mercado brasileiro."]}
-],
+"Toyota":[],
 "Embraer":[]
 };
 
