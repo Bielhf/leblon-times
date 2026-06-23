@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 19/06/2026."
+  "description": "Clipping institucional das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Layout profissional minimalista em Calibri. Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis (localStorage). Dados da busca web de 19/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -11,145 +11,188 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leblon Times — Clipping de Cobertura</title>
 <style>
-:root{ color-scheme: light; }
+:root{
+  color-scheme: light;
+  --bg:#ffffff;
+  --bg-alt:#f5f6f7;
+  --ink:#16202b;        /* headlines */
+  --body:#3c454f;       /* paragraphs */
+  --muted:#8b939c;      /* meta */
+  --line:#e5e7ea;       /* hairlines */
+  --line-strong:#cbd0d6;
+  --navy:#13344f;       /* accent */
+  --navy-soft:#3f5d79;
+}
 *{ box-sizing:border-box; }
-*{ font-family:Calibri,Candara,"Segoe UI","Trebuchet MS",system-ui,sans-serif !important; font-style:italic !important; }
+*{ font-family:Calibri,Candara,"Segoe UI",system-ui,-apple-system,sans-serif !important; font-style:normal !important; }
+html,body{ margin:0; }
 body{
-  margin:0; background:#f7f5f0; color:#111;
-  font-family:Georgia,"Times New Roman",Times,serif;
-  font-size:16px; line-height:1.55;
+  background:var(--bg); color:var(--body);
+  font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
 }
-a{ color:#111; text-decoration:none; }
-a:hover{ text-decoration:underline; }
-.paper{ max-width:820px; margin:0 auto; background:#fffdf9; min-height:100vh; padding:0 0 70px; box-shadow:0 0 28px rgba(0,0,0,.06); }
-.inner{ padding:0 46px; }
+a{ color:inherit; text-decoration:none; }
 
-/* ---------- Masthead ---------- */
-.masthead{ text-align:center; padding:26px 46px 0; }
-.eyebrow{ font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#555; font-family:Georgia,serif; }
-.nameplate{
-  font-family:"Playfair Display",Georgia,"Times New Roman",serif;
-  font-size:46px; font-weight:700; letter-spacing:.01em; line-height:1.05; margin:6px 0 4px;
+/* ---------- Top bar ---------- */
+.topbar{
+  position:sticky; top:0; z-index:40; background:rgba(255,255,255,.96);
+  backdrop-filter:saturate(180%) blur(6px); border-bottom:1px solid var(--line);
 }
-.nameplate .small{ display:block; font-size:14px; letter-spacing:.32em; text-transform:uppercase; font-weight:400; color:#333; margin-top:8px; }
-.rule-d{ border-top:3px double #111; border-bottom:1px solid #111; height:5px; margin:14px 0 0; }
-.dateline-top{
-  display:flex; justify-content:space-between; align-items:center; font-size:11px; text-transform:uppercase;
-  letter-spacing:.12em; color:#444; padding:7px 0; border-bottom:2px solid #111;
+.bar-inner{
+  max-width:1080px; margin:0 auto; padding:18px 40px;
+  display:flex; align-items:baseline; justify-content:space-between; gap:24px;
 }
-.dateline-top .c{ flex:1; text-align:center; }
-.dateline-top .l{ flex:1; text-align:left; }
-.dateline-top .r{ flex:1; text-align:right; }
+.brand{ display:flex; align-items:baseline; gap:16px; min-width:0; }
+.wordmark{
+  font-size:21px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--navy);
+  white-space:nowrap;
+}
+.brand .tag{
+  font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  border-left:1px solid var(--line-strong); padding-left:16px; white-space:nowrap;
+}
+.meta-right{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+.meta-right .sep{ margin:0 8px; color:var(--line-strong); }
+
+/* ---------- Sub band ---------- */
+.subband{ border-bottom:1px solid var(--line); background:var(--bg); }
+.subband-inner{
+  max-width:1080px; margin:0 auto; padding:22px 40px;
+  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+}
+.lede{ font-size:14px; color:var(--navy-soft); letter-spacing:.01em; max-width:560px; }
+.lede b{ color:var(--ink); font-weight:600; }
 
 /* ---------- Controls ---------- */
-.controls{ display:flex; flex-wrap:wrap; gap:9px; align-items:center; padding:12px 46px 0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+.controls{ display:flex; align-items:center; gap:18px; }
+.controls .field{ position:relative; }
 .controls input[type=search]{
-  flex:1; min-width:180px; padding:8px 11px; border:1px solid #cfc8bb; border-radius:3px; font-size:13px; background:#fff;
-  font-family:inherit;
+  width:248px; max-width:46vw; padding:7px 4px 7px 0; border:0; border-bottom:1px solid var(--line-strong);
+  background:transparent; font-size:13.5px; color:var(--ink); outline:none;
 }
-.btn{
-  border:1px solid #b9b1a2; background:#fff; color:#222; padding:7px 12px; border-radius:3px;
-  font-size:12px; font-weight:600; cursor:pointer; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+.controls input[type=search]:focus{ border-bottom-color:var(--navy); }
+.controls input[type=search]::placeholder{ color:var(--muted); }
+.linkbtn{
+  border:0; background:none; cursor:pointer; color:var(--navy);
+  font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; padding:6px 2px;
+  border-bottom:1px solid transparent;
 }
-.btn:hover{ background:#f1ece2; }
-.btn.primary{ background:#111; border-color:#111; color:#fff; }
-.filternote{ font-size:11px; color:#777; padding:8px 46px 0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+.linkbtn:hover{ border-bottom-color:var(--navy); }
 
-/* ---------- Sectors / articles ---------- */
-.lead{ font-size:13px; color:#555; text-align:center; font-style:italic; padding:4px 46px 2px; }
-.sector{ padding:6px 46px 0; }
+/* ---------- Layout ---------- */
+.wrap{ max-width:1080px; margin:0 auto; padding:0 40px 90px; }
+.filternote{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding:18px 0 0; }
+
+/* ---------- Sector ---------- */
+.sector{ margin-top:8px; }
 .sector-title{
-  text-align:center; font-size:14px; letter-spacing:.2em; text-transform:uppercase; font-weight:700;
-  margin:26px 0 4px; position:relative;
+  font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--navy);
+  padding:46px 0 12px; border-bottom:2px solid var(--ink); margin-bottom:4px;
 }
-.sector-title:before, .sector-title:after{
-  content:""; position:absolute; top:50%; width:24%; border-top:1px solid #111;
+
+/* ---------- Company ---------- */
+.company{ padding-top:30px; }
+.company-bar{ display:flex; align-items:baseline; gap:14px; padding-bottom:7px; border-bottom:1px solid var(--line); margin-bottom:18px; }
+.co-name{ font-size:12.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--ink); }
+.co-rule{ flex:1; }
+
+/* ---------- Article ---------- */
+.grid{ }
+.article{ padding:0 0 22px; margin-bottom:22px; border-bottom:1px solid var(--line); max-width:760px; }
+.article:last-child{ border-bottom:none; margin-bottom:0; }
+.headline{ font-size:21px; line-height:1.32; font-weight:600; color:var(--ink); margin:0 0 8px; letter-spacing:-0.005em; }
+.headline a{ color:var(--ink); }
+.headline a:hover{ color:var(--navy); text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; }
+.byline{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
+.byline .src{ color:var(--navy-soft); font-weight:600; }
+.resumo{ margin:0 0 11px; color:var(--body); font-size:15.5px; line-height:1.68; }
+.resumo:last-child{ margin-bottom:0; }
+.empty{ color:var(--muted); font-size:13.5px; letter-spacing:.01em; }
+
+/* ---------- Footer ---------- */
+.foot{
+  max-width:760px; font-size:12px; color:var(--muted); line-height:1.7;
+  padding:30px 0 0; margin-top:40px; border-top:1px solid var(--line);
 }
-.sector-title:before{ left:0; } .sector-title:after{ right:0; }
-.sector-hr{ border:0; border-top:2px solid #111; margin:2px 0 16px; }
-
-.company{ margin-bottom:6px; }
-.company-bar{ display:flex; align-items:center; justify-content:space-between; gap:14px; border-bottom:1px solid #000; padding-bottom:4px; margin:0 0 12px; min-height:30px; }
-.co-name{ font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:#9a2a2a; white-space:nowrap; }
-.quote{ flex:0 0 auto; width:230px; max-width:46%; }
-.quote.noq{ font-size:10.5px; color:#b3ada0; text-transform:uppercase; letter-spacing:.08em; width:auto; }
-
-.article{ padding:0 0 18px; margin-bottom:18px; border-bottom:1px solid #ddd6c8; }
-.article:last-child{ border-bottom:none; }
-.kicker{ font-size:11px; letter-spacing:.16em; text-transform:uppercase; font-weight:700; color:#9a2a2a; margin-bottom:3px; }
-.headline{ font-size:23px; line-height:1.18; font-weight:700; margin:0 0 5px; letter-spacing:-0.01em; }
-.headline a{ color:#111; }
-.byline{ font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:#666; font-style:normal; margin-bottom:9px; }
-.byline .src{ font-weight:700; color:#333; }
-.resumo{ margin:0 0 9px; text-align:justify; hyphens:auto; }
-.resumo:first-of-type::first-letter{
-  float:left; font-size:46px; line-height:38px; font-weight:700; padding:2px 8px 0 0; color:#111;
-}
-.empty{ color:#9a958a; font-style:italic; font-size:14px; }
-.count{ font-size:10px; color:#aaa; float:right; letter-spacing:.08em; text-transform:uppercase; font-weight:400; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
-
-.foot{ font-size:12px; color:#888; padding:24px 46px 0; line-height:1.6; border-top:1px solid #ddd6c8; margin-top:22px;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+.foot b{ color:var(--navy-soft); font-weight:600; }
 
 /* ---------- Settings panel ---------- */
-.overlay{ position:fixed; inset:0; background:rgba(20,20,20,.45); display:none; z-index:50; }
+.overlay{ position:fixed; inset:0; background:rgba(16,24,32,.42); display:none; z-index:50; }
 .overlay.open{ display:block; }
 .panel{
-  position:fixed; top:0; right:0; height:100%; width:380px; max-width:92vw; background:#fffdf9; z-index:51;
-  box-shadow:-4px 0 24px rgba(0,0,0,.16); transform:translateX(100%); transition:transform .18s ease;
-  display:flex; flex-direction:column; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  position:fixed; top:0; right:0; height:100%; width:392px; max-width:92vw; background:var(--bg); z-index:51;
+  box-shadow:-8px 0 40px rgba(16,24,32,.16); transform:translateX(100%); transition:transform .2s ease;
+  display:flex; flex-direction:column;
 }
 .panel.open{ transform:translateX(0); }
-.panel header{ padding:16px 18px; border-bottom:2px solid #111; display:flex; justify-content:space-between; align-items:center; }
-.panel header h3{ margin:0; font-size:15px; font-family:Georgia,serif; letter-spacing:.04em; }
-.panel .body{ padding:16px 18px; overflow:auto; }
-.panel h4{ font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:#777; margin:18px 0 8px; }
-.row{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:6px 0; border-bottom:1px solid #eee6d8; }
-.row span.lbl{ font-size:14px; }
-.row small{ color:#aaa; }
-.x{ color:#9a2a2a; cursor:pointer; font-size:12px; font-weight:600; border:none; background:none; }
-.addrow{ display:flex; gap:8px; margin-top:10px; }
-.addrow input, .addrow select{ flex:1; padding:8px 10px; border:1px solid #cfc8bb; border-radius:3px; font-size:13px; }
-.src-line{ display:flex; align-items:center; gap:8px; padding:5px 0; font-size:13px; }
-.src-line input{ width:16px; height:16px; }
-.note{ font-size:11px; color:#999; margin-top:22px; line-height:1.6; }
-@media(max-width:640px){ .inner,.masthead,.controls,.filternote,.sector,.foot{ padding-left:20px; padding-right:20px; } }
+.panel header{ padding:20px 24px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; }
+.panel header h3{ margin:0; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--navy); }
+.panel .body{ padding:8px 24px 28px; overflow:auto; }
+.panel h4{ font-size:11px; text-transform:uppercase; letter-spacing:.16em; color:var(--muted); margin:26px 0 10px; font-weight:700; }
+.row{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:9px 0; border-bottom:1px solid var(--line); }
+.row span.lbl{ font-size:14px; color:var(--ink); }
+.row small{ color:var(--muted); letter-spacing:.04em; }
+.x{ color:var(--navy-soft); cursor:pointer; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; border:none; background:none; }
+.x:hover{ color:var(--navy); text-decoration:underline; }
+.addrow{ display:flex; gap:10px; margin-top:14px; }
+.addrow input, .addrow select{ flex:1; padding:9px 11px; border:1px solid var(--line-strong); border-radius:2px; font-size:13px; color:var(--ink); background:#fff; }
+.addrow input:focus, .addrow select:focus{ outline:none; border-color:var(--navy); }
+.btn-solid{ border:1px solid var(--navy); background:var(--navy); color:#fff; padding:10px 14px; border-radius:2px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; width:100%; }
+.btn-solid:hover{ background:#0f2a40; }
+.btn-ghost{ border:1px solid var(--line-strong); background:#fff; color:var(--navy); padding:10px 14px; border-radius:2px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; width:100%; }
+.btn-ghost:hover{ background:var(--bg-alt); }
+.src-line{ display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13.5px; color:var(--ink); }
+.src-line input{ width:15px; height:15px; accent-color:var(--navy); }
+.note{ font-size:11px; color:var(--muted); margin-top:26px; line-height:1.65; }
+
+@media(max-width:680px){
+  .bar-inner,.subband-inner,.wrap{ padding-left:20px; padding-right:20px; }
+  .brand{ flex-wrap:wrap; gap:6px 14px; }
+  .brand .tag{ border-left:0; padding-left:0; }
+  .subband-inner{ gap:16px; }
+  .controls input[type=search]{ width:170px; }
+}
 </style>
 </head>
 <body>
-<div class="paper">
 
-  <div class="masthead">
-    <div class="eyebrow">Edição do Analista · Uso Interno</div>
-    <div class="nameplate">Leblon Times<span class="small">Clipping de Cobertura · Locação · Saúde · Montadoras &amp; Baterias · Aviação</span></div>
-    <div class="rule-d"></div>
-    <div class="dateline-top">
-      <span class="l" id="dl-date">—</span>
-      <span class="c">Notícias dos últimos 3 dias</span>
-      <span class="r">Brasil &amp; Global</span>
+<header class="topbar">
+  <div class="bar-inner">
+    <div class="brand">
+      <span class="wordmark">Leblon Times</span>
+      <span class="tag">Clipping de Cobertura</span>
+    </div>
+    <div class="meta-right">
+      <span id="dl-date">—</span><span class="sep">·</span><span>Brasil &amp; Global</span>
     </div>
   </div>
+</header>
 
-  <div class="controls">
-    <input type="search" id="search" placeholder="Filtrar por palavra, empresa ou veículo…" oninput="applyFilter()">
-    <button class="btn" onclick="openPanel()">⚙ Editar</button>
-    <button class="btn" onclick="sendPromptSafe('Atualize o clipping de notícias agora, buscando notícias dos últimos 3 dias para todas as empresas que cubro (cobrindo todas as linhas de negócio de cada uma), com resumos de dois parágrafos, e atualize a página.')">↻ Atualizar</button>
+<div class="subband">
+  <div class="subband-inner">
+    <div class="lede">Monitor de cobertura por setor — <b>Locação</b>, <b>Saúde</b>, <b>Montadoras &amp; Baterias</b> e <b>Aviação</b>. Notícias dos últimos três dias.</div>
+    <div class="controls">
+      <span class="field"><input type="search" id="search" placeholder="Filtrar por palavra, empresa ou veículo" oninput="applyFilter()"></span>
+      <button class="linkbtn" onclick="openPanel()">Editar</button>
+      <button class="linkbtn" onclick="sendPromptSafe('Atualize o clipping de notícias agora, buscando notícias dos últimos 3 dias para todas as empresas que cubro (cobrindo todas as linhas de negócio de cada uma), com resumos de dois parágrafos, e atualize a página.')">Atualizar</button>
+    </div>
   </div>
-  <div class="filternote" id="filternote"></div>
+</div>
 
+<main class="wrap">
+  <div class="filternote" id="filternote"></div>
   <div id="content"></div>
 
   <div class="foot">
-    Mostra notícias publicadas nos <b>últimos 3 dias</b> (hoje, ontem, anteontem e anteanteontem), com resumo de dois parágrafos. Cada empresa é pesquisada por suas linhas de negócio (ex.: a BYD cobre automóveis <i>e</i> baterias/armazenamento de energia). Edite a lista de empresas e as fontes em <b>Editar</b>; para puxar notícias novas use <b>Atualizar</b> ou deixe a rotina diária rodar.
+    Edição do analista · uso interno. Mostra notícias publicadas nos <b>últimos 3 dias</b>, com resumo de dois parágrafos. Cada empresa é pesquisada por todas as suas linhas de negócio (ex.: a BYD cobre automóveis <b>e</b> baterias/armazenamento de energia). Edite a lista de empresas e os veículos em <b>Editar</b>; para puxar notícias novas use <b>Atualizar</b> ou deixe a rotina diária rodar.
   </div>
-</div>
+</main>
 
 <!-- Settings panel -->
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
 <aside class="panel" id="panel">
   <header>
     <h3>Editar clipping</h3>
-    <button class="btn" onclick="closePanel()">Fechar</button>
+    <button class="linkbtn" onclick="closePanel()">Fechar</button>
   </header>
   <div class="body">
     <h4>Empresas cobertas</h4>
@@ -159,15 +202,15 @@ a:hover{ text-decoration:underline; }
       <select id="newSector"></select>
     </div>
     <div class="addrow">
-      <button class="btn primary" style="width:100%" onclick="addCompany()">+ Adicionar empresa</button>
+      <button class="btn-solid" onclick="addCompany()">Adicionar empresa</button>
     </div>
 
     <h4>Fontes / veículos</h4>
-    <div style="font-size:12px;color:#aaa;margin-bottom:6px">Desmarque para esconder notícias de um veículo.</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Desmarque para esconder notícias de um veículo.</div>
     <div id="sourceList"></div>
 
     <div class="addrow">
-      <button class="btn" style="width:100%" onclick="resetAll()">Restaurar padrão</button>
+      <button class="btn-ghost" onclick="resetAll()">Restaurar padrão</button>
     </div>
     <div class="note">As mudanças valem na hora para o que é exibido. A busca automática diária passa a usar a lista nova na próxima execução.</div>
   </div>
@@ -185,26 +228,6 @@ const DEFAULT_COMPANIES = [
   ["BYD","Montadoras & Baterias"],["GWM","Montadoras & Baterias"],["Volkswagen","Montadoras & Baterias"],["Stellantis","Montadoras & Baterias"],["GM","Montadoras & Baterias"],["Hyundai","Montadoras & Baterias"],["Toyota","Montadoras & Baterias"],
   ["Embraer","Aviação"]
 ];
-
-// Tickers para a cotação ao vivo (símbolos TradingView). null = empresa não listada.
-const TICKERS = {
-  "Localiza":"BMFBOVESPA:RENT3",
-  "Movida":"BMFBOVESPA:MOVI3",
-  "Rede D'Or":"BMFBOVESPA:RDOR3",
-  "SulAmérica":null,
-  "Hapvida":"BMFBOVESPA:HAPV3",
-  "Fleury":"BMFBOVESPA:FLRY3",
-  "Amil":null,
-  "Oncoclínicas":"BMFBOVESPA:ONCO3",
-  "BYD":"HKEX:1211",
-  "GWM":"HKEX:2333",
-  "Volkswagen":"XETR:VOW3",
-  "Stellantis":"NYSE:STLA",
-  "GM":"NYSE:GM",
-  "Hyundai":"KRX:005380",
-  "Toyota":"NYSE:TM",
-  "Embraer":"BMFBOVESPA:EMBR3"
-};
 
 // r = array de parágrafos (2)
 const NEWS = {
@@ -291,7 +314,7 @@ function render(){
     if(!comps.length) return;
     const sec=document.createElement("div");
     sec.className="sector";
-    sec.innerHTML=`<div class="sector-title">${esc(sector)}</div><hr class="sector-hr">`;
+    sec.innerHTML=`<div class="sector-title">${esc(sector)}</div>`;
 
     comps.forEach(c=>{
       const items=(NEWS[c.name]||[]).filter(n=>{
@@ -303,9 +326,7 @@ function render(){
       const co=document.createElement("div");
       co.className="company";
       co.dataset.company=c.name.toLowerCase();
-      const sym=TICKERS[c.name];
-      co.innerHTML=`<div class="company-bar"><span class="co-name">${esc(c.name)}</span>`+
-        (sym?`<span class="quote" data-tv="${esc(sym)}"></span>`:`<span class="quote noq">não listada</span>`)+`</div>`;
+      co.innerHTML=`<div class="company-bar"><span class="co-name">${esc(c.name)}</span><span class="co-rule"></span></div>`;
 
       if(items.length){
         items.forEach(n=>{
@@ -330,28 +351,10 @@ function render(){
     content.appendChild(sec);
   });
 
-  injectQuotes();
   applyFilter();
 }
 
-// Cotação ao vivo: widget TradingView (só funciona no site público; bloqueado na visualização do Cowork)
-function injectQuotes(){
-  const live = location.protocol==='https:' && !!location.hostname;
-  document.querySelectorAll('.quote[data-tv]').forEach(slot=>{
-    if(slot.dataset.done) return;
-    if(!live){ slot.classList.add('noq'); slot.textContent='cotação no site publicado'; slot.removeAttribute('data-tv'); return; }
-    slot.dataset.done='1';
-    const cont=document.createElement('div'); cont.className='tradingview-widget-container';
-    const w=document.createElement('div'); w.className='tradingview-widget-container__widget'; cont.appendChild(w);
-    const s=document.createElement('script');
-    s.type='text/javascript'; s.async=true;
-    s.src='https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js';
-    s.text=JSON.stringify({symbol:slot.getAttribute('data-tv'),width:'100%',isTransparent:true,colorTheme:'light',locale:'br'});
-    cont.appendChild(s); slot.appendChild(cont);
-  });
-}
-
-// Busca: filtra mostrando/escondendo, sem recriar os widgets de cotação
+// Busca: filtra mostrando/escondendo
 function applyFilter(){
   const q=(document.getElementById("search").value||"").toLowerCase().trim();
   let shown=0;
@@ -375,7 +378,7 @@ function applyFilter(){
     });
     sec.style.display = secVis?'':'none';
   });
-  document.getElementById("filternote").textContent = `${shown} matéria(s) nos últimos ${MAX_DAYS} dias · cotações ao vivo no site publicado`;
+  document.getElementById("filternote").textContent = `${shown} matéria(s) nos últimos ${MAX_DAYS} dias`;
 }
 
 // ---------- PAINEL ----------
