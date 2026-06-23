@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação) no estilo dashboard: hero gradiente, abas por setor, KPI cards e cartões — paleta azul, fonte Calibri. Mostra apenas notícias dos últimos 3 dias. Empresas e fontes editáveis (localStorage). Dados da busca de 19/06/2026."
+  "description": "Clipping das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação) no estilo dashboard: hero gradiente, abas por setor, KPI cards e cartões — paleta azul, fonte Calibri. Mostra apenas notícias dos últimos 3 dias. Empresas e fontes editáveis (localStorage). Dados da busca de 22/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -191,8 +191,8 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 19/06/2026) ----------
-const LAST_UPDATED = "2026-06-19";
+// ---------- DADOS (busca de 23/06/2026) ----------
+const LAST_UPDATED = "2026-06-23";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -207,33 +207,33 @@ const DEFAULT_COMPANIES = [
 const NEWS = {
 "Localiza":[],
 "Movida":[],
-"Rede D'Or":[],
+"Rede D'Or":[
+ {h:"Rede D'Or aprova R$ 400 milhões em juros sobre capital próprio (JCP)",f:"Seu Dinheiro",d:"2026-06-22",u:"https://www.seudinheiro.com/2026/empresas/dividendos-obrigatorios-rede-dor-aprova-r-400-milhoes-em-jcp-veja-quem-tem-direito-ao-pagamento-lvgb/",r:[
+  "Em 22 de junho, a Rede D'Or (RDOR3) aprovou a distribuição de R$ 400 milhões em juros sobre capital próprio, equivalentes a cerca de R$ 0,1832 por ação ordinária. No pregão, a ação subia em torno de 1%, negociada perto de R$ 33,60.",
+  "O JCP, dedutível para fins fiscais, reforça o retorno ao acionista da maior rede hospitalar listada do país, que vem combinando expansão de leitos, recompra de ações e reinvestimento da família controladora Moll. Para o investidor de RDOR3, o pagamento sinaliza geração de caixa resiliente em meio à pressão de custos do setor e ao plano de adição de leitos até 2028."]}
+],
 "SulAmérica":[],
-"Hapvida":[],
+"Hapvida":[
+ {h:"Hapvida inicia transição no comando e divide analistas; ação fecha em leve alta",f:"InfoMoney",d:"2026-06-22",u:"https://www.infomoney.com.br/mercados/hapvida-hapv3-transicao-comando-reacende-debates-internos-acao/",r:[
+  "Em 22 de junho, a Hapvida (HAPV3) deu início à transição no comando: Jorge Pinheiro deixa a presidência executiva, a ser assumida pelo atual vice-presidente financeiro Luccas Augusto Adib, enquanto Pinheiro passa a presidente executivo do conselho. As ações chegaram a subir mais de 3% na abertura, perderam fôlego e fecharam em leve alta de 0,64%, a R$ 14,15.",
+  "A mudança dividiu o mercado: o JP Morgan vê a sucessão como positiva, destacando reforço de disciplina de capital e transparência; o Bradesco BBI manteve compra, mas com cautela de curto prazo pela baixa visibilidade de recuperação imediata; e o Itaú BBA seguiu neutro e cortou o preço-alvo para R$ 13 ao fim de 2026, ante R$ 15. Para o acionista de HAPV3, a troca ocorre em meio à pressão sobre margens e à execução do turnaround."]}
+],
 "Fleury":[],
 "Amil":[],
-"Oncoclínicas":[],
+"Oncoclínicas":[
+ {h:"Oncoclínicas descontinua guidance e troca o formador de mercado para o BTG",f:"Seu Dinheiro",d:"2026-06-22",u:"https://www.seudinheiro.com/2026/empresas/oncoclinicas-onco3-descontinua-divulgacao-de-projecoes-veja-os-dois-motivos-kaes/",r:[
+  "Em fato relevante de 22 de junho, a Oncoclínicas (ONCO3) descontinuou o guidance divulgado em outubro, citando fatores macroeconômicos do setor de saúde e o próprio desempenho financeiro. A companhia projetava receita líquida de R$ 6,29 bilhões em 2026 e R$ 6,98 bilhões em 2027, com Ebitda de R$ 1,08 bilhão e R$ 1,26 bilhão. No mesmo dia, contratou o BTG Pactual como novo formador de mercado de suas ações, substituindo o Citigroup, que ocupava a função desde o IPO de 2021.",
+  "A retirada das projeções aprofunda a crise de transparência e de crédito da maior rede de oncologia do país, que vem avaliando recuperação extrajudicial e convocou debenturistas para renegociar dívidas. Para o acionista de ONCO3, a perda de referência de receita e Ebitda eleva a incerteza sobre a geração de caixa e o desfecho da reestruturação."]}
+],
 "BYD":[
- {h:"BYD integra mais de 300 novos colaboradores e amplia a operação do complexo de Camaçari",f:"Liga da Notícia",d:"2026-06-16",u:"https://ligadanoticia.com.br/bahia/byd-integra-mais-de-300-novos-colaboradores-e-amplia-operacao-em-camacari/",r:[
-  "A BYD integrou em 16 de junho 391 novos colaboradores ao seu complexo industrial em Camaçari (BA), aproximando-se da marca de 5 mil trabalhadores diretos na unidade. Os profissionais atuarão em frentes que vão da fábrica de baterias à montagem, motores e componentes, em funções como operador de produção, operador logístico e inspetor de qualidade; segundo a empresa, a expansão deve continuar ao longo de 2026, com a inauguração das áreas de solda, pintura e estamparia.",
-  "O reforço de pessoal mostra a aceleração da fabricante chinesa no Brasil, seu maior mercado fora da China, onde combina automóveis elétricos e híbridos plug-in com a verticalização em baterias (tecnologia Blade) e demais componentes. Para o setor, o avanço de Camaçari pressiona as montadoras estabelecidas e tende a elevar o conteúdo local da BYD — meta de chegar a 50% de nacionalização até o início de 2027 —, reduzindo a dependência de importações à medida que a planta caminha para a produção plena."]}
+ {h:"BYD vai investir R$ 500 milhões em baterias de armazenamento (BESS) no Brasil",f:"Revista Fórum",d:"2026-06-22",u:"https://revistaforum.com.br/brasil/r-500-milhoes-em-baterias-de-armazenamento-o-novo-investimento-da-byd-em-fabricas-do-brasil/",r:[
+  "A BYD anunciou em 22 de junho um aporte de R$ 500 milhões para produzir sistemas de armazenamento de energia em baterias (BESS) no Brasil. O investimento será escalonado e a localização — ampliar a unidade de Manaus (AM), que já fabrica baterias para ônibus, ou abrir uma nova planta — deve ser decidida nos próximos 90 dias, conforme incentivos regionais; o projeto prevê cerca de 400 empregos diretos.",
+  "O plano diversifica a operação da montadora chinesa para além dos automóveis e se soma aos R$ 5,5 bilhões já anunciados para o complexo de Camaçari (BA), reforçando a meta de 50% de conteúdo local até 2027. Os BESS funcionam como 'reservatórios elétricos' que estabilizam a rede e integram fontes solar e eólica — mercado em expansão no Brasil diante dos gargalos de transmissão, sobretudo no Nordeste. Para o setor, a BYD passa a competir também em armazenamento de energia, ampliando sua presença industrial no país."]}
 ],
 "GWM":[],
-"Volkswagen":[
- {h:"Volkswagen vai cortar mais de 28 mil postos de trabalho na Alemanha até 2030",f:"AutoData",d:"2026-06-16",u:"https://www.autodata.com.br/noticias/2026/06/16/volkswagen-cortara-mais-28-mil-postos-de-trabalho-na-alemanha/106371/",r:[
-  "A Volkswagen confirmou que o programa de redução de quadro na Alemanha já soma mais de 28 mil postos a serem eliminados até 2030 — número acima dos 25 mil inicialmente anunciados. Só até o fim deste ano estão previstos cerca de 19 mil desligamentos, sobretudo por saídas naturais, aposentadoria antecipada e acordos voluntários; considerando as divisões VW, Audi, Porsche e Cariad, o grupo projeta chegar a cerca de 50 mil cortes até o fim da década.",
-  "As reduções integram o plano de competitividade de custos do grupo diante da queda de vendas na China, da concorrência acirrada e da transição cara para os elétricos. Para o investidor de VOW3, a execução do corte é central para recompor margens, ainda que a rentabilidade de 2026 siga pressionada por custos de matéria-prima e tensões geopolíticas; no Brasil, a marca segue na contramão, ampliando portfólio e preparando a chegada do elétrico ID.4."]}
-],
-"Stellantis":[
- {h:"Stellantis abre 1.500 vagas no Brasil para produzir um Fiat inédito e o novo Jeep Avenger",f:"O Tempo",d:"2026-06-16",u:"https://www.otempo.com.br/emprego-e-concursos/2026/6/16/stellantis-abre-1-500-vagas-para-producao-de-novos-modelos-da-fiat-e-da-jeep-a-maioria-em-betim",r:[
-  "A Stellantis anunciou em 16 de junho a abertura de 1.500 vagas em suas fábricas brasileiras: cerca de 1.200 no Polo Automotivo de Betim (MG), 200 na unidade de componentes de Itaúna (MG) e 100 no Polo de Porto Real (RJ). As contratações se destinam à produção de um modelo inédito da Fiat, em Betim, e do Jeep Avenger nacional, em Porto Real, e abrangem cargos do operacional ao gerencial.",
-  "A expansão reforça a aposta da líder de mercado no Brasil num ciclo de lançamentos voltado a defender participação diante do avanço das montadoras chinesas, dentro de um plano de R$ 32 bilhões para a região entre 2025 e 2030. Para o investidor de STLA, ampliar capacidade e mão de obra no país contrasta com a reestruturação em curso na Europa e nos EUA, e confirma a América do Sul como praça de crescimento e geração de caixa do grupo."]}
-],
-"GM":[
- {h:"General Motors firma parceria de defesa com a Lockheed Martin e mira diversificação além dos carros",f:"CNBC",d:"2026-06-16",u:"https://www.cnbc.com/2026/06/16/general-motors-lockheed-martin.html",r:[
-  "A General Motors anunciou em 16 de junho uma nova parceria de defesa com a Lockheed Martin para ampliar a manufatura e a capacidade de produção, em acordo viabilizado pelo Departamento de Defesa dos EUA e voltado sobretudo à fabricação de munições. No mesmo movimento, a montadora afirmou que investirá US$ 7 bilhões em pesquisa e desenvolvimento nos Estados Unidos.",
-  "A iniciativa marca uma entrada mais explícita da GM no setor de defesa, diversificando receitas para além do negócio automotivo num momento de transição custosa para os elétricos e de pressão sobre margens. Para o investidor de GM, a aproximação com a base industrial de defesa pode abrir uma fonte de receita menos cíclica, ainda que a contribuição financeira de curto prazo seja pequena diante do tamanho do negócio principal de veículos."]}
-],
+"Volkswagen":[],
+"Stellantis":[],
+"GM":[],
 "Hyundai":[],
 "Toyota":[],
 "Embraer":[]
