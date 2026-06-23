@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping institucional das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Layout profissional minimalista em Calibri. Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis (localStorage). Dados da busca web de 19/06/2026."
+  "description": "Clipping das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação) no estilo dashboard: hero gradiente, abas por setor, KPI cards e cartões — paleta azul, fonte Calibri. Mostra apenas notícias dos últimos 3 dias. Empresas e fontes editáveis (localStorage). Dados da busca de 19/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -12,187 +12,161 @@
 <title>Leblon Times — Clipping de Cobertura</title>
 <style>
 :root{
-  color-scheme: light;
-  --bg:#ffffff;
-  --bg-alt:#f5f6f7;
-  --ink:#16202b;        /* headlines */
-  --body:#3c454f;       /* paragraphs */
-  --muted:#8b939c;      /* meta */
-  --line:#e5e7ea;       /* hairlines */
-  --line-strong:#cbd0d6;
-  --navy:#13344f;       /* accent */
-  --navy-soft:#3f5d79;
+  --bg:#f6f8f9; --card:#ffffff; --ink:#15282e; --ink-2:#52676e; --ink-3:#8aa0a6;
+  /* paleta azul (antes verde) */
+  --accent:#1366c4; --accent-soft:#e7f0fb; --accent-dark:#0c4a8f;
+  --amber:#b45309; --amber-soft:#fef3e2; --red:#b91c1c; --red-soft:#fdeaea;
+  --blue:#0e8f9c; --blue-soft:#e2f4f6;  /* contraste (teal) */
+  --border:#e4eaec; --radius:14px;
+  --shadow:0 1px 2px rgba(21,40,46,.05),0 4px 16px rgba(21,40,46,.06);
 }
-*{ box-sizing:border-box; }
-*{ font-family:Calibri,Candara,"Segoe UI",system-ui,-apple-system,sans-serif !important; font-style:normal !important; }
-html,body{ margin:0; }
-body{
-  background:var(--bg); color:var(--body);
-  font-size:16px; line-height:1.62; -webkit-font-smoothing:antialiased;
-}
-a{ color:inherit; text-decoration:none; }
+*{box-sizing:border-box;margin:0;padding:0}
+*{ font-family:Calibri,Candara,"Segoe UI",system-ui,-apple-system,Roboto,sans-serif !important; font-style:normal !important; }
+body{background:var(--bg);color:var(--ink);line-height:1.55;font-size:15px;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
 
-/* ---------- Top bar ---------- */
-.topbar{
-  position:sticky; top:0; z-index:40; background:rgba(255,255,255,.96);
-  backdrop-filter:saturate(180%) blur(6px); border-bottom:1px solid var(--line);
-}
-.bar-inner{
-  max-width:1080px; margin:0 auto; padding:18px 40px;
-  display:flex; align-items:baseline; justify-content:space-between; gap:24px;
-}
-.brand{ display:flex; align-items:baseline; gap:16px; min-width:0; }
-.wordmark{
-  font-size:21px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--navy);
-  white-space:nowrap;
-}
-.brand .tag{
-  font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
-  border-left:1px solid var(--line-strong); padding-left:16px; white-space:nowrap;
-}
-.meta-right{ font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
-.meta-right .sep{ margin:0 8px; color:var(--line-strong); }
+/* ---------- header ---------- */
+header{background:linear-gradient(135deg,#0a2e54 0%,#1366c4 70%,#2f8fd6 100%);color:#fff;padding:42px 32px 88px}
+.hwrap{max-width:1180px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.78;font-weight:600;margin-bottom:10px}
+header h1{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+header p.sub{margin-top:10px;max-width:780px;opacity:.88;font-size:15px}
+.meta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600}
 
-/* ---------- Sub band ---------- */
-.subband{ border-bottom:1px solid var(--line); background:var(--bg); }
-.subband-inner{
-  max-width:1080px; margin:0 auto; padding:22px 40px;
-  display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
-}
-.lede{ font-size:14px; color:var(--navy-soft); letter-spacing:.01em; max-width:560px; }
-.lede b{ color:var(--ink); font-weight:600; }
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin-top:-52px}
+.nwrap{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:10px 24px}
+.tabs{display:flex;gap:4px;overflow-x:auto}
+.tabbtn{border:0;background:transparent;font:inherit;font-weight:600;font-size:13.5px;color:var(--ink-2);padding:8px 14px;border-radius:9px;cursor:pointer;white-space:nowrap}
+.tabbtn:hover{background:var(--accent-soft);color:var(--accent-dark)}
+.tabbtn.active{background:var(--accent);color:#fff}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:8px;padding-left:12px}
+.nav-actions input[type=search]{width:200px;max-width:38vw;padding:7px 11px;border:1px solid var(--border);border-radius:9px;background:#fff;font-size:13px;color:var(--ink);outline:none}
+.nav-actions input[type=search]:focus{border-color:var(--accent)}
+.iconbtn{border:1px solid var(--border);background:#fff;color:var(--accent-dark);font:inherit;font-weight:700;font-size:12px;letter-spacing:.04em;padding:7px 12px;border-radius:9px;cursor:pointer;white-space:nowrap}
+.iconbtn:hover{background:var(--accent-soft);border-color:var(--accent-soft)}
 
-/* ---------- Controls ---------- */
-.controls{ display:flex; align-items:center; gap:18px; }
-.controls .field{ position:relative; }
-.controls input[type=search]{
-  width:248px; max-width:46vw; padding:7px 4px 7px 0; border:0; border-bottom:1px solid var(--line-strong);
-  background:transparent; font-size:13.5px; color:var(--ink); outline:none;
-}
-.controls input[type=search]:focus{ border-bottom-color:var(--navy); }
-.controls input[type=search]::placeholder{ color:var(--muted); }
-.linkbtn{
-  border:0; background:none; cursor:pointer; color:var(--navy);
-  font-size:11px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; padding:6px 2px;
-  border-bottom:1px solid transparent;
-}
-.linkbtn:hover{ border-bottom-color:var(--navy); }
+main{max-width:1180px;margin:0 auto;padding:26px 24px 70px}
 
-/* ---------- Layout ---------- */
-.wrap{ max-width:1080px; margin:0 auto; padding:0 40px 90px; }
-.filternote{ font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); padding:18px 0 0; }
+/* ---------- KPI strip ---------- */
+.grid{display:grid;gap:16px}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-bottom:8px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.kpi .v{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--accent-dark)}
+.kpi .l{font-size:12.5px;color:var(--ink-2);margin-top:4px;font-weight:500}
+.kpi .s{font-size:11px;color:var(--ink-3);margin-top:6px}
 
-/* ---------- Sector ---------- */
-.sector{ margin-top:8px; }
-.sector-title{
-  font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--navy);
-  padding:46px 0 12px; border-bottom:2px solid var(--ink); margin-bottom:4px;
-}
+/* ---------- sections ---------- */
+section.sector{margin-top:14px}
+h2{font-size:21px;font-weight:800;letter-spacing:-.01em;margin:30px 0 4px;display:flex;align-items:center;gap:10px}
+h2 .cnt{font-size:12px;font-weight:700;color:var(--accent-dark);background:var(--accent-soft);border-radius:999px;padding:2px 10px;letter-spacing:.02em}
+p.lead{color:var(--ink-2);max-width:860px;margin:0 0 16px;font-size:13.5px}
 
-/* ---------- Company ---------- */
-.company{ padding-top:30px; }
-.company-bar{ display:flex; align-items:baseline; gap:14px; padding-bottom:7px; border-bottom:1px solid var(--line); margin-bottom:18px; }
-.co-name{ font-size:12.5px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--ink); }
-.co-rule{ flex:1; }
+.cards2{grid-template-columns:repeat(auto-fit,minmax(420px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.co-card{border-top:3px solid var(--accent)}
+.co-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.co-name{font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.tick{font-size:10.5px;font-weight:700;background:var(--accent-soft);color:var(--accent-dark);border-radius:6px;padding:2px 7px;letter-spacing:.02em}
+.tick.gray{background:#eef1f2;color:var(--ink-2)}
 
-/* ---------- Article ---------- */
-.grid{ }
-.article{ padding:0 0 22px; margin-bottom:22px; border-bottom:1px solid var(--line); max-width:760px; }
-.article:last-child{ border-bottom:none; margin-bottom:0; }
-.headline{ font-size:21px; line-height:1.32; font-weight:600; color:var(--ink); margin:0 0 8px; letter-spacing:-0.005em; }
-.headline a{ color:var(--ink); }
-.headline a:hover{ color:var(--navy); text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px; }
-.byline{ font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:12px; }
-.byline .src{ color:var(--navy-soft); font-weight:600; }
-.resumo{ margin:0 0 11px; color:var(--body); font-size:15.5px; line-height:1.68; }
-.resumo:last-child{ margin-bottom:0; }
-.empty{ color:var(--muted); font-size:13.5px; letter-spacing:.01em; }
+article.item{padding-top:15px;margin-top:15px;border-top:1px dashed var(--border)}
+article.item:first-of-type{padding-top:8px;margin-top:6px;border-top:0}
+.hl{display:block;font-size:16.5px;font-weight:700;line-height:1.32;letter-spacing:-.01em;color:var(--ink)}
+.hl:hover{color:var(--accent-dark);text-decoration:underline}
+.byline{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin:7px 0 9px}
+.byline .src{color:var(--accent-dark);font-weight:700}
+.resumo{font-size:13.5px;color:var(--ink-2);margin-top:8px;line-height:1.62}
 
-/* ---------- Footer ---------- */
-.foot{
-  max-width:760px; font-size:12px; color:var(--muted); line-height:1.7;
-  padding:30px 0 0; margin-top:40px; border-top:1px solid var(--line);
-}
-.foot b{ color:var(--navy-soft); font-weight:600; }
+.emptyrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+.erlabel{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:600}
+.tk{display:flex;flex-wrap:wrap;gap:6px}
+.sector-empty{background:var(--card);border:1px dashed var(--border);border-radius:var(--radius);padding:18px 20px;color:var(--ink-3);font-size:13.5px}
 
-/* ---------- Settings panel ---------- */
-.overlay{ position:fixed; inset:0; background:rgba(16,24,32,.42); display:none; z-index:50; }
-.overlay.open{ display:block; }
-.panel{
-  position:fixed; top:0; right:0; height:100%; width:392px; max-width:92vw; background:var(--bg); z-index:51;
-  box-shadow:-8px 0 40px rgba(16,24,32,.16); transform:translateX(100%); transition:transform .2s ease;
-  display:flex; flex-direction:column;
-}
-.panel.open{ transform:translateX(0); }
-.panel header{ padding:20px 24px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; }
-.panel header h3{ margin:0; font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--navy); }
-.panel .body{ padding:8px 24px 28px; overflow:auto; }
-.panel h4{ font-size:11px; text-transform:uppercase; letter-spacing:.16em; color:var(--muted); margin:26px 0 10px; font-weight:700; }
-.row{ display:flex; align-items:center; justify-content:space-between; gap:8px; padding:9px 0; border-bottom:1px solid var(--line); }
-.row span.lbl{ font-size:14px; color:var(--ink); }
-.row small{ color:var(--muted); letter-spacing:.04em; }
-.x{ color:var(--navy-soft); cursor:pointer; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; border:none; background:none; }
-.x:hover{ color:var(--navy); text-decoration:underline; }
-.addrow{ display:flex; gap:10px; margin-top:14px; }
-.addrow input, .addrow select{ flex:1; padding:9px 11px; border:1px solid var(--line-strong); border-radius:2px; font-size:13px; color:var(--ink); background:#fff; }
-.addrow input:focus, .addrow select:focus{ outline:none; border-color:var(--navy); }
-.btn-solid{ border:1px solid var(--navy); background:var(--navy); color:#fff; padding:10px 14px; border-radius:2px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; width:100%; }
-.btn-solid:hover{ background:#0f2a40; }
-.btn-ghost{ border:1px solid var(--line-strong); background:#fff; color:var(--navy); padding:10px 14px; border-radius:2px; font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; cursor:pointer; width:100%; }
-.btn-ghost:hover{ background:var(--bg-alt); }
-.src-line{ display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13.5px; color:var(--ink); }
-.src-line input{ width:15px; height:15px; accent-color:var(--navy); }
-.note{ font-size:11px; color:var(--muted); margin-top:26px; line-height:1.65; }
+.filternote{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 0}
 
-@media(max-width:680px){
-  .bar-inner,.subband-inner,.wrap{ padding-left:20px; padding-right:20px; }
-  .brand{ flex-wrap:wrap; gap:6px 14px; }
-  .brand .tag{ border-left:0; padding-left:0; }
-  .subband-inner{ gap:16px; }
-  .controls input[type=search]{ width:170px; }
+footer{border-top:1px solid var(--border);padding:26px 24px 50px;color:var(--ink-3);font-size:12px;text-align:center;line-height:1.7;max-width:1180px;margin:0 auto}
+footer b{color:var(--ink-2);font-weight:600}
+
+/* ---------- panel ---------- */
+.overlay{position:fixed;inset:0;background:rgba(16,24,32,.42);display:none;z-index:60}
+.overlay.open{display:block}
+.panel{position:fixed;top:0;right:0;height:100%;width:392px;max-width:92vw;background:var(--card);z-index:61;box-shadow:-8px 0 40px rgba(16,24,32,.16);transform:translateX(100%);transition:transform .2s ease;display:flex;flex-direction:column}
+.panel.open{transform:translateX(0)}
+.panel header{background:none;color:var(--ink);padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.panel header h3{margin:0;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-dark)}
+.panel .body{padding:8px 22px 26px;overflow:auto}
+.panel h4{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin:24px 0 8px;font-weight:700}
+.row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;border-bottom:1px solid var(--border)}
+.row span.lbl{font-size:14px;color:var(--ink)}
+.row small{color:var(--ink-3)}
+.x{color:var(--red);cursor:pointer;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;background:none}
+.x:hover{text-decoration:underline}
+.addrow{display:flex;gap:10px;margin-top:14px}
+.addrow input,.addrow select{flex:1;padding:9px 11px;border:1px solid var(--border);border-radius:9px;font-size:13px;color:var(--ink);background:#fff}
+.addrow input:focus,.addrow select:focus{outline:none;border-color:var(--accent)}
+.btn-solid{border:1px solid var(--accent);background:var(--accent);color:#fff;padding:11px 14px;border-radius:9px;font-size:12px;font-weight:700;letter-spacing:.06em;cursor:pointer;width:100%}
+.btn-solid:hover{background:var(--accent-dark)}
+.btn-ghost{border:1px solid var(--border);background:#fff;color:var(--accent-dark);padding:11px 14px;border-radius:9px;font-size:12px;font-weight:700;letter-spacing:.06em;cursor:pointer;width:100%}
+.btn-ghost:hover{background:var(--accent-soft)}
+.src-line{display:flex;align-items:center;gap:10px;padding:7px 0;font-size:13.5px;color:var(--ink)}
+.src-line input{width:15px;height:15px;accent-color:var(--accent)}
+.note{font-size:11px;color:var(--ink-3);margin-top:24px;line-height:1.65}
+
+@media (max-width:680px){
+  header{padding:34px 20px 84px}
+  header h1{font-size:23px}
+  .nwrap,main,footer{padding-left:16px;padding-right:16px}
+  .cards2{grid-template-columns:1fr}
+  .nav-actions input[type=search]{width:130px}
 }
 </style>
 </head>
 <body>
 
-<header class="topbar">
-  <div class="bar-inner">
-    <div class="brand">
-      <span class="wordmark">Leblon Times</span>
-      <span class="tag">Clipping de Cobertura</span>
-    </div>
-    <div class="meta-right">
-      <span id="dl-date">—</span><span class="sep">·</span><span>Brasil &amp; Global</span>
+<header>
+  <div class="hwrap">
+    <div class="eyebrow">Leblon Times · Clipping de Cobertura</div>
+    <h1>Monitor de Cobertura — Locação, Saúde, Montadoras &amp; Baterias e Aviação</h1>
+    <p class="sub">Acompanhamento diário das 16 companhias cobertas, por setor e por todas as linhas de negócio. Mostra apenas o que foi publicado nos últimos três dias, com resumo de dois parágrafos por matéria.</p>
+    <div class="meta">
+      <span class="chip" id="chip-date">—</span>
+      <span class="chip">Janela: últimos 3 dias</span>
+      <span class="chip">Brasil &amp; Global</span>
+      <span class="chip">Uso interno do analista</span>
     </div>
   </div>
 </header>
 
-<div class="subband">
-  <div class="subband-inner">
-    <div class="lede">Monitor de cobertura por setor — <b>Locação</b>, <b>Saúde</b>, <b>Montadoras &amp; Baterias</b> e <b>Aviação</b>. Notícias dos últimos três dias.</div>
-    <div class="controls">
-      <span class="field"><input type="search" id="search" placeholder="Filtrar por palavra, empresa ou veículo" oninput="applyFilter()"></span>
-      <button class="linkbtn" onclick="openPanel()">Editar</button>
-      <button class="linkbtn" onclick="sendPromptSafe('Atualize o clipping de notícias agora, buscando notícias dos últimos 3 dias para todas as empresas que cubro (cobrindo todas as linhas de negócio de cada uma), com resumos de dois parágrafos, e atualize a página.')">Atualizar</button>
+<nav>
+  <div class="nwrap">
+    <div class="tabs" id="tabs"></div>
+    <div class="nav-actions">
+      <input type="search" id="search" placeholder="Filtrar…" oninput="onSearch()">
+      <button class="iconbtn" onclick="openPanel()">Editar</button>
+      <button class="iconbtn" onclick="sendPromptSafe('Atualize o clipping de notícias agora, buscando notícias dos últimos 3 dias para todas as empresas que cubro (cobrindo todas as linhas de negócio de cada uma), com resumos de dois parágrafos, e atualize a página.')">Atualizar</button>
     </div>
   </div>
-</div>
+</nav>
 
-<main class="wrap">
+<main>
+  <div class="grid kpis" id="kpis"></div>
   <div class="filternote" id="filternote"></div>
   <div id="content"></div>
-
-  <div class="foot">
-    Edição do analista · uso interno. Mostra notícias publicadas nos <b>últimos 3 dias</b>, com resumo de dois parágrafos. Cada empresa é pesquisada por todas as suas linhas de negócio (ex.: a BYD cobre automóveis <b>e</b> baterias/armazenamento de energia). Edite a lista de empresas e os veículos em <b>Editar</b>; para puxar notícias novas use <b>Atualizar</b> ou deixe a rotina diária rodar.
-  </div>
 </main>
+
+<footer>
+  Edição do analista · uso interno. Cada empresa é pesquisada por todas as suas linhas de negócio (ex.: a BYD cobre automóveis <b>e</b> baterias/armazenamento de energia). Edite a lista de empresas e os veículos em <b>Editar</b>; para puxar notícias novas use <b>Atualizar</b> ou deixe a rotina diária rodar.
+</footer>
 
 <!-- Settings panel -->
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
 <aside class="panel" id="panel">
   <header>
     <h3>Editar clipping</h3>
-    <button class="linkbtn" onclick="closePanel()">Fechar</button>
+    <button class="iconbtn" onclick="closePanel()">Fechar</button>
   </header>
   <div class="body">
     <h4>Empresas cobertas</h4>
@@ -206,7 +180,7 @@ a{ color:inherit; text-decoration:none; }
     </div>
 
     <h4>Fontes / veículos</h4>
-    <div style="font-size:12px;color:var(--muted);margin-bottom:6px">Desmarque para esconder notícias de um veículo.</div>
+    <div style="font-size:12px;color:var(--ink-3);margin-bottom:6px">Desmarque para esconder notícias de um veículo.</div>
     <div id="sourceList"></div>
 
     <div class="addrow">
@@ -268,12 +242,10 @@ const NEWS = {
 // ---------- ESTADO EDITÁVEL (localStorage) ----------
 const LS_KEY = "clipping_config_v2";
 let config = loadConfig();
+let activeTab = "Todos";
 
 function defaultConfig(){
-  return {
-    companies: DEFAULT_COMPANIES.map(([name,sector]) => ({name, sector})),
-    hiddenSources: {}
-  };
+  return { companies: DEFAULT_COMPANIES.map(([name,sector]) => ({name, sector})), hiddenSources: {} };
 }
 function loadConfig(){
   try{ const s = JSON.parse(localStorage.getItem(LS_KEY)); if(s && s.companies) return s; }catch(e){}
@@ -296,90 +268,114 @@ function fmtLong(s){
 function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
 function paras(r){ return Array.isArray(r)?r:[r]; }
 function sendPromptSafe(t){ if(typeof sendPrompt==="function") sendPrompt(t); else alert("Peça no chat: \"atualizar o clipping\"."); }
-
 function allSources(){
   const set=new Set();
   config.companies.forEach(c=>(NEWS[c.name]||[]).forEach(n=>set.add(n.f)));
   return [...set].sort((a,b)=>a.localeCompare(b,'pt-BR'));
 }
-
-// ---------- RENDER ----------
-function render(){
-  document.getElementById("dl-date").textContent = fmtLong(LAST_UPDATED);
-  const content=document.getElementById("content");
-  content.innerHTML="";
-
-  SECTORS.forEach(sector=>{
-    const comps=config.companies.filter(c=>c.sector===sector);
-    if(!comps.length) return;
-    const sec=document.createElement("div");
-    sec.className="sector";
-    sec.innerHTML=`<div class="sector-title">${esc(sector)}</div>`;
-
-    comps.forEach(c=>{
-      const items=(NEWS[c.name]||[]).filter(n=>{
-        if(daysOld(n.d)>MAX_DAYS) return false;
-        if(config.hiddenSources[n.f]) return false;
-        return true;
-      }).sort((a,b)=>b.d.localeCompare(a.d));
-
-      const co=document.createElement("div");
-      co.className="company";
-      co.dataset.company=c.name.toLowerCase();
-      co.innerHTML=`<div class="company-bar"><span class="co-name">${esc(c.name)}</span><span class="co-rule"></span></div>`;
-
-      if(items.length){
-        items.forEach(n=>{
-          const art=document.createElement("div");
-          art.className="article";
-          art.dataset.blob=(c.name+" "+n.h+" "+n.f+" "+paras(n.r).join(" ")).toLowerCase();
-          art.innerHTML=`
-            <h2 class="headline"><a href="${esc(n.u)}" target="_blank" rel="noopener">${esc(n.h)}</a></h2>
-            <div class="byline"><span class="src">${esc(n.f)}</span> &nbsp;·&nbsp; ${fmtDate(n.d)}</div>
-            ${paras(n.r).map(p=>`<p class="resumo">${esc(p)}</p>`).join("")}`;
-          co.appendChild(art);
-        });
-      } else {
-        const art=document.createElement("div");
-        art.className="article empty-art";
-        art.innerHTML=`<div class="empty">Sem notícias nos últimos 3 dias.</div>`;
-        co.appendChild(art);
-      }
-      sec.appendChild(co);
-    });
-
-    content.appendChild(sec);
-  });
-
-  applyFilter();
+// itens visíveis de uma empresa (janela + fontes ativas)
+function liveItems(name){
+  return (NEWS[name]||[]).filter(n=>daysOld(n.d)<=MAX_DAYS && !config.hiddenSources[n.f])
+                         .sort((a,b)=>b.d.localeCompare(a.d));
 }
 
-// Busca: filtra mostrando/escondendo
-function applyFilter(){
+// ---------- KPIs ----------
+function renderKpis(){
+  let arts=0;
+  config.companies.forEach(c=>arts+=liveItems(c.name).length);
+  const withNews=config.companies.filter(c=>liveItems(c.name).length).length;
+  const sectorsUsed=new Set(config.companies.map(c=>c.sector)).size;
+  const k=[
+    {v:arts, l:"Matérias no período", s:`últimos ${MAX_DAYS} dias`},
+    {v:withNews, l:"Empresas com novidade", s:"hoje"},
+    {v:config.companies.length, l:"Empresas cobertas", s:`${sectorsUsed} setores`},
+    {v:MAX_DAYS+"d", l:"Janela de cobertura", s:"hoje + 2 dias anteriores"},
+    {v:fmtDate(LAST_UPDATED), l:"Última atualização", s:fmtLong(LAST_UPDATED)}
+  ];
+  document.getElementById("kpis").innerHTML = k.map(x=>
+    `<div class="kpi"><div class="v">${esc(String(x.v))}</div><div class="l">${esc(x.l)}</div><div class="s">${esc(x.s)}</div></div>`).join("");
+}
+
+// ---------- TABS ----------
+function renderTabs(){
+  const tabs=["Todos",...SECTORS];
+  document.getElementById("tabs").innerHTML = tabs.map(t=>{
+    const n = t==="Todos"
+      ? config.companies.reduce((a,c)=>a+liveItems(c.name).length,0)
+      : config.companies.filter(c=>c.sector===t).reduce((a,c)=>a+liveItems(c.name).length,0);
+    return `<button class="tabbtn ${t===activeTab?'active':''}" onclick="setTab('${esc(t).replace(/'/g,"\\'")}')">${esc(t)}${n?` · ${n}`:''}</button>`;
+  }).join("");
+}
+function setTab(t){ activeTab=t; document.getElementById("search").value=""; renderTabs(); applyView(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+// ---------- CONTEÚDO ----------
+function articleHTML(n){
+  return `<article class="item">
+    <a class="hl" href="${esc(n.u)}" target="_blank" rel="noopener">${esc(n.h)}</a>
+    <div class="byline"><span class="src">${esc(n.f)}</span> &nbsp;·&nbsp; ${fmtDate(n.d)}</div>
+    ${paras(n.r).map(p=>`<p class="resumo">${esc(p)}</p>`).join("")}
+  </article>`;
+}
+function companyCardHTML(c){
+  const items=liveItems(c.name);
+  const blob=(c.name+" "+items.map(n=>n.h+" "+n.f+" "+paras(n.r).join(" ")).join(" ")).toLowerCase();
+  return `<div class="card co-card" data-company="${esc(c.name.toLowerCase())}" data-blob="${esc(blob)}">
+    <div class="co-head"><span class="co-name">${esc(c.name)}</span><span class="tick">${esc(c.sector)}</span></div>
+    ${items.map(articleHTML).join("")}
+  </div>`;
+}
+function sectorHTML(sector){
+  const comps=config.companies.filter(c=>c.sector===sector);
+  if(!comps.length) return "";
+  const withNews=comps.filter(c=>liveItems(c.name).length);
+  const empty=comps.filter(c=>!liveItems(c.name).length);
+  const count=withNews.reduce((a,c)=>a+liveItems(c.name).length,0);
+  let body="";
+  if(withNews.length){
+    body+=`<div class="grid cards2">${withNews.map(companyCardHTML).join("")}</div>`;
+  } else {
+    body+=`<div class="sector-empty">Sem notícias nos últimos ${MAX_DAYS} dias neste setor.</div>`;
+  }
+  if(empty.length){
+    body+=`<div class="emptyrow"><span class="erlabel">Acompanhadas sem novidade</span>
+      <span class="tk">${empty.map(c=>`<span class="tick gray" data-company="${esc(c.name.toLowerCase())}">${esc(c.name)}</span>`).join("")}</span></div>`;
+  }
+  return `<section class="sector" data-sector="${esc(sector)}">
+    <h2>${esc(sector)} ${count?`<span class="cnt">${count} matéria(s)</span>`:''}</h2>
+    ${body}
+  </section>`;
+}
+function render(){
+  document.getElementById("chip-date").textContent = "Atualizado em "+fmtLong(LAST_UPDATED);
+  renderKpis();
+  renderTabs();
+  const content=document.getElementById("content");
+  content.innerHTML = SECTORS.map(sectorHTML).join("");
+  applyView();
+}
+
+// mostra a aba ativa (ou todas, quando há busca) e aplica filtro de texto
+function applyView(){
   const q=(document.getElementById("search").value||"").toLowerCase().trim();
   let shown=0;
-  document.querySelectorAll('#content .sector').forEach(sec=>{
-    let secVis=false;
-    sec.querySelectorAll('.company').forEach(co=>{
-      const nameMatch = !q || co.dataset.company.includes(q);
-      let anyArt=false;
-      co.querySelectorAll('.article').forEach(art=>{
-        const isEmpty=art.classList.contains('empty-art');
-        let vis;
-        if(!q) vis=true;
-        else if(nameMatch) vis=true;
-        else vis = !isEmpty && (art.dataset.blob||'').includes(q);
-        art.style.display = vis?'':'none';
-        if(vis && !isEmpty){ anyArt=true; shown++; }
-      });
-      const coVis = !q ? true : (nameMatch || anyArt);
-      co.style.display = coVis?'':'none';
-      if(coVis) secVis=true;
+  document.querySelectorAll('#content section.sector').forEach(sec=>{
+    const inTab = q ? true : (activeTab==="Todos" || sec.dataset.sector===activeTab);
+    if(!inTab){ sec.style.display="none"; return; }
+    let anyVisible=false;
+    sec.querySelectorAll('.co-card').forEach(card=>{
+      const match = !q || card.dataset.company.includes(q) || (card.dataset.blob||'').includes(q);
+      card.style.display = match?'':'none';
+      if(match){ anyVisible=true; shown+=card.querySelectorAll('.item').length; }
     });
-    sec.style.display = secVis?'':'none';
+    // linha "sem novidade" e seção vazia: escondem durante busca
+    sec.querySelectorAll('.emptyrow, .sector-empty').forEach(el=>{ el.style.display = q?'none':''; });
+    sec.style.display = (q && !anyVisible) ? 'none' : '';
   });
-  document.getElementById("filternote").textContent = `${shown} matéria(s) nos últimos ${MAX_DAYS} dias`;
+  const note=document.getElementById("filternote");
+  note.textContent = q ? `${shown} matéria(s) encontradas para “${q}”` :
+    (activeTab==="Todos" ? `Todos os setores · ${shown} matéria(s) no período` : `${activeTab} · ${shown} matéria(s) no período`);
 }
+function onSearch(){ applyView(); }
 
 // ---------- PAINEL ----------
 function openPanel(){ buildPanel(); document.getElementById("overlay").classList.add("open"); document.getElementById("panel").classList.add("open"); }
@@ -392,7 +388,7 @@ function buildPanel(){
   document.getElementById("sourceList").innerHTML = allSources().map(f=>`
     <label class="src-line"><input type="checkbox" ${config.hiddenSources[f]?"":"checked"}
     onchange="toggleSource('${esc(f).replace(/'/g,"\\'")}', this.checked)"> ${esc(f)}</label>`).join("")
-    || `<div class="empty">Nenhuma fonte ainda.</div>`;
+    || `<div class="note">Nenhuma fonte ainda.</div>`;
 }
 function addCompany(){
   const name=document.getElementById("newCompany").value.trim();
