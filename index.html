@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação) no estilo dashboard: hero gradiente, abas por setor, KPI cards e cartões — paleta azul, fonte Calibri. Mostra apenas notícias dos últimos 3 dias. Empresas e fontes editáveis (localStorage). Dados da busca de 22/06/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 24/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -191,8 +191,8 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 23/06/2026) ----------
-const LAST_UPDATED = "2026-06-23";
+// ---------- DADOS (busca de 24/06/2026) ----------
+const LAST_UPDATED = "2026-06-24";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -226,6 +226,9 @@ const NEWS = {
   "A retirada das projeções aprofunda a crise de transparência e de crédito da maior rede de oncologia do país, que vem avaliando recuperação extrajudicial e convocou debenturistas para renegociar dívidas. Para o acionista de ONCO3, a perda de referência de receita e Ebitda eleva a incerteza sobre a geração de caixa e o desfecho da reestruturação."]}
 ],
 "BYD":[
+ {h:"Governo renova por 6 meses a cota de US$ 463 mi para importar kits de eletrificados sem imposto, favorecendo a BYD",f:"Jornal de Brasília",d:"2026-06-23",u:"https://jornaldebrasilia.com.br/noticias/economia/governo-renova-cota-de-importacao-de-pecas-sem-imposto-decisao-que-favorece-byd/",r:[
+  "Em 23 de junho, o Gecex-Camex (ligado ao Mdic) decidiu renovar por mais seis meses, a partir de 1º de julho de 2026, a cota de US$ 463 milhões que permite importar kits desmontados (CKD) e semidesmontados (SKD) de veículos eletrificados com alíquota zero de Imposto de Importação. Acima da cota seguem as alíquotas de 35% para SKD e 14% para CKD; carros já montados (CBU) não têm cota.",
+  "A medida — articulada pela BYD junto ao governo, com apoio do governador da Bahia — beneficia sobretudo a chinesa, que concentra a maior parte das importações e atingiu 6,8% do mercado total de automóveis entre janeiro e maio (7,1% em automóveis e comerciais leves, ante 4,3% um ano antes), em fase de transição para a fábrica de Camaçari (BA). A Anfavea recebeu a decisão como derrota e avalia recorrer à Justiça, alegando insegurança regulatória diante dos R$ 140 bilhões em investimentos já programados pelas montadoras instaladas no país."]},
  {h:"BYD vai investir R$ 500 milhões em baterias de armazenamento (BESS) no Brasil",f:"Revista Fórum",d:"2026-06-22",u:"https://revistaforum.com.br/brasil/r-500-milhoes-em-baterias-de-armazenamento-o-novo-investimento-da-byd-em-fabricas-do-brasil/",r:[
   "A BYD anunciou em 22 de junho um aporte de R$ 500 milhões para produzir sistemas de armazenamento de energia em baterias (BESS) no Brasil. O investimento será escalonado e a localização — ampliar a unidade de Manaus (AM), que já fabrica baterias para ônibus, ou abrir uma nova planta — deve ser decidida nos próximos 90 dias, conforme incentivos regionais; o projeto prevê cerca de 400 empregos diretos.",
   "O plano diversifica a operação da montadora chinesa para além dos automóveis e se soma aos R$ 5,5 bilhões já anunciados para o complexo de Camaçari (BA), reforçando a meta de 50% de conteúdo local até 2027. Os BESS funcionam como 'reservatórios elétricos' que estabilizam a rede e integram fontes solar e eólica — mercado em expansão no Brasil diante dos gargalos de transmissão, sobretudo no Nordeste. Para o setor, a BYD passa a competir também em armazenamento de energia, ampliando sua presença industrial no país."]}
