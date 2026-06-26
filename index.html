@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 25/06/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com 2+ dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 26/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -191,8 +191,8 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 25/06/2026) ----------
-const LAST_UPDATED = "2026-06-25";
+// ---------- DADOS (busca de 26/06/2026) ----------
+const LAST_UPDATED = "2026-06-26";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -208,24 +208,23 @@ const NEWS = {
 "Localiza":[
  {h:"Localiza libera pagamento de R$ 591 milhões em juros sobre capital próprio (JCP)",f:"Investidor10",d:"2026-06-23",u:"https://investidor10.com.br/noticias/localiza-rent3-libera-pagamento-de-r-591-mi-em-jcp-veja-quem-tem-direito-121070/",r:[
   "O conselho de administração da Localiza (RENT3) aprovou o pagamento de R$ 591,1 milhões em juros sobre capital próprio, equivalentes a R$ 0,535127379 por ação. Terão direito os acionistas na posição de 26/06/2026; as ações passam a ser negociadas 'ex' a partir de 29/06 e o pagamento ocorre em 20/08/2026, com retenção de Imposto de Renda na fonte.",
-  "O provento amplia o retorno ao acionista da maior locadora do país, que vem combinando recorde de vendas de seminovos, desalavancagem e o avanço da integração com a Unidas. Para o investidor de RENT3, o JCP — dedutível para a companhia — sinaliza conforto de geração de caixa em meio à normalização do ciclo de preços de carros."]}
+  "O provento amplia o retorno ao acionista da maior locadora do país, que vem combinando recorde de vendas de seminovos, desalavancagem e o avanço da integração com a Unidas. Para o investidor de RENT3, o JCP — dedutível para a companhia — sinaliza conforto de geração de caixa em meio à normalização do ciclo de preços de carros."]},
+ {h:"Localiza (RENT3) aprova 48ª emissão de debêntures de R$ 8,02 bilhões",f:"Diário do Comércio",d:"2026-06-24",u:"https://diariodocomercio.com.br/negocios/localiza-jcp-debentures/",r:[
+  "Em 24 de junho, a Localiza aprovou a 48ª emissão de debêntures simples, não conversíveis em ações, no total de R$ 8,02 bilhões — 8,02 milhões de títulos de R$ 1.000 cada, em série única, com vencimento em 84 meses e garantia adicional da Localiza Fleet S.A. Os recursos serão destinados à aquisição facultativa de cinco séries de debêntures já em circulação.",
+  "A operação é essencialmente de gestão de passivo (liability management): a companhia troca dívidas mais antigas por uma emissão de prazo mais longo, alongando o perfil de vencimentos. O movimento soma-se à 47ª emissão de R$ 1,8 bilhão aprovada em 15 de junho e ao JCP de R$ 591 milhões, reforçando o acesso da maior locadora do país ao mercado de crédito em meio à desalavancagem pós-Unidas."]}
 ],
-"Movida":[],
-"Rede D'Or":[
- {h:"Rede D'Or aprova R$ 400 milhões em juros sobre capital próprio (JCP)",f:"Seu Dinheiro",d:"2026-06-22",u:"https://www.seudinheiro.com/2026/empresas/dividendos-obrigatorios-rede-dor-aprova-r-400-milhoes-em-jcp-veja-quem-tem-direito-ao-pagamento-lvgb/",r:[
-  "A Rede D'Or (RDOR3) aprovou em 22 de junho a distribuição de R$ 400 milhões em juros sobre capital próprio, equivalentes a R$ 0,18320141504 por ação ordinária, imputados ao dividendo obrigatório do exercício. A data de corte é 25/06; as ações passam a ser negociadas 'ex' a partir de 26/06 e o pagamento ocorre em 08/07/2026, pelo valor líquido após retenção de IR.",
-  "O JCP, dedutível para fins fiscais, reforça o retorno ao acionista da maior rede hospitalar listada do país, que vem combinando expansão de leitos, recompra de ações e reinvestimento da família controladora Moll. Para o investidor de RDOR3, o pagamento sinaliza geração de caixa resiliente em meio à pressão de custos do setor e ao plano de adição de leitos até 2028."]}
+"Movida":[
+ {h:"BofA eleva Movida (MOVI3) para compra, de olho no caixa da reforma tributária",f:"InfoMoney",d:"2026-06-25",u:"https://www.infomoney.com.br/mercados/reforma-tributaria-impulsiona-caixa-e-faz-bofa-elevar-recomendacao-de-movida-movi3/",r:[
+  "Em 25 de junho, o Bank of America elevou a recomendação de Movida (MOVI3) de neutra para compra, com preço-alvo de R$ 15 (potencial de alta de cerca de 56%), ao incorporar pela primeira vez os efeitos do novo modelo tributário às projeções. O banco estima que a reforma deve gerar cerca de R$ 1,2 bilhão de fluxo de caixa incremental para a Movida em 2027-28, equivalente a 31% do valor de mercado da empresa.",
+  "Segundo o BofA, embora a transição para o IVA tenda a reduzir o lucro por ação nos primeiros anos, a geração de caixa melhora de forma relevante, tornando o fluxo de caixa livre a 'principal âncora de valuation' do setor de locação. Para o acionista de MOVI3, a tese reforça o foco em rentabilidade e desalavancagem que a companhia vem perseguindo após o recorde de margem do 4T25."]}
 ],
+"Rede D'Or":[],
 "SulAmérica":[
  {h:"SulAmérica cria vice-presidência de Clientes e nomeia Gustavo Loubet Guimarães",f:"Medicina S/A",d:"2026-06-24",u:"https://medicinasa.com.br/gustavo-guimaraes-sulamerica/",r:[
   "Em 24 de junho, a SulAmérica anunciou a criação de uma vice-presidência de Clientes, que será liderada por Gustavo Loubet Guimarães, com reporte direto a Raquel Reis, CEO de Saúde e Odonto. A nova área reúne as frentes que impactam a experiência do cliente, incluindo o atendimento exclusivo (concierge) e a gestão médica. Médico formado pela Santa Casa de São Paulo e com passagem por Harvard Medical School e FGV, Guimarães assume com a missão de integrar relacionamento, atendimento e jornada do beneficiário.",
   "A mudança organizacional sinaliza a aposta da operadora em retenção e satisfação de clientes como diferencial competitivo em saúde suplementar, num momento de pressão de sinistralidade e reajustes no setor. Para o acompanhamento da companhia, a estrutura centralizada de experiência do cliente tende a reforçar a estratégia de fidelização e a defesa de margens da carteira."]}
 ],
-"Hapvida":[
- {h:"Hapvida inicia transição no comando e divide analistas; ação fecha em leve alta",f:"InfoMoney",d:"2026-06-22",u:"https://www.infomoney.com.br/mercados/hapvida-hapv3-transicao-comando-reacende-debates-internos-acao/",r:[
-  "Em 22 de junho, a Hapvida (HAPV3) deu início à transição no comando: Jorge Pinheiro deixa a presidência executiva, a ser assumida pelo atual vice-presidente financeiro Luccas Augusto Adib, enquanto Pinheiro passa a presidente executivo do conselho. As ações chegaram a subir mais de 3% na abertura, perderam fôlego e fecharam em leve alta de 0,64%, a R$ 14,15.",
-  "A mudança dividiu o mercado: o JP Morgan vê a sucessão como positiva, destacando reforço de disciplina de capital e transparência; o Bradesco BBI manteve compra, mas com cautela de curto prazo; e o Itaú BBA seguiu neutro e cortou o preço-alvo para R$ 13 ao fim de 2026, ante R$ 15. Para o acionista de HAPV3, a troca ocorre em meio à pressão sobre margens e à execução do turnaround, após a melhora de sinistralidade observada no 1T26."]}
-],
+"Hapvida":[],
 "Fleury":[],
 "Amil":[],
 "Oncoclínicas":[],
@@ -243,14 +242,22 @@ const NEWS = {
   "Embora a cota seja aberta a todas as empresas, a leitura do setor é de que a principal beneficiada é a BYD, o que acirra a disputa competitiva para a GWM e demais fabricantes com produção local. Acima da cota, o SKD passa a recolher 35% já em julho e o CKD segue em 14% até o fim de 2026 (35% a partir de janeiro de 2027); a Anfavea avalia recorrer à Justiça, alegando insegurança regulatória."]}
 ],
 "Volkswagen":[],
-"Stellantis":[],
+"Stellantis":[
+ {h:"Stellantis e Leapmotor são premiadas no Energy Summit Awards 2026",f:"Motor Mais",d:"2026-06-24",u:"https://motormais.com/stellantis-e-leapmotor-sao-reconhecidas-no-energy-summit-awards-2026/",r:[
+  "Em 24 de junho, a Stellantis e sua marca parceira de eletrificados Leapmotor foram reconhecidas no Energy Summit Awards 2026: a Leapmotor recebeu o selo Prata na categoria Deal pela joint-venture global com a Stellantis, enquanto o fundo de corporate venture capital Stellantis Ventures (cerca de €300 milhões e 14 investimentos ativos) foi finalista na categoria Investor.",
+  "O destaque recai sobre a tecnologia Ultra-Híbrida (REEV) da Leapmotor, que une autonomia elétrica a um gerador a combustão; a Stellantis já anunciou produção local dos modelos B10 e C10 no polo de Goiana (PE), integrando o REEV ao flex-fuel. A premiação reforça a aposta do grupo em eletrificação compatível com o etanol como diferencial competitivo frente à ofensiva das marcas chinesas no Brasil."]}
+],
 "GM":[
  {h:"GM eleva plano de investimentos no Brasil para R$ 10,5 bilhões até 2028",f:"Diário do Grande ABC",d:"2026-06-24",u:"https://www.dgabc.com.br/Noticia/4331216/gm-anuncia-elevacao-do-plano-de-investimentos-no-brasil-para-rs-10-5-bi-ate-2028",r:[
   "Em 24 de junho, em evento em Brasília com o vice-presidente Geraldo Alckmin, a General Motors anunciou um aporte adicional de R$ 3,5 bilhões, elevando para R$ 10,5 bilhões o plano total de investimentos no Brasil até 2028. Os recursos serão direcionados à renovação de portfólio, novas tecnologias (incluindo modelos híbridos) e modernização das fábricas, sobretudo em São Paulo — São Caetano do Sul, São José dos Campos e Mogi das Cruzes.",
   "O reforço foi anunciado pelo presidente da GM para a América do Sul, Thomas Owsianski, e busca preparar as plantas para a próxima geração de veículos e ampliar capacidade de produção e engenharia. A decisão soma-se à onda de anúncios bilionários de montadoras no país e responde ao avanço das marcas chinesas e à eletrificação da frota, num ambiente de disputa acirrada por incentivos e conteúdo local."]}
 ],
 "Hyundai":[],
-"Toyota":[],
+"Toyota":[
+ {h:"Toyota apresenta o último Corolla de Indaiatuba; fábrica encerra em 30 de junho",f:"ABCD Jornal",d:"2026-06-23",u:"https://abcdjornal.com.br/sao-bernardo/noticia/2026/06/23/fim-de-uma-era-em-tapete-vermelho-toyota-apresenta-ultimo-corolla-produzido-em-indaiatuba-apos-28-anos/",r:[
+  "Em 23 de junho, a Toyota apresentou em cerimônia o último Corolla produzido na fábrica de Indaiatuba (SP), após 28 anos de operação. A planta, ativa desde 1998 e com mais de 1 milhão de veículos fabricados, encerra as atividades em 30 de junho, concluindo a transferência da produção do sedã para Sorocaba (SP).",
+  "O fechamento integra a reorganização industrial anunciada em 2024, que concentra a produção em Sorocaba — onde a montadora inaugurará uma segunda fábrica em novembro de 2026 — dentro de um plano de R$ 11 bilhões até 2030 voltado a híbridos flex. A consolidação busca ganho de eficiência logística diante da concorrência acirrada das marcas chinesas no país."]}
+],
 "Embraer":[]
 };
 
