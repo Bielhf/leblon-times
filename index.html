@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com 2+ dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 26/06/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 29/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -191,8 +191,8 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 26/06/2026) ----------
-const LAST_UPDATED = "2026-06-26";
+// ---------- DADOS (busca de 29/06/2026) ----------
+const LAST_UPDATED = "2026-06-29";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -205,60 +205,42 @@ const DEFAULT_COMPANIES = [
 
 // r = array de parágrafos (2)
 const NEWS = {
-"Localiza":[
- {h:"Localiza libera pagamento de R$ 591 milhões em juros sobre capital próprio (JCP)",f:"Investidor10",d:"2026-06-23",u:"https://investidor10.com.br/noticias/localiza-rent3-libera-pagamento-de-r-591-mi-em-jcp-veja-quem-tem-direito-121070/",r:[
-  "O conselho de administração da Localiza (RENT3) aprovou o pagamento de R$ 591,1 milhões em juros sobre capital próprio, equivalentes a R$ 0,535127379 por ação. Terão direito os acionistas na posição de 26/06/2026; as ações passam a ser negociadas 'ex' a partir de 29/06 e o pagamento ocorre em 20/08/2026, com retenção de Imposto de Renda na fonte.",
-  "O provento amplia o retorno ao acionista da maior locadora do país, que vem combinando recorde de vendas de seminovos, desalavancagem e o avanço da integração com a Unidas. Para o investidor de RENT3, o JCP — dedutível para a companhia — sinaliza conforto de geração de caixa em meio à normalização do ciclo de preços de carros."]},
- {h:"Localiza (RENT3) aprova 48ª emissão de debêntures de R$ 8,02 bilhões",f:"Diário do Comércio",d:"2026-06-24",u:"https://diariodocomercio.com.br/negocios/localiza-jcp-debentures/",r:[
-  "Em 24 de junho, a Localiza aprovou a 48ª emissão de debêntures simples, não conversíveis em ações, no total de R$ 8,02 bilhões — 8,02 milhões de títulos de R$ 1.000 cada, em série única, com vencimento em 84 meses e garantia adicional da Localiza Fleet S.A. Os recursos serão destinados à aquisição facultativa de cinco séries de debêntures já em circulação.",
-  "A operação é essencialmente de gestão de passivo (liability management): a companhia troca dívidas mais antigas por uma emissão de prazo mais longo, alongando o perfil de vencimentos. O movimento soma-se à 47ª emissão de R$ 1,8 bilhão aprovada em 15 de junho e ao JCP de R$ 591 milhões, reforçando o acesso da maior locadora do país ao mercado de crédito em meio à desalavancagem pós-Unidas."]}
-],
-"Movida":[
- {h:"BofA eleva Movida (MOVI3) para compra, de olho no caixa da reforma tributária",f:"InfoMoney",d:"2026-06-25",u:"https://www.infomoney.com.br/mercados/reforma-tributaria-impulsiona-caixa-e-faz-bofa-elevar-recomendacao-de-movida-movi3/",r:[
-  "Em 25 de junho, o Bank of America elevou a recomendação de Movida (MOVI3) de neutra para compra, com preço-alvo de R$ 15 (potencial de alta de cerca de 56%), ao incorporar pela primeira vez os efeitos do novo modelo tributário às projeções. O banco estima que a reforma deve gerar cerca de R$ 1,2 bilhão de fluxo de caixa incremental para a Movida em 2027-28, equivalente a 31% do valor de mercado da empresa.",
-  "Segundo o BofA, embora a transição para o IVA tenda a reduzir o lucro por ação nos primeiros anos, a geração de caixa melhora de forma relevante, tornando o fluxo de caixa livre a 'principal âncora de valuation' do setor de locação. Para o acionista de MOVI3, a tese reforça o foco em rentabilidade e desalavancagem que a companhia vem perseguindo após o recorde de margem do 4T25."]}
-],
+"Localiza":[],
+"Movida":[],
 "Rede D'Or":[],
-"SulAmérica":[
- {h:"SulAmérica cria vice-presidência de Clientes e nomeia Gustavo Loubet Guimarães",f:"Medicina S/A",d:"2026-06-24",u:"https://medicinasa.com.br/gustavo-guimaraes-sulamerica/",r:[
-  "Em 24 de junho, a SulAmérica anunciou a criação de uma vice-presidência de Clientes, que será liderada por Gustavo Loubet Guimarães, com reporte direto a Raquel Reis, CEO de Saúde e Odonto. A nova área reúne as frentes que impactam a experiência do cliente, incluindo o atendimento exclusivo (concierge) e a gestão médica. Médico formado pela Santa Casa de São Paulo e com passagem por Harvard Medical School e FGV, Guimarães assume com a missão de integrar relacionamento, atendimento e jornada do beneficiário.",
-  "A mudança organizacional sinaliza a aposta da operadora em retenção e satisfação de clientes como diferencial competitivo em saúde suplementar, num momento de pressão de sinistralidade e reajustes no setor. Para o acompanhamento da companhia, a estrutura centralizada de experiência do cliente tende a reforçar a estratégia de fidelização e a defesa de margens da carteira."]}
+"SulAmérica":[],
+"Hapvida":[
+ {h:"Hapvida inaugura novo Centro de Pesquisa Clínica e reforça aposta na inovação em saúde",f:"Jornal Exempplar",d:"2026-06-26",u:"https://jornalexempplar.com.br/espaco-empresarial/hapvida-inaugura-novo-centro-de-pesquisa-clinica-e-reforca-aposta-na-inovacao-em-saude/",r:[
+  "A Hapvida inaugurou seu novo Centro de Pesquisa Clínica (CPC) no prédio do Qualivida Higienópolis, em São Paulo, com 444 m² (oito vezes maior que o espaço anterior) e equipe de 25 profissionais. A companhia estabeleceu meta de incluir 1.400 pacientes em novos estudos em 2026, já tendo mais de 1.000 selecionados, com taxa de retenção de 95,8%, além de meta de 20 artigos científicos publicados no ano (13 já publicados até o fim de maio).",
+  "O movimento reforça a estratégia da Hapvida de monetizar sua rede integrada via pesquisa clínica patrocinada pela indústria farmacêutica, fonte de receita complementar e de menor sinistralidade num momento em que a operadora enfrenta margens pressionadas e busca recuperar rentabilidade. O centro usa plataforma própria de IA que reduziu em 80% o tempo de identificação de pacientes elegíveis e mantém rede de 88 parceiros, sinalizando diferenciação reputacional, ainda que sem impacto material de curto prazo nos resultados consolidados."]}
 ],
-"Hapvida":[],
 "Fleury":[],
 "Amil":[],
 "Oncoclínicas":[],
-"BYD":[
- {h:"BYD bate recorde no Brasil e supera 300 mil veículos eletrificados vendidos",f:"Revista Fórum",d:"2026-06-24",u:"https://revistaforum.com.br/economia/byd-bate-novo-recorde-no-brasil/",r:[
-  "Em 24 de junho, a BYD informou ter ultrapassado 300 mil veículos eletrificados vendidos no Brasil desde a chegada ao país. A passagem de 200 mil para 300 mil unidades ocorreu em cerca de seis meses, ante quase três anos para alcançar os primeiros 100 mil, evidenciando a aceleração da demanda por híbridos e elétricos.",
-  "O recorde acompanha a ampliação da operação industrial em Camaçari (BA), onde a montadora avança na montagem de packs de bateria e nas etapas finais de produção, ainda com células importadas da China. Para o setor, o ritmo de vendas reforça a liderança da BYD entre as marcas chinesas e pressiona as montadoras tradicionais a acelerarem suas linhas eletrificadas no país."]},
- {h:"Governo renova por 6 meses a cota de US$ 463 mi para importar kits de eletrificados sem imposto, favorecendo a BYD",f:"Jornal de Brasília",d:"2026-06-23",u:"https://jornaldebrasilia.com.br/noticias/economia/governo-renova-cota-de-importacao-de-pecas-sem-imposto-decisao-que-favorece-byd/",r:[
-  "Em 23 de junho, o Gecex-Camex (ligado ao Mdic) decidiu renovar por mais seis meses, a partir de 1º de julho de 2026, a cota de US$ 463 milhões que permite importar kits desmontados (CKD) e semidesmontados (SKD) de veículos eletrificados com alíquota zero de Imposto de Importação. Acima da cota seguem as alíquotas de 35% para SKD e 14% para CKD; carros já montados (CBU) não têm cota.",
-  "A medida — articulada pela BYD junto ao governo, com apoio do governador da Bahia — beneficia sobretudo a chinesa, que concentra a maior parte das importações em fase de transição para a fábrica de Camaçari (BA). A Anfavea recebeu a decisão como derrota e avalia recorrer à Justiça, alegando insegurança regulatória diante dos investimentos já programados pelas montadoras instaladas no país."]}
-],
+"BYD":[],
 "GWM":[
- {h:"Camex renova cota de US$ 463 mi para importar eletrificados sem imposto; GWM entre as que investiram sem pedir benefício",f:"Jornal de Brasília",d:"2026-06-23",u:"https://jornaldebrasilia.com.br/noticias/economia/governo-renova-cota-de-importacao-de-pecas-sem-imposto-decisao-que-favorece-byd/",r:[
-  "A Câmara de Comércio Exterior (Camex/Gecex) aprovou em 23 de junho uma nova cota de US$ 463 milhões, com alíquota zero de Imposto de Importação, para kits desmontados (CKD) e semidesmontados (SKD) de veículos eletrificados, válida por seis meses a partir de 1º de julho. A GWM, que produz em Iracemápolis (SP), é citada pela Anfavea entre as montadoras que investiram no país sem reivindicar novos benefícios tarifários.",
-  "Embora a cota seja aberta a todas as empresas, a leitura do setor é de que a principal beneficiada é a BYD, o que acirra a disputa competitiva para a GWM e demais fabricantes com produção local. Acima da cota, o SKD passa a recolher 35% já em julho e o CKD segue em 14% até o fim de 2026 (35% a partir de janeiro de 2027); a Anfavea avalia recorrer à Justiça, alegando insegurança regulatória."]}
+ {h:"GWM diz ter vendido 2 mil unidades do Ora 5 em 24 horas",f:"AutoData",d:"2026-06-26",u:"https://www.autodata.com.br/noticias/2026/06/26/gwm-diz-ter-vendido-2-mil-unidades-do-ora-5-em-24-horas/107249/",r:[
+  "A GWM afirmou que o Ora 5, seu primeiro SUV elétrico vendido no Brasil, teve 2 mil unidades comercializadas em 24 horas, volume que a montadora havia programado para um mês inteiro de vendas. Diante da procura, a empresa liberou um novo lote de mil unidades, com entrega em até 110 dias, mantendo o preço de lançamento de R$ 159 mil, válido até terça-feira, 30 de junho; a partir de 1º de julho o modelo passa a custar R$ 159,9 mil.",
+  "O Ora 5 traz motor elétrico de 204 cv, bateria LFP de 58,3 kWh e autonomia de até 435 km (WLTP) ou 349 km (Inmetro), com recarga rápida de 30% a 80% em cerca de 20 minutos. O desempenho de vendas reforça a ofensiva da GWM em eletrificados no Brasil, num momento em que a marca chinesa expande a linha produzida em Iracemápolis (SP) e prepara a segunda fábrica em Aracruz (ES), pressionando as montadoras tradicionais no segmento de SUVs compactos."]}
 ],
-"Volkswagen":[],
-"Stellantis":[
- {h:"Stellantis e Leapmotor são premiadas no Energy Summit Awards 2026",f:"Motor Mais",d:"2026-06-24",u:"https://motormais.com/stellantis-e-leapmotor-sao-reconhecidas-no-energy-summit-awards-2026/",r:[
-  "Em 24 de junho, a Stellantis e sua marca parceira de eletrificados Leapmotor foram reconhecidas no Energy Summit Awards 2026: a Leapmotor recebeu o selo Prata na categoria Deal pela joint-venture global com a Stellantis, enquanto o fundo de corporate venture capital Stellantis Ventures (cerca de €300 milhões e 14 investimentos ativos) foi finalista na categoria Investor.",
-  "O destaque recai sobre a tecnologia Ultra-Híbrida (REEV) da Leapmotor, que une autonomia elétrica a um gerador a combustão; a Stellantis já anunciou produção local dos modelos B10 e C10 no polo de Goiana (PE), integrando o REEV ao flex-fuel. A premiação reforça a aposta do grupo em eletrificação compatível com o etanol como diferencial competitivo frente à ofensiva das marcas chinesas no Brasil."]}
+"Volkswagen":[
+ {h:"Grupo Volkswagen planeja cortar 100 mil empregos e fechar quatro fábricas",f:"AutoData",d:"2026-06-26",u:"https://www.autodata.com.br/noticias/2026/06/26/grupo-volkswagen-planeja-cortar-100-mil-empregos-e-fechar-quatro-fabricas/107192/",r:[
+  "O CEO do Grupo Volkswagen, Oliver Blume, prepara a maior reestruturação dos 89 anos da companhia, com corte de 100 mil postos de trabalho e fechamento de quatro fábricas na Alemanha, segundo a revista Manager Magazin. Seriam encerradas as unidades de veículos comerciais leves em Hannover, a de Zwickau (ID.3 e ID.4) e a histórica de Emden, além da Audi em Neckarsulm, à medida que os modelos atuais forem descontinuados. O objetivo é reduzir 11 bilhões de euros em custos até o fim da década e cortar 15% do plano de investimento, para 130 bilhões de euros.",
+  "A medida deve enfrentar forte resistência sindical, já que em 2024 a empresa firmou acordo com os sindicatos descartando o fechamento de plantas, e o IG Metall prometeu se opor 'com todas as forças'. Embora o plano se concentre na Alemanha, é relevante para o Brasil, terceiro maior mercado da marca no mundo, em meio à ofensiva chinesa de BYD e GWM e ao plano local de R$ 16 bilhões em investimentos e eletrificação até 2028."]}
 ],
-"GM":[
- {h:"GM eleva plano de investimentos no Brasil para R$ 10,5 bilhões até 2028",f:"Diário do Grande ABC",d:"2026-06-24",u:"https://www.dgabc.com.br/Noticia/4331216/gm-anuncia-elevacao-do-plano-de-investimentos-no-brasil-para-rs-10-5-bi-ate-2028",r:[
-  "Em 24 de junho, em evento em Brasília com o vice-presidente Geraldo Alckmin, a General Motors anunciou um aporte adicional de R$ 3,5 bilhões, elevando para R$ 10,5 bilhões o plano total de investimentos no Brasil até 2028. Os recursos serão direcionados à renovação de portfólio, novas tecnologias (incluindo modelos híbridos) e modernização das fábricas, sobretudo em São Paulo — São Caetano do Sul, São José dos Campos e Mogi das Cruzes.",
-  "O reforço foi anunciado pelo presidente da GM para a América do Sul, Thomas Owsianski, e busca preparar as plantas para a próxima geração de veículos e ampliar capacidade de produção e engenharia. A decisão soma-se à onda de anúncios bilionários de montadoras no país e responde ao avanço das marcas chinesas e à eletrificação da frota, num ambiente de disputa acirrada por incentivos e conteúdo local."]}
-],
+"Stellantis":[],
+"GM":[],
 "Hyundai":[],
 "Toyota":[
- {h:"Toyota apresenta o último Corolla de Indaiatuba; fábrica encerra em 30 de junho",f:"ABCD Jornal",d:"2026-06-23",u:"https://abcdjornal.com.br/sao-bernardo/noticia/2026/06/23/fim-de-uma-era-em-tapete-vermelho-toyota-apresenta-ultimo-corolla-produzido-em-indaiatuba-apos-28-anos/",r:[
-  "Em 23 de junho, a Toyota apresentou em cerimônia o último Corolla produzido na fábrica de Indaiatuba (SP), após 28 anos de operação. A planta, ativa desde 1998 e com mais de 1 milhão de veículos fabricados, encerra as atividades em 30 de junho, concluindo a transferência da produção do sedã para Sorocaba (SP).",
-  "O fechamento integra a reorganização industrial anunciada em 2024, que concentra a produção em Sorocaba — onde a montadora inaugurará uma segunda fábrica em novembro de 2026 — dentro de um plano de R$ 11 bilhões até 2030 voltado a híbridos flex. A consolidação busca ganho de eficiência logística diante da concorrência acirrada das marcas chinesas no país."]}
+ {h:"Toyota não anunciou fim das operações no Brasil",f:"Lupa",d:"2026-06-26",u:"https://www.agencialupa.org/verificacao/2026/06/26/toyota-nao-anunciou-fim-das-operacoes-no-brasil/",r:[
+  "A Agência Lupa classificou como falsa a informação viral de que a Toyota teria fechado fábrica em São Paulo e demitido 1.500 colaboradores deixando o Brasil. A montadora não comunicou encerramento de atividades no país: o que ocorre é o fechamento da unidade de Indaiatuba (SP) em 30 de junho de 2026, após 28 anos, com a produção transferida para o novo polo de Sorocaba, cuja segunda fábrica será inaugurada em novembro.",
+  "O fechamento de Indaiatuba e a expansão de Sorocaba já haviam sido comunicados em 2024, com acordo sindical que prevê transferência dos funcionários ou Plano de Demissão Voluntária. A Toyota afirmou que não houve redução de postos e que a expansão de Sorocaba deve gerar cerca de 2 mil empregos até 2030, apoiada em investimento de R$ 11 bilhões no Brasil focado em eletrificação e híbridos flex."]}
 ],
-"Embraer":[]
+"Embraer":[
+ {h:"CEO da Airbus diz que a Embraer deveria 'pensar duas vezes' antes de entrar no mercado de narrowbodies",f:"Air Data News",d:"2026-06-26",u:"https://www.airdatanews.com/airbus-ceo-says-embraer-should-think-twice-before-entering-narrowbody-market/",r:[
+  "O CEO da Airbus, Guillaume Faury, afirmou em entrevista à Aviation Week que a Embraer deveria 'pensar duas vezes' antes de ingressar no segmento de jatos narrowbody, argumentando que competir contra Airbus, Boeing e a chinesa COMAC seria difícil, exigiria investimentos vultosos e envolveria riscos comerciais significativos. 'É uma decisão difícil. Eu pensaria duas vezes. Acho que é um grande risco', disse Faury, comentando a recorrente especulação de que a Embraer poderia desenvolver uma aeronave maior para rivalizar com as famílias A320neo e 737 MAX.",
+  "As declarações chegam enquanto a Embraer estuda seu próximo programa de aeronaves, sem ter decidido se o futuro projeto clean-sheet será comercial, executivo ou militar. Hoje a maior aeronave comercial da fabricante é o E195-E2 (132 a 146 assentos), enquanto narrowbodies como A320neo e 737 MAX operam em torno de 170 a 180 lugares; um eventual avanço ao segmento exigiria expandir capacidade produtiva, ampliar a rede de fornecedores e, segundo executivos da própria Embraer, atrair parceiros industriais ou investidores externos para dividir custos e riscos de desenvolvimento."]}
+]
 };
 
 // ---------- ESTADO EDITÁVEL (localStorage) ----------
