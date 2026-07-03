@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 29/06/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com 2+ dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 12/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -191,8 +191,8 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 29/06/2026) ----------
-const LAST_UPDATED = "2026-06-29";
+// ---------- DADOS (busca de 03/07/2026) ----------
+const LAST_UPDATED = "2026-07-03";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -206,44 +206,48 @@ const DEFAULT_COMPANIES = [
 // r = array de parágrafos (2)
 const NEWS = {
 "Localiza":[],
-"Movida":[
- {h:"Movida adquire frota e contratos da Copel por R$ 100 milhões em operação com parte relacionada do grupo Simpar",f:"Blog das Locadoras",d:"2026-06-29",u:"https://blogdaslocadoras.com.br/mercado-de-locacao/movida-adquire-contratos-e-frota-da-copel-por-r-100-milhoes.html",r:[
-  "A Movida e a controladora Simpar celebraram contrato de compra e venda pelo qual a Movida assume, por R$ 100 milhões, a frota de 724 carros e os contratos de locação de veículos da Copel hoje geridos pela CS Brasil (CS Holding/CS Transportes). O pagamento será feito em três parcelas mensais sem correção, com efeitos econômicos retroativos ao 2T26; os contratos geram faturamento mensal de R$ 3,3 milhões, um yield de ~3,3% ao mês, acima da média de 3,2% da área de Gestão e Terceirização de Frotas (GTF) no 1T26.",
-  "Por ser transação entre partes relacionadas — Movida, a vendedora CS Holding e a interveniente CS Transportes são todas controladas pela Simpar —, a operação passou por ritos de governança e foi aprovada por unanimidade pelos conselheiros independentes das duas companhias abertas, com preços referenciados na Tabela Fipe com descontos de mercado. Os ativos equivalem a cerca de 0,8% do imobilizado bruto operacional da divisão de frotas (≈R$ 13,2 bilhões no 1T26) e reforçam a estratégia da Movida de ampliar a GTF via CS Frotas; operações com partes relacionadas tendem a atrair atenção do mercado quanto a governança e precificação."]}
-],
+"Movida":[],
 "Rede D'Or":[],
 "SulAmérica":[],
-"Hapvida":[
- {h:"Hapvida inaugura novo Centro de Pesquisa Clínica e reforça aposta na inovação em saúde",f:"Jornal Exempplar",d:"2026-06-26",u:"https://jornalexempplar.com.br/espaco-empresarial/hapvida-inaugura-novo-centro-de-pesquisa-clinica-e-reforca-aposta-na-inovacao-em-saude/",r:[
-  "A Hapvida inaugurou seu novo Centro de Pesquisa Clínica (CPC) no prédio do Qualivida Higienópolis, em São Paulo, com 444 m² (oito vezes maior que o espaço anterior) e equipe de 25 profissionais. A companhia estabeleceu meta de incluir 1.400 pacientes em novos estudos em 2026, já tendo mais de 1.000 selecionados, com taxa de retenção de 95,8%, além de meta de 20 artigos científicos publicados no ano (13 já publicados até o fim de maio).",
-  "O movimento reforça a estratégia da Hapvida de monetizar sua rede integrada via pesquisa clínica patrocinada pela indústria farmacêutica, fonte de receita complementar e de menor sinistralidade num momento em que a operadora enfrenta margens pressionadas e busca recuperar rentabilidade. O centro usa plataforma própria de IA que reduziu em 80% o tempo de identificação de pacientes elegíveis e mantém rede de 88 parceiros, sinalizando diferenciação reputacional, ainda que sem impacto material de curto prazo nos resultados consolidados."]}
-],
+"Hapvida":[],
 "Fleury":[],
 "Amil":[],
 "Oncoclínicas":[],
-"BYD":[],
+"BYD":[
+ {h:"BYD lidera varejo no Nordeste em junho e fecha o mês em 4º lugar no ranking geral do Brasil",f:"Bahia Econômica",d:"2026-07-02",u:"https://bahiaeconomica.com.br/wp/2026/07/02/byd-e-lider-de-vendas-no-varejo-em-salvador-na-bahia-e-em-todo-o-nordeste-no-mes-de-junho/",r:[
+  "A BYD foi líder de vendas no varejo em Salvador, na Bahia e em todo o Nordeste em junho de 2026 e encerrou o mês na 4ª posição do ranking geral brasileiro, com 21.254 unidades e 8,2% de participação. No acumulado do 1º semestre somou 99.029 emplacamentos — crescimento de 107% ano a ano — e comemorou a marca de 300 mil veículos eletrificados vendidos no país em apenas quatro anos, salto de 200 mil para 300 mil em seis meses, impulsionado pelo Dolphin Mini, líder do varejo nacional.",
+  "O desempenho reforça a conexão da marca com o Nordeste, onde opera o complexo industrial de Camaçari (BA), com quase 5 mil trabalhadores. Além dos automóveis de passeio, a BYD mantém fábricas de chassis de ônibus elétricos e módulos fotovoltaicos em Campinas (SP) e de baterias em Manaus (AM), e avança em sistemas de armazenamento de energia (BESS) e soluções sobre trilhos — diversificação que amplia sua exposição à transição energética brasileira e pressiona as montadoras tradicionais no segmento eletrificado."]}
+],
 "GWM":[
- {h:"GWM diz ter vendido 2 mil unidades do Ora 5 em 24 horas",f:"AutoData",d:"2026-06-26",u:"https://www.autodata.com.br/noticias/2026/06/26/gwm-diz-ter-vendido-2-mil-unidades-do-ora-5-em-24-horas/107249/",r:[
-  "A GWM afirmou que o Ora 5, seu primeiro SUV elétrico vendido no Brasil, teve 2 mil unidades comercializadas em 24 horas, volume que a montadora havia programado para um mês inteiro de vendas. Diante da procura, a empresa liberou um novo lote de mil unidades, com entrega em até 110 dias, mantendo o preço de lançamento de R$ 159 mil (mediante depósito de R$ 9 mil), válido até terça-feira, 30 de junho; a partir de 1º de julho o modelo passa a custar R$ 159,9 mil.",
-  "O Ora 5 traz motor elétrico de 204 cv, bateria LFP de 58,3 kWh e autonomia de até 435 km (WLTP) ou 349 km (Inmetro), com recarga rápida de 30% a 80% em cerca de 20 minutos. O desempenho de vendas reforça a ofensiva da GWM em eletrificados no Brasil, num momento em que a marca chinesa expande a linha produzida em Iracemápolis (SP) e tem o modelo como forte candidato a ser produzido na futura fábrica de Aracruz (ES), pressionando as montadoras tradicionais no segmento de SUVs compactos."]}
+ {h:"GWM emplaca 6.516 veículos em junho e fica em 11º no mercado brasileiro de leves",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
+  "A GWM registrou 6.516 emplacamentos em junho de 2026, ocupando a 11ª posição e 2,5% de participação no mercado brasileiro de veículos leves, segundo dados da Bright Consulting. O Haval H6 foi o modelo de maior volume da marca no mês, com 3.848 unidades, num mercado total que somou cerca de 259 mil emplacamentos, alta de 28% frente a junho de 2025.",
+  "O resultado consolida a operação da fábrica de Iracemápolis (SP) e a estratégia multienergia (híbridos, híbridos plug-in e elétricos) da chinesa, que compete diretamente com a BYD no segmento eletrificado. Embora ainda distante do top 5, o avanço da GWM e de outras marcas chinesas reforça a disputa por participação frente às montadoras tradicionais no Brasil."]}
 ],
 "Volkswagen":[
- {h:"Grupo Volkswagen planeja cortar 100 mil empregos e fechar quatro fábricas",f:"AutoData",d:"2026-06-26",u:"https://www.autodata.com.br/noticias/2026/06/26/grupo-volkswagen-planeja-cortar-100-mil-empregos-e-fechar-quatro-fabricas/107192/",r:[
-  "O CEO do Grupo Volkswagen, Oliver Blume, prepara a maior reestruturação dos 89 anos da companhia, com corte de 100 mil postos de trabalho e fechamento de quatro fábricas na Alemanha, segundo a revista Manager Magazin. Seriam encerradas as unidades de veículos comerciais leves em Hannover, a de Zwickau (ID.3 e ID.4) e a histórica de Emden, além da Audi em Neckarsulm, à medida que os modelos atuais forem descontinuados. O objetivo é reduzir 11 bilhões de euros em custos até o fim da década e cortar 15% do plano de investimento, para 130 bilhões de euros.",
-  "A medida deve enfrentar forte resistência sindical, já que em 2024 a empresa firmou acordo com os sindicatos descartando o fechamento de plantas, e o IG Metall prometeu se opor 'com todas as forças'. Embora o plano se concentre na Alemanha, é relevante para o Brasil, um dos maiores mercados da marca no mundo, em meio à ofensiva chinesa de BYD e GWM e ao plano local de eletrificação e investimentos da Volkswagen no país."]}
+ {h:"Volkswagen fecha junho como vice-líder e lidera o varejo no 1º semestre de 2026",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
+  "A Volkswagen terminou junho de 2026 como vice-líder do mercado brasileiro de leves, com 45.986 emplacamentos e 17,7% de participação, praticamente empatada com a Fiat (49.073 unidades, 18,9%), segundo a Bright Consulting. No 1º semestre a marca liderou o varejo — vendas a pessoas físicas — com 90.215 unidades e 13,2% de share, alta de 20% ano a ano; considerando varejo mais vendas diretas, acumulou 224.945 emplacamentos (16,5% do mercado), crescimento de 21% sobre o 1S25.",
+  "T-Cross e Polo seguiram entre os modelos mais vendidos do país em junho (11.752 e 10.939 unidades), com o Tera reforçando a linha de SUVs de entrada. O desempenho ocorre em meio ao avanço acelerado das marcas chinesas — a BYD já é a 4ª maior do país — e à forte dependência do canal de locadoras, ponto de atenção para rentabilidade e valor de revenda da frota."]}
 ],
 "Stellantis":[],
-"GM":[],
-"Hyundai":[],
+"GM":[
+ {h:"Chevrolet (GM) mantém 3º lugar em junho com 26.661 emplacamentos",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
+  "A GM (Chevrolet) encerrou junho de 2026 na 3ª posição do mercado brasileiro de veículos leves, com 26.661 emplacamentos e 10,3% de participação, segundo levantamento da Bright Consulting. Onix (7.972 unidades) e Tracker (4.490) foram os principais volumes da marca no mês.",
+  "A montadora manteve o pódio, mas viu estreitar a distância para a BYD (4ª, 21.254 unidades) num mercado em que os fabricantes chineses ganham participação rapidamente. A Chevrolet apoia-se em modelos de entrada e no canal de vendas diretas, que respondeu por 59,2% de suas vendas em junho — exposição relevante a locadoras e frotistas."]}
+],
+"Hyundai":[
+ {h:"Hyundai termina junho como 5ª marca mais vendida do Brasil, com HB20 e Creta no top 10",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
+  "A Hyundai encerrou junho de 2026 como 5ª marca mais vendida no Brasil, com 16.427 emplacamentos e 6,3% de participação, de acordo com a Bright Consulting. HB20 (6.914 unidades, 7º modelo mais vendido) e Creta (5.533, 9º) sustentaram o desempenho da marca no mês.",
+  "A sul-coreana manteve posição relevante entre as líderes num semestre de forte crescimento do setor (leves +19,7% no acumulado), mas enfrenta pressão da ofensiva chinesa liderada por BYD e GWM. Cerca de 56,7% das vendas da Hyundai em junho vieram do canal de vendas diretas, indicando peso do segmento corporativo e de locadoras."]}
+],
 "Toyota":[
- {h:"Toyota não anunciou fim das operações no Brasil",f:"Lupa",d:"2026-06-26",u:"https://www.agencialupa.org/verificacao/2026/06/26/toyota-nao-anunciou-fim-das-operacoes-no-brasil/",r:[
-  "A Agência Lupa classificou como falsa a informação viral de que a Toyota teria fechado fábrica em São Paulo e demitido 1.500 colaboradores deixando o Brasil. A montadora não comunicou encerramento de atividades no país: o que ocorre é o fechamento da unidade de Indaiatuba (SP) em 30 de junho de 2026, após 28 anos, com a produção transferida para o novo polo de Sorocaba, cuja segunda fábrica será inaugurada em novembro.",
-  "O fechamento de Indaiatuba e a expansão de Sorocaba já haviam sido comunicados em 2024, com acordo sindical que prevê transferência dos funcionários ou Plano de Demissão Voluntária. A Toyota afirmou que não houve redução de postos e que a expansão de Sorocaba deve gerar cerca de 2 mil empregos até 2030. A montadora mantém três fábricas no Brasil — uma em Porto Feliz (SP) e duas em Sorocaba — em meio à transição para híbridos e eletrificação."]}
+ {h:"Toyota fica em 6º no ranking de leves de junho, puxada por Yaris Cross, Hilux e Corolla Cross",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
+  "A Toyota ocupou a 6ª posição no ranking de veículos leves de junho de 2026, com 14.501 emplacamentos e 5,6% de participação, segundo a Bright Consulting. Yaris Cross (3.896), Hilux (3.888) e Corolla Cross (3.130) lideraram o mix da marca no período.",
+  "O resultado vem em meio à transição industrial da Toyota no Brasil — encerramento da fábrica de Indaiatuba (SP) e concentração da produção em Sorocaba — e à aposta em híbridos. A participação de vendas diretas (32,2%) é menor que a de rivais como Fiat e VW, sinalizando maior peso do varejo a pessoas físicas."]}
 ],
 "Embraer":[
- {h:"CEO da Airbus diz que a Embraer deveria 'pensar duas vezes' antes de entrar no mercado de narrowbodies",f:"Air Data News",d:"2026-06-26",u:"https://www.airdatanews.com/airbus-ceo-says-embraer-should-think-twice-before-entering-narrowbody-market/",r:[
-  "O CEO da Airbus, Guillaume Faury, afirmou em entrevista à Aviation Week que a Embraer deveria 'pensar duas vezes' antes de ingressar no segmento de jatos narrowbody, argumentando que competir contra Airbus, Boeing e a chinesa COMAC seria difícil, exigiria investimentos vultosos e envolveria riscos comerciais significativos. 'É uma decisão difícil. Eu pensaria duas vezes. Acho que é um grande risco', disse Faury, comentando a recorrente especulação de que a Embraer poderia desenvolver uma aeronave maior para rivalizar com as famílias A320neo e 737 MAX.",
-  "As declarações chegam enquanto a Embraer estuda seu próximo programa de aeronaves, sem ter decidido se o futuro projeto clean-sheet será comercial, executivo ou militar. Hoje a maior aeronave comercial da fabricante é o E195-E2 (132 a 146 assentos), enquanto narrowbodies como A320neo e 737 MAX operam em torno de 170 a 180 lugares; um eventual avanço ao segmento exigiria expandir capacidade produtiva, ampliar a rede de fornecedores e, segundo executivos da própria Embraer, atrair parceiros industriais ou investidores externos para dividir custos e riscos de desenvolvimento."]}
+ {h:"Embraer entrega 65 aeronaves no 2T26, melhor desempenho para o período em 16 anos",f:"Jornal do Commercio",d:"2026-07-02",u:"https://jcam.com.br/noticias/embraer-registra-65-aeronaves-entregues-no-segundo-trimestre-alta-de-48-na-comparacao-com-trimestre-anterior/",r:[
+  "A Embraer entregou 65 aeronaves no 2T26, seu melhor desempenho de entregas para o período em 16 anos e alta de 48% ante o 1T26 (e +7% sobre o 2T25). Foram 20 jatos na Aviação Comercial — 6 deles do modelo E195-E2, o maior avião da fabricante em produção — e 45 na Aviação Executiva; não houve entregas de Defesa & Segurança no trimestre. No 1º semestre, o total chegou a 109 aeronaves, cerca de 20% acima das 91 do 1S25.",
+  "A companhia manteve o guidance de 80 a 85 entregas comerciais e 160 a 170 executivas em 2026, sustentada pela normalização da produção e pela forte demanda em aviação executiva. A aceleração das entregas no fim do semestre é positiva para receita e geração de caixa, embora a forte concentração no segmento executivo e a ausência de entregas de defesa no trimestre mereçam acompanhamento no mix de produtos."]}
 ]
 };
 
