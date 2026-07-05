@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com até 3 dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 04/07/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 05/07/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -191,8 +191,8 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 04/07/2026) ----------
-const LAST_UPDATED = "2026-07-04";
+// ---------- DADOS (busca de 05/07/2026) ----------
+const LAST_UPDATED = "2026-07-05";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -222,39 +222,35 @@ const NEWS = {
 ],
 "Oncoclínicas":[],
 "BYD":[
- {h:"BYD fecha junho como 4ª marca do Brasil pelo 2º mês seguido e lidera o varejo em todo o Nordeste",f:"Bahia Econômica",d:"2026-07-02",u:"https://bahiaeconomica.com.br/wp/2026/07/02/byd-e-lider-de-vendas-no-varejo-em-salvador-na-bahia-e-em-todo-o-nordeste-no-mes-de-junho/",r:[
-  "A BYD encerrou junho de 2026 na 4ª posição do mercado brasileiro de leves pelo segundo mês consecutivo, com 21.254 emplacamentos e 8,2% de participação, e consolidou a liderança do varejo (vendas a pessoas físicas) em Salvador, na Bahia e em todo o Nordeste. O Dolphin Mini foi o modelo eletrificado mais vendido do país (6.457 unidades) e a marca acumulou 99.029 licenciamentos no 1º semestre, alta de 107% ano a ano.",
-  "O desempenho reforça a conexão da BYD com o Nordeste, onde opera o complexo industrial de Camaçari (BA) com quase 5 mil trabalhadores. Além dos automóveis de passeio, a companhia mantém no Brasil produção de chassis de ônibus elétricos e módulos fotovoltaicos e avança em baterias e sistemas de armazenamento de energia (BESS), diversificação que amplia sua exposição à transição energética e pressiona as montadoras tradicionais no segmento eletrificado."]}
+ {h:"BYD fecha junho como 4ª montadora do Brasil pelo 2º mês seguido e só perde para a VW no varejo em 2026",f:"O Tempo",d:"2026-07-03",u:"https://www.otempo.com.br/autotempo/2026/7/3/byd-mantem-o-4-lugar-pelo-segundo-mes-e-vira-protagonista-no-brasil",r:[
+  "A BYD terminou junho de 2026 como a 4ª maior montadora do país em emplacamentos de leves, com 21.219 unidades e 9,97% de participação, à frente da Hyundai (16.425), segundo o balanço da Fenabrave. Foi o segundo mês consecutivo nessa posição; no acumulado do 1º semestre a marca somou 99.028 licenciamentos, alta de 107,57% ano a ano, saltando da 8ª para a 4ª colocação, e o Dolphin Mini foi o carro mais emplacado no varejo do país (29.665 unidades).",
+  "No varejo (vendas a pessoas físicas), a BYD já é a 2ª marca do ano, com 13,12% de participação, atrás apenas da Volkswagen (14,90%), e liderou o recorte mensal de junho. Além dos automóveis, a companhia mantém no Brasil o complexo industrial de Camaçari (BA), produção de chassis de ônibus elétricos e investimentos anunciados em baterias e sistemas de armazenamento de energia (BESS) — diversificação que amplia sua exposição à transição energética e pressiona as montadoras tradicionais no segmento eletrificado."]}
 ],
-"GWM":[
- {h:"GWM emplaca 6.516 veículos em junho e fica em 11º no mercado brasileiro de leves",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
-  "A GWM registrou 6.516 emplacamentos em junho de 2026, ocupando a 11ª posição e 2,5% de participação no mercado brasileiro de veículos leves, segundo dados da Bright Consulting. O Haval H6 foi o modelo de maior volume da marca no mês, com 3.848 unidades, num mercado total que somou 259.475 emplacamentos, alta de 28,2% frente a junho de 2025.",
-  "O resultado consolida a operação da fábrica de Iracemápolis (SP) e a estratégia multienergia (híbridos, híbridos plug-in e elétricos) da chinesa, que compete diretamente com a BYD no segmento eletrificado. Embora ainda distante do top 5, o avanço da GWM e de outras marcas chinesas — que juntas já superam a fatia da líder Fiat — reforça a disputa por participação frente às montadoras tradicionais no Brasil."]}
-],
+"GWM":[],
 "Volkswagen":[
- {h:"Volkswagen fecha junho como vice-líder e termina o 1º semestre de 2026 na liderança do varejo",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
-  "A Volkswagen terminou junho de 2026 como vice-líder do mercado brasileiro de leves, com 45.986 emplacamentos e 17,7% de participação, praticamente empatada com a Fiat (49.073 unidades, 18,9%), segundo a Bright Consulting. No 1º semestre a marca liderou o varejo — vendas a pessoas físicas — com 90.215 unidades e 13,2% de share, alta de 20%; somando varejo e vendas diretas, acumulou 224.945 emplacamentos (16,5% do mercado), crescimento de 21% sobre o 1S25.",
-  "T-Cross e Polo seguiram entre os modelos mais vendidos do país em junho (11.752 e 10.939 unidades), com o Tera reforçando a linha de SUVs de entrada. O desempenho ocorre em meio ao avanço acelerado das marcas chinesas — a BYD já é a 4ª maior do país — e à forte dependência do canal de locadoras, ponto de atenção para rentabilidade e valor de revenda da frota."]}
+ {h:"Volkswagen cresce 21% e lidera o varejo no 1º semestre de 2026, na vice-liderança geral do mercado",f:"Vrum",d:"2026-07-02",u:"https://www.vrum.com.br/mercado/2026/07/7453896-ranking-das-marcas-byd-cresce-107-no-brasil-toyota-cai-101.html",r:[
+  "A Volkswagen encerrou o 1º semestre de 2026 como vice-líder do mercado brasileiro de leves, com 224.923 emplacamentos e 16,55% de participação, alta de 21,33% sobre o mesmo período de 2025, atrás apenas da Fiat (270.941), segundo dados da Fenabrave divulgados em 2 de julho. No varejo (pessoas físicas), a marca liderou o acumulado do ano com 14,90% de participação.",
+  "T-Cross, Tera, Nivus e Polo mantiveram a VW entre os modelos mais emplacados do país. O desempenho ocorre em meio à ofensiva das marcas chinesas — a BYD já é a 2ª no varejo e a 4ª no total — e reforça a dependência do canal de vendas diretas e locadoras, ponto de atenção para rentabilidade e valor de revenda da frota."]}
 ],
 "Stellantis":[
- {h:"Fiat (Stellantis) mantém liderança em junho, mas marcas chinesas superam sua fatia de mercado",f:"AutoIndústria",d:"2026-07-01",u:"https://www.autoindustria.com.br/2026/07/01/chineses-ja-vendem-mais-que-a-lider-fiat-que-perde-espaco-para-a-vw/",r:[
-  "A Fiat, principal marca da Stellantis no Brasil, manteve a liderança do mercado de leves em junho de 2026, com 49.073 emplacamentos e 18,9% de participação, seguida de perto pela Volkswagen (17,7%). Contudo, o conjunto das marcas chinesas atingiu 19,7% do mercado, superando pela primeira vez a fatia da líder Fiat e evidenciando o avanço de players como BYD, Geely, Chery e GWM.",
-  "Para a Stellantis, dona de Fiat, Jeep, Citroën, Peugeot e RAM, o dado acende alerta sobre erosão de participação apesar do portfólio de entrada (Strada, Argo, Mobi) ainda liderar volumes. A pressão competitiva chinesa no segmento de baixo custo e eletrificados tende a exigir resposta em preço e mix, com impacto potencial sobre margens no mercado brasileiro."]}
+ {h:"Fiat (Stellantis) mantém a liderança do mercado brasileiro no 1º semestre, com 270,9 mil emplacamentos",f:"Vrum",d:"2026-07-02",u:"https://www.vrum.com.br/mercado/2026/07/7453896-ranking-das-marcas-byd-cresce-107-no-brasil-toyota-cai-101.html",r:[
+  "A Fiat, principal marca da Stellantis no Brasil, liderou o mercado de leves no 1º semestre de 2026 com 270.941 emplacamentos e alta de 12,22% sobre 2025, segundo dados da Fenabrave divulgados em 2 de julho. No recorte de varejo, porém, a marca aparece apenas em 5º lugar no acumulado do ano (7,84%), atrás de Volkswagen, BYD, GM e Hyundai.",
+  "Para a Stellantis — dona de Fiat, Jeep, Citroën, Peugeot e RAM — a liderança em volume total apoia-se fortemente nas vendas diretas e no portfólio de entrada (Strada, Argo, Mobi). O avanço das chinesas no varejo e nos eletrificados pressiona mix e preços, exigindo resposta competitiva para preservar participação e margens no mercado brasileiro."]}
 ],
 "GM":[
- {h:"Chevrolet (GM) mantém 3º lugar em junho com 26.661 emplacamentos",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
-  "A GM (Chevrolet) encerrou junho de 2026 na 3ª posição do mercado brasileiro de veículos leves, com 26.661 emplacamentos e 10,3% de participação, segundo levantamento da Bright Consulting. Onix (7.972 unidades) e Tracker (4.490) foram os principais volumes da marca no mês.",
-  "A montadora manteve o pódio, mas viu estreitar a distância para a BYD (4ª, 21.254 unidades) num mercado em que os fabricantes chineses ganham participação rapidamente. A Chevrolet apoia-se em modelos de entrada e no canal de vendas diretas, que respondeu por 59,2% de suas vendas em junho — exposição relevante a locadoras e frotistas."]}
+ {h:"Chevrolet (GM) fica em 3º no 1º semestre com 140,7 mil unidades e cresce 17,4%",f:"O Tempo",d:"2026-07-03",u:"https://www.otempo.com.br/autotempo/2026/7/3/byd-mantem-o-4-lugar-pelo-segundo-mes-e-vira-protagonista-no-brasil",r:[
+  "A GM (Chevrolet) encerrou o 1º semestre de 2026 na 3ª posição do mercado brasileiro de leves, com 140.706 emplacamentos e 10,35% de participação, segundo o balanço da Fenabrave. Em junho, a marca somou 22.027 unidades, mantendo o pódio à frente da BYD (21.219).",
+  "Tracker e Onix seguem entre os principais volumes da marca, com o Tracker no top 5 de modelos do semestre. A montadora preserva posição relevante apoiada em vendas diretas e frotistas, mas vê estreitar a distância para a BYD num mercado em que os fabricantes chineses ganham participação rapidamente."]}
 ],
 "Hyundai":[
- {h:"Hyundai termina junho como 5ª marca mais vendida do Brasil, com HB20 e Creta no top 10",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
-  "A Hyundai encerrou junho de 2026 como 5ª marca mais vendida no Brasil, com 16.427 emplacamentos e 6,3% de participação, de acordo com a Bright Consulting. HB20 (6.914 unidades, 7º modelo mais vendido) e Creta (5.533, 9º) sustentaram o desempenho da marca no mês.",
-  "A sul-coreana manteve posição relevante entre as líderes num semestre de forte crescimento do setor (leves +19,7% no acumulado), mas enfrenta pressão da ofensiva chinesa liderada por BYD e GWM. Cerca de 56,7% das vendas da Hyundai em junho vieram do canal de vendas diretas, indicando peso do segmento corporativo e de locadoras."]}
+ {h:"Hyundai cresce 12% mas cai para 5º no semestre, ultrapassada pela BYD",f:"Vrum",d:"2026-07-02",u:"https://www.vrum.com.br/mercado/2026/07/7453896-ranking-das-marcas-byd-cresce-107-no-brasil-toyota-cai-101.html",r:[
+  "A Hyundai encerrou o 1º semestre de 2026 na 5ª posição do mercado brasileiro de leves, com 96.723 emplacamentos e alta de 12,05% sobre 2025, sendo ultrapassada no ranking pela BYD (99.028), de acordo com dados da Fenabrave divulgados em 2 de julho. Creta e HB20 seguiram entre os dez modelos mais emplacados do país no período.",
+  "Apesar do crescimento, a perda de posição para a chinesa evidencia a pressão competitiva no segmento de entrada e nos eletrificados. O Creta manteve-se como um dos carros mais vendidos do país, sustentando o volume da sul-coreana num mercado que cresceu cerca de 20% no semestre."]}
 ],
 "Toyota":[
- {h:"Toyota fica em 6º no ranking de leves de junho, puxada por Yaris Cross, Hilux e Corolla Cross",f:"Car.Blog.BR",d:"2026-07-01",u:"https://www.car.blog.br/2026/07/carros-e-marcas-mais-vendidos-junho-de.html",r:[
-  "A Toyota ocupou a 6ª posição no ranking de veículos leves de junho de 2026, com 14.501 emplacamentos e 5,6% de participação, segundo a Bright Consulting. Yaris Cross (3.896), Hilux (3.888) e Corolla Cross (3.130) lideraram o mix da marca no período.",
-  "O resultado vem em meio à transição industrial da Toyota no Brasil — encerramento da fábrica de Indaiatuba (SP) e concentração da produção em Sorocaba — e à aposta em híbridos. A participação de vendas diretas (32,2%) é menor que a de rivais como Fiat e VW, sinalizando maior peso do varejo a pessoas físicas."]}
+ {h:"Toyota é a única do top 10 a recuar em 2026: vendas caem 10,1% no 1º semestre",f:"Vrum",d:"2026-07-02",u:"https://www.vrum.com.br/mercado/2026/07/7453896-ranking-das-marcas-byd-cresce-107-no-brasil-toyota-cai-101.html",r:[
+  "Segundo dados da Fenabrave divulgados em 2 de julho, a Toyota foi a única marca entre as dez maiores do mercado brasileiro a registrar queda de vendas no 1º semestre de 2026, com 79.969 emplacamentos, recuo de 10,16% ante o mesmo período de 2025, caindo para a 6ª posição. Todas as demais líderes cresceram no período, com destaque para o avanço de 107% da BYD.",
+  "O desempenho negativo ocorre em meio à transição industrial da Toyota no Brasil — com concentração de produção em Sorocaba (SP) — e ao avanço acelerado das marcas chinesas no segmento eletrificado. Ainda assim, Yaris Cross e Corolla Cross seguem entre os modelos de maior giro da marca, e a aposta em híbridos permanece como o principal vetor para tentar recuperar participação."]}
 ],
 "Embraer":[
  {h:"Embraer entrega 65 aeronaves no 2T26, melhor desempenho para o período em 16 anos",f:"Jornal do Commercio",d:"2026-07-02",u:"https://jcam.com.br/noticias/embraer-registra-65-aeronaves-entregues-no-segundo-trimestre-alta-de-48-na-comparacao-com-trimestre-anterior/",r:[
