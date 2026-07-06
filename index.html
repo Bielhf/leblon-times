@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias dos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 05/07/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com até 3 dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 06/07/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -191,8 +191,8 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 05/07/2026) ----------
-const LAST_UPDATED = "2026-07-05";
+// ---------- DADOS (busca de 06/07/2026) ----------
+const LAST_UPDATED = "2026-07-06";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -208,55 +208,34 @@ const NEWS = {
 "Localiza":[],
 "Movida":[],
 "Rede D'Or":[],
-"SulAmérica":[
- {h:"ANS aprova reajuste de até 6,2% para planos individuais antigos de seguradoras, incluindo a SulAmérica",f:"meutudo",d:"2026-07-02",u:"https://meutudo.com.br/blog/noticias/2026/07/02/reajuste-de-plano-de-saude-2026-e-aprovado-pela-ans-veja-as-novas-regras",r:[
-  "A Agência Nacional de Saúde Suplementar (ANS) definiu os percentuais máximos de reajuste para 2026 dos contratos individuais antigos, não regulamentados pela Lei 9.656/1998 e vinculados a Termos de Compromisso. Para as Seguradoras Especializadas em Saúde — grupo que inclui SulAmérica, Bradesco Saúde e Itauseg — o teto ficou em 6,2%, ante 7,16% autorizado em 2025. A medida atinge um universo restrito de 158.605 beneficiários desses contratos legados.",
-  "Embora afete uma carteira pequena, o índice sinaliza o tom regulatório para os reajustes de 2026 num ambiente de sinistralidade ainda pressionada. Para a SulAmérica, controlada pela Rede D'Or, o impacto direto é marginal, mas o reajuste dos planos coletivos e individuais regulamentados — a maior parte da receita — segue como o principal driver a acompanhar no setor de saúde suplementar."]}
-],
+"SulAmérica":[],
 "Hapvida":[],
 "Fleury":[],
-"Amil":[
- {h:"Amil terá teto de reajuste de 5,52% em planos individuais antigos, define ANS para 2026",f:"meutudo",d:"2026-07-02",u:"https://meutudo.com.br/blog/noticias/2026/07/02/reajuste-de-plano-de-saude-2026-e-aprovado-pela-ans-veja-as-novas-regras",r:[
-  "A ANS fixou em 5,52% o teto de reajuste de 2026 para contratos individuais antigos da Amil, classificada como operadora de Medicina de Grupo e vinculada a Termos de Compromisso com a agência. O percentual é inferior aos 6,47% autorizados em 2025 e abaixo do teto de 6,2% aplicado às seguradoras especializadas no mesmo tipo de contrato.",
-  "O reajuste vale apenas para os planos firmados antes da Lei 9.656/1998, uma carteira em extinção que soma pouco mais de 158 mil beneficiários no total do mercado. Para a Amil, sob controle do fundo José Seripieri e em processo de reorganização, o efeito financeiro é limitado, mas o dado reforça o cenário de reajustes mais contidos que pressiona as margens das operadoras."]}
-],
+"Amil":[],
 "Oncoclínicas":[],
 "BYD":[
+ {h:"BYD entrega novo lote de 265 ônibus elétricos a São Paulo; frota da capital chega a 1.759 veículos",f:"CartaCapital",d:"2026-07-04",u:"https://www.cartacapital.com.br/toquetec/byd-amplia-frota-de-onibus-eletricos-na-capital-paulista/",r:[
+  "A cidade de São Paulo apresentou um novo lote de ônibus elétricos da BYD, com a empresa fornecendo 265 unidades — o que eleva a frota elétrica da capital a 1.759 veículos, incluindo os trólebus já em operação. Os modelos vão de versões convencionais e articuladas ao superarticulado BC22, de 23 metros, todos equipados com as baterias Blade (LFP), a mesma tecnologia usada nos carros de passeio da marca. Segundo a companhia, a operação deve evitar o consumo de cerca de 20 milhões de litros de diesel por ano e a emissão de aproximadamente 45 mil toneladas de CO2.",
+  "A BYD começou sua trajetória no Brasil justamente pelo transporte coletivo pesado e hoje soma cerca de 550 ônibus circulando na capital paulista e aproximadamente 700 unidades ativas no país, além de sistemas como o monotrilho SkyRail ligado ao Aeroporto de Congonhas. O negócio de ônibus e baterias reforça a diversificação da empresa para além dos automóveis — sinergia relevante frente à sua expansão industrial em Camaçari (BA) e aos investimentos anunciados em armazenamento de energia (BESS), ampliando a exposição da companhia à transição energética."]},
  {h:"BYD fecha junho como 4ª montadora do Brasil pelo 2º mês seguido e só perde para a VW no varejo em 2026",f:"O Tempo",d:"2026-07-03",u:"https://www.otempo.com.br/autotempo/2026/7/3/byd-mantem-o-4-lugar-pelo-segundo-mes-e-vira-protagonista-no-brasil",r:[
   "A BYD terminou junho de 2026 como a 4ª maior montadora do país em emplacamentos de leves, com 21.219 unidades e 9,97% de participação, à frente da Hyundai (16.425), segundo o balanço da Fenabrave. Foi o segundo mês consecutivo nessa posição; no acumulado do 1º semestre a marca somou 99.028 licenciamentos, alta de 107,57% ano a ano, saltando da 8ª para a 4ª colocação, e o Dolphin Mini foi o carro mais emplacado no varejo do país (29.665 unidades).",
   "No varejo (vendas a pessoas físicas), a BYD já é a 2ª marca do ano, com 13,12% de participação, atrás apenas da Volkswagen (14,90%), e liderou o recorte mensal de junho. Além dos automóveis, a companhia mantém no Brasil o complexo industrial de Camaçari (BA), produção de chassis de ônibus elétricos e investimentos anunciados em baterias e sistemas de armazenamento de energia (BESS) — diversificação que amplia sua exposição à transição energética e pressiona as montadoras tradicionais no segmento eletrificado."]}
 ],
-"GWM":[],
-"Volkswagen":[
- {h:"Volkswagen cresce 21% e lidera o varejo no 1º semestre de 2026, na vice-liderança geral do mercado",f:"Vrum",d:"2026-07-02",u:"https://www.vrum.com.br/mercado/2026/07/7453896-ranking-das-marcas-byd-cresce-107-no-brasil-toyota-cai-101.html",r:[
-  "A Volkswagen encerrou o 1º semestre de 2026 como vice-líder do mercado brasileiro de leves, com 224.923 emplacamentos e 16,55% de participação, alta de 21,33% sobre o mesmo período de 2025, atrás apenas da Fiat (270.941), segundo dados da Fenabrave divulgados em 2 de julho. No varejo (pessoas físicas), a marca liderou o acumulado do ano com 14,90% de participação.",
-  "T-Cross, Tera, Nivus e Polo mantiveram a VW entre os modelos mais emplacados do país. O desempenho ocorre em meio à ofensiva das marcas chinesas — a BYD já é a 2ª no varejo e a 4ª no total — e reforça a dependência do canal de vendas diretas e locadoras, ponto de atenção para rentabilidade e valor de revenda da frota."]}
+"GWM":[
+ {h:"GWM encerra 1º semestre com produção local em Iracemápolis e estratégia multienergia; rede bate recorde de vendas",f:"Economic News Brasil",d:"2026-07-03",u:"https://economicnewsbrasil.com.br/2026/07/03/gwm-newhouse-lider-vendas-gwm-brasil/",r:[
+  "A rede de concessionárias da GWM no Brasil encerrou o 1º semestre de 2026 com desempenho recorde: a operação líder da bandeira (GWM Newhouse, do Grupo New) superou 1.000 veículos comercializados só em junho, impulsionada pelo lançamento do Ora 5 e pela forte demanda por modelos a diesel, como o Haval H9. A montadora consolidou uma estratégia 'multienergia', combinando elétricos, híbridos e diesel em vez de depender exclusivamente dos eletrificados.",
+  "O avanço ocorre após a inauguração da fábrica de Iracemápolis (SP), primeira unidade produtiva da GWM nas Américas, que iniciou a produção local do Haval H6 e prevê nacionalizar modelos como Haval H9 e Poer P30, além de lançar utilitários como H7 e Tank 400 no 2º semestre. Com o retorno do imposto de importação para híbridos em julho de 2026, os SUVs fabricados localmente tendem a ficar mais competitivos ante os importados — fator relevante na disputa com a BYD e demais marcas chinesas."]}
 ],
-"Stellantis":[
- {h:"Fiat (Stellantis) mantém a liderança do mercado brasileiro no 1º semestre, com 270,9 mil emplacamentos",f:"Vrum",d:"2026-07-02",u:"https://www.vrum.com.br/mercado/2026/07/7453896-ranking-das-marcas-byd-cresce-107-no-brasil-toyota-cai-101.html",r:[
-  "A Fiat, principal marca da Stellantis no Brasil, liderou o mercado de leves no 1º semestre de 2026 com 270.941 emplacamentos e alta de 12,22% sobre 2025, segundo dados da Fenabrave divulgados em 2 de julho. No recorte de varejo, porém, a marca aparece apenas em 5º lugar no acumulado do ano (7,84%), atrás de Volkswagen, BYD, GM e Hyundai.",
-  "Para a Stellantis — dona de Fiat, Jeep, Citroën, Peugeot e RAM — a liderança em volume total apoia-se fortemente nas vendas diretas e no portfólio de entrada (Strada, Argo, Mobi). O avanço das chinesas no varejo e nos eletrificados pressiona mix e preços, exigindo resposta competitiva para preservar participação e margens no mercado brasileiro."]}
-],
+"Volkswagen":[],
+"Stellantis":[],
 "GM":[
  {h:"Chevrolet (GM) fica em 3º no 1º semestre com 140,7 mil unidades e cresce 17,4%",f:"O Tempo",d:"2026-07-03",u:"https://www.otempo.com.br/autotempo/2026/7/3/byd-mantem-o-4-lugar-pelo-segundo-mes-e-vira-protagonista-no-brasil",r:[
   "A GM (Chevrolet) encerrou o 1º semestre de 2026 na 3ª posição do mercado brasileiro de leves, com 140.706 emplacamentos e 10,35% de participação, segundo o balanço da Fenabrave. Em junho, a marca somou 22.027 unidades, mantendo o pódio à frente da BYD (21.219).",
   "Tracker e Onix seguem entre os principais volumes da marca, com o Tracker no top 5 de modelos do semestre. A montadora preserva posição relevante apoiada em vendas diretas e frotistas, mas vê estreitar a distância para a BYD num mercado em que os fabricantes chineses ganham participação rapidamente."]}
 ],
-"Hyundai":[
- {h:"Hyundai cresce 12% mas cai para 5º no semestre, ultrapassada pela BYD",f:"Vrum",d:"2026-07-02",u:"https://www.vrum.com.br/mercado/2026/07/7453896-ranking-das-marcas-byd-cresce-107-no-brasil-toyota-cai-101.html",r:[
-  "A Hyundai encerrou o 1º semestre de 2026 na 5ª posição do mercado brasileiro de leves, com 96.723 emplacamentos e alta de 12,05% sobre 2025, sendo ultrapassada no ranking pela BYD (99.028), de acordo com dados da Fenabrave divulgados em 2 de julho. Creta e HB20 seguiram entre os dez modelos mais emplacados do país no período.",
-  "Apesar do crescimento, a perda de posição para a chinesa evidencia a pressão competitiva no segmento de entrada e nos eletrificados. O Creta manteve-se como um dos carros mais vendidos do país, sustentando o volume da sul-coreana num mercado que cresceu cerca de 20% no semestre."]}
-],
-"Toyota":[
- {h:"Toyota é a única do top 10 a recuar em 2026: vendas caem 10,1% no 1º semestre",f:"Vrum",d:"2026-07-02",u:"https://www.vrum.com.br/mercado/2026/07/7453896-ranking-das-marcas-byd-cresce-107-no-brasil-toyota-cai-101.html",r:[
-  "Segundo dados da Fenabrave divulgados em 2 de julho, a Toyota foi a única marca entre as dez maiores do mercado brasileiro a registrar queda de vendas no 1º semestre de 2026, com 79.969 emplacamentos, recuo de 10,16% ante o mesmo período de 2025, caindo para a 6ª posição. Todas as demais líderes cresceram no período, com destaque para o avanço de 107% da BYD.",
-  "O desempenho negativo ocorre em meio à transição industrial da Toyota no Brasil — com concentração de produção em Sorocaba (SP) — e ao avanço acelerado das marcas chinesas no segmento eletrificado. Ainda assim, Yaris Cross e Corolla Cross seguem entre os modelos de maior giro da marca, e a aposta em híbridos permanece como o principal vetor para tentar recuperar participação."]}
-],
-"Embraer":[
- {h:"Embraer entrega 65 aeronaves no 2T26, melhor desempenho para o período em 16 anos",f:"Jornal do Commercio",d:"2026-07-02",u:"https://jcam.com.br/noticias/embraer-registra-65-aeronaves-entregues-no-segundo-trimestre-alta-de-48-na-comparacao-com-trimestre-anterior/",r:[
-  "A Embraer entregou 65 aeronaves no 2T26, seu melhor desempenho de entregas para o período em 16 anos e alta de 48% ante o 1T26 (e +7% sobre o 2T25). Foram 20 jatos na Aviação Comercial — 6 deles do modelo E195-E2, o maior avião da fabricante em produção — e 45 na Aviação Executiva; não houve entregas de Defesa & Segurança no trimestre. No 1º semestre, o total chegou a 109 aeronaves, cerca de 20% acima das 91 do 1S25.",
-  "A companhia manteve o guidance de 80 a 85 entregas comerciais e 160 a 170 executivas em 2026, sustentada pela normalização da produção e pela forte demanda em aviação executiva. A aceleração das entregas no fim do semestre é positiva para receita e geração de caixa, embora a forte concentração no segmento executivo e a ausência de entregas de defesa no trimestre mereçam acompanhamento no mix de produtos."]}
-]
+"Hyundai":[],
+"Toyota":[],
+"Embraer":[]
 };
 
 // ---------- ESTADO EDITÁVEL (localStorage) ----------
