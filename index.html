@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com até 3 dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 06/07/2026."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias publicadas nos últimos 3 dias. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 09/07/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -191,8 +191,8 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 07/07/2026) ----------
-const LAST_UPDATED = "2026-07-07";
+// ---------- DADOS (busca de 09/07/2026) ----------
+const LAST_UPDATED = "2026-07-09";
 const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -213,20 +213,24 @@ const NEWS = {
 "Fleury":[],
 "Amil":[],
 "Oncoclínicas":[],
-"BYD":[
- {h:"BYD entrega novo lote de 265 ônibus elétricos a São Paulo; frota da capital chega a 1.759 veículos",f:"CartaCapital",d:"2026-07-04",u:"https://www.cartacapital.com.br/toquetec/byd-amplia-frota-de-onibus-eletricos-na-capital-paulista/",r:[
-  "A cidade de São Paulo apresentou um novo lote de ônibus elétricos da BYD, com a empresa fornecendo 265 unidades — o que eleva a frota elétrica da capital a 1.759 veículos, incluindo os trólebus já em operação. Os modelos vão de versões convencionais e articuladas ao superarticulado BC22, de 23 metros, todos equipados com as baterias Blade (LFP), a mesma tecnologia usada nos carros de passeio da marca. Segundo a companhia, a operação deve evitar o consumo de cerca de 20 milhões de litros de diesel por ano e a emissão de aproximadamente 45 mil toneladas de CO2.",
-  "A BYD começou sua trajetória no Brasil justamente pelo transporte coletivo pesado e hoje soma cerca de 550 ônibus circulando na capital paulista e aproximadamente 700 unidades ativas no país, além de sistemas como o monotrilho SkyRail ligado ao Aeroporto de Congonhas. O negócio de ônibus e baterias reforça a diversificação da empresa para além dos automóveis — sinergia relevante frente à sua expansão industrial em Camaçari (BA) e aos investimentos anunciados em armazenamento de energia (BESS), ampliando a exposição da companhia à transição energética."]}
+"BYD":[],
+"GWM":[
+ {h:"GWM Brasil vence os prêmios Smart Customer 2026 e ClienteSA com estratégia de pós-venda",f:"Guru dos Carros",d:"2026-07-07",u:"https://gurudoscarros.com.br/2026/07/07/estrategia-de-pos-venda-da-gwm-rende-dois-premios-no-brasil/",r:[
+  "A GWM Brasil conquistou os prêmios Smart Customer 2026 e ClienteSA pela sua estratégia de Customer Care, desenvolvida em parceria com a Bosch Service Solutions e apoiada em UX, Design Thinking, inteligência de dados e atendimento humano. Segundo Daniel Conte, diretor de Pós-Venda da marca, a operação foi estruturada desde o início das atividades da montadora no país, há três anos, para conectar consumidores, concessionárias e equipes internas.",
+  "O reconhecimento em experiência do cliente chega em meio à rápida expansão da GWM no Brasil, que amplia rede de concessionárias, vendas digitais e portfólio eletrificado, com novos híbridos previstos para o segundo semestre. Fortalecer o pós-venda é peça-chave para sustentar reputação, satisfação e recompra à medida que o volume de vendas da marca cresce no mercado brasileiro."]}
 ],
-"GWM":[],
-"Volkswagen":[],
+"Volkswagen":[
+ {h:"Volkswagen define híbrido flex pleno (HEV) para o Brasil, com rodar elétrico urbano sem recarga externa",f:"Guru dos Carros",d:"2026-07-07",u:"https://gurudoscarros.com.br/2026/07/07/volkswagen-ja-tem-estrategia-definida-para-seus-hibridos-no-brasil/",r:[
+  "Como parte do plano de R$ 20 bilhões na América do Sul, a Volkswagen desenvolve uma motorização híbrida plena (HEV) flex baseada no motor 1.5 TSI evo2, com dois motores elétricos (um de tração e um gerador) e bateria de 1,6 kWh sob o banco traseiro. Em velocidades de até 55 km/h o veículo priorizará a tração elétrica; estão previstas duas calibrações, de 136 cv (HEV) e 170 cv (HEV High Output), com o motor importado inicialmente do México e depois produzido em São Carlos (SP).",
+  "A nova propulsão será um dos pilares da renovação da linha de SUVs da marca, que prevê cinco modelos nacionais renovados ou inéditos até 2030 — entre eles o Projeto Saga (VW213) e o novo Taos (projeto VW226), nacionalizado a partir de 2028. A aposta em híbrido flex, sem depender de infraestrutura de recarga, reforça a estratégia de eletrificação da VW no Brasil frente à ofensiva das montadoras chinesas."]}
+],
 "Stellantis":[],
 "GM":[],
 "Hyundai":[],
 "Toyota":[],
 "Embraer":[
  {h:"República Tcheca recebe seu 1º Embraer KC-390 Millennium e se torna o 4º operador do cargueiro na OTAN",f:"Tecnodefesa",d:"2026-07-06",u:"https://tecnodefesa.com.br/em-casa-republica-tcheca-recebe-seu-primeiro-embraer-kc-390/",r:[
-  "O primeiro KC-390 Millennium da Força Aérea da República Tcheca (CZAF) chegou à sua base definitiva, em Praga-Kbely, nesta segunda-feira (06/07), menos de dois anos após a assinatura do contrato de duas aeronaves, em outubro de 2024. Ainda com matrícula civil provisória PT-CNM, o avião deixou Gavião Peixoto (SP) no sábado (04), fez escalas em Recife e em Gran Canária (Espanha) e cruzou a Europa até a Chéquia, que se torna o 4º país da OTAN a operar o cargueiro brasileiro.",
+  "O primeiro KC-390 Millennium da Força Aérea da República Tcheca (CZAF) chegou à sua base definitiva, em Praga-Kbely, na segunda-feira (06/07), menos de dois anos após a assinatura do contrato de duas aeronaves, em outubro de 2024. Ainda com matrícula civil provisória PT-CNM, o avião deixou Gavião Peixoto (SP) no sábado (04), fez escalas em Recife e em Gran Canária (Espanha) e cruzou a Europa até a Chéquia, que se torna o 4º país da OTAN a operar o cargueiro brasileiro.",
   "A entrega reforça a expansão europeia do KC-390, já encomendado ou incorporado por Portugal, Hungria, Holanda, Áustria, Suécia, Eslováquia e Lituânia. O avanço da divisão de defesa é um dos pilares da tese da Embraer ao lado da forte aviação executiva: após o 2T26 (65 entregas, melhor 2º trimestre em 16 anos), novos marcos militares sustentam a carteira de pedidos e a diversificação de receita da companhia."]}
 ]
 };
