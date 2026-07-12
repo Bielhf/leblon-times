@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com até 3 dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 12/07/2026."
+  "description": "Monitor da cobertura (Locadoras, Saúde, Montadoras e Aviação). Abas: Notícias (clipping por setor), Calendário (agenda de RI e fatos relevantes) e Recompra D'Or / Recompra Localiza (programas de recompra, execução, cancelamento e negócios de insiders via CVM Res. 44 — réplica do dossiê CVM, dados de 10/07/2026)."
 }
 </script>
 <html lang="pt-BR">
@@ -26,7 +26,6 @@ body{background:var(--bg);color:var(--ink);line-height:1.55;font-size:15px;-webk
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 
-/* ---------- header ---------- */
 header{background:linear-gradient(135deg,#0a2e54 0%,#1366c4 70%,#2f8fd6 100%);color:#fff;padding:42px 32px 88px}
 .hwrap{max-width:1180px;margin:0 auto}
 .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.78;font-weight:600;margin-bottom:10px}
@@ -35,40 +34,39 @@ header p.sub{margin-top:8px;max-width:780px;opacity:.9;font-size:16px;font-weigh
 .meta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
 .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600}
 
-/* ---------- nav (abas principais) ---------- */
 nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin-top:-52px}
 .nwrap{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:10px 24px}
 .tabs{display:flex;gap:4px;overflow-x:auto}
-.tabbtn{border:0;background:transparent;font:inherit;font-weight:700;font-size:14px;color:var(--ink-2);padding:9px 16px;border-radius:9px;cursor:pointer;white-space:nowrap}
+.tabbtn{border:0;background:transparent;font:inherit;font-weight:700;font-size:14px;color:var(--ink-2);padding:9px 15px;border-radius:9px;cursor:pointer;white-space:nowrap}
 .tabbtn:hover{background:var(--accent-soft);color:var(--accent-dark)}
 .tabbtn.active{background:var(--accent);color:#fff}
 .nav-actions{margin-left:auto;display:flex;align-items:center;gap:8px;padding-left:12px}
-.nav-actions input[type=search]{width:200px;max-width:38vw;padding:7px 11px;border:1px solid var(--border);border-radius:9px;background:#fff;font-size:13px;color:var(--ink);outline:none}
+.nav-actions input[type=search]{width:190px;max-width:34vw;padding:7px 11px;border:1px solid var(--border);border-radius:9px;background:#fff;font-size:13px;color:var(--ink);outline:none}
 .nav-actions input[type=search]:focus{border-color:var(--accent)}
 .iconbtn{border:1px solid var(--border);background:#fff;color:var(--accent-dark);font:inherit;font-weight:700;font-size:12px;letter-spacing:.04em;padding:7px 12px;border-radius:9px;cursor:pointer;white-space:nowrap}
 .iconbtn:hover{background:var(--accent-soft);border-color:var(--accent-soft)}
 
 main{max-width:1180px;margin:0 auto;padding:26px 24px 70px}
 
-/* sub-abas de setor (dentro de Notícias) */
 .subtabs{display:flex;gap:4px;overflow-x:auto;margin-bottom:14px}
 .subtab{border:1px solid var(--border);background:#fff;font:inherit;font-weight:600;font-size:13px;color:var(--ink-2);padding:6px 13px;border-radius:999px;cursor:pointer;white-space:nowrap}
 .subtab:hover{background:var(--accent-soft);color:var(--accent-dark)}
 .subtab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-/* ---------- KPI strip ---------- */
 .grid{display:grid;gap:16px}
 .kpis{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-bottom:8px}
 .kpi{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-.kpi .v{font-size:24px;font-weight:800;letter-spacing:-.02em;color:var(--accent-dark)}
-.kpi .l{font-size:12.5px;color:var(--ink-2);margin-top:4px;font-weight:500}
+.kpi .v{font-size:23px;font-weight:800;letter-spacing:-.02em;color:var(--accent-dark)}
+.kpi .v.neg{color:var(--red)}
+.kpi .v.pos{color:var(--green)}
+.kpi .l{font-size:12.5px;color:var(--ink-2);margin-top:4px;font-weight:600}
 .kpi .s{font-size:11px;color:var(--ink-3);margin-top:6px}
 
-/* ---------- sections ---------- */
 section.sector{margin-top:14px}
 h2{font-size:21px;font-weight:800;letter-spacing:-.01em;margin:30px 0 4px;display:flex;align-items:center;gap:10px}
 h2 .cnt{font-size:12px;font-weight:700;color:var(--accent-dark);background:var(--accent-soft);border-radius:999px;padding:2px 10px;letter-spacing:.02em}
-p.lead{color:var(--ink-2);max-width:900px;margin:0 0 16px;font-size:13.5px}
+h2.first{margin-top:8px}
+p.lead{color:var(--ink-2);max-width:940px;margin:0 0 16px;font-size:13.5px}
 
 .cards2{grid-template-columns:repeat(auto-fit,minmax(420px,1fr))}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
@@ -90,7 +88,6 @@ article.item:first-of-type{padding-top:8px;margin-top:6px;border-top:0}
 .erlabel{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);font-weight:600}
 .tk{display:flex;flex-wrap:wrap;gap:6px}
 .sector-empty{background:var(--card);border:1px dashed var(--border);border-radius:var(--radius);padding:18px 20px;color:var(--ink-3);font-size:13.5px}
-
 .filternote{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:6px 0 0}
 
 /* ---------- calendário ---------- */
@@ -114,7 +111,6 @@ article.item:first-of-type{padding-top:8px;margin-top:6px;border-top:0}
 .pill{font-size:10px;font-weight:700;border-radius:999px;padding:2px 8px}
 .pill.ok{background:var(--green-soft);color:var(--green)}
 .pill.prev{background:var(--amber-soft);color:var(--amber)}
-
 .co-block{border-top:3px solid var(--blue)}
 .co-block .sec-h{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);font-weight:700;margin:14px 0 6px}
 .mini{padding:9px 0;border-top:1px dashed var(--border);font-size:13px}
@@ -125,12 +121,45 @@ article.item:first-of-type{padding-top:8px;margin-top:6px;border-top:0}
 .co-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
 .co-links a{font-size:11.5px;font-weight:700;border:1px solid var(--border);border-radius:8px;padding:6px 10px;color:var(--accent-dark)}
 .co-links a:hover{background:var(--accent-soft);text-decoration:none}
-.none-note{color:var(--ink-3);font-size:12.5px;font-style:normal}
+.none-note{color:var(--ink-3);font-size:12.5px}
 
-/* ---------- placeholder recompra ---------- */
-.placeholder{background:var(--card);border:1px dashed var(--border);border-radius:var(--radius);padding:40px 28px;text-align:center;box-shadow:var(--shadow)}
-.placeholder h3{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px}
-.placeholder p{color:var(--ink-2);font-size:14px;max-width:620px;margin:0 auto 6px}
+/* ---------- recompra ---------- */
+.meta-line{color:var(--ink-2);font-size:13px;margin:0 0 20px;line-height:1.7}
+.meta-line b{color:var(--ink)}
+.leitura{background:#eef7f2;border:1px solid #cfe9dc;border-left:4px solid var(--green);border-radius:10px;padding:14px 16px;font-size:14px;color:#124a34;margin:0 0 20px;line-height:1.6}
+.leitura.warn{background:var(--amber-soft);border-color:#f0d9ac;border-left-color:var(--amber);color:#7a4c08}
+table.mtx{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:13px}
+table.mtx th{background:#f3f6f7;text-align:left;padding:10px 12px;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:700;white-space:nowrap}
+table.mtx td{padding:10px 12px;border-top:1px solid var(--border);vertical-align:top}
+table.mtx td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+table.mtx td small{color:var(--ink-3);font-size:11px}
+.up{color:var(--green);font-weight:700}
+.down{color:var(--red);font-weight:700}
+.prog-card{border-top:3px solid var(--accent)}
+.progflds{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:12px;margin:12px 0 4px}
+.progflds .f .k{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);font-weight:700}
+.progflds .f .v{font-size:15px;font-weight:800;color:var(--ink);margin-top:2px}
+.prog-track{height:9px;background:#eef1f2;border-radius:6px;overflow:hidden;margin-top:6px}
+.prog-fill{height:100%;background:var(--accent);border-radius:6px}
+.prow{padding:13px 0;border-top:1px dashed var(--border)}
+.prow:first-child{border-top:0}
+.prow .ph{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline}
+.prow .pn{font-weight:800;color:var(--ink);font-size:14px}
+.prow .pmeta{font-size:12px;color:var(--ink-2);margin-top:2px}
+.prow .pexec{font-size:12px;color:var(--ink);margin-top:4px;font-weight:600}
+.motivo{font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:6px;padding:3px 8px;background:#eef1f2;color:var(--ink-2);white-space:nowrap}
+.callout{background:var(--amber-soft);border:1px solid #f0d9ac;border-radius:var(--radius);padding:14px 16px;color:#7a4c08;font-size:13px;margin:16px 0 0;line-height:1.6}
+.tcards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.tcard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.tcard .ag{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:700}
+.tcard .vv{font-size:16px;font-weight:800;margin-top:4px;color:var(--ink)}
+.tcard .info{font-size:12px;color:var(--ink-2);margin-top:6px;line-height:1.5}
+.tcard .tg{display:inline-block;margin-top:9px;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:6px;padding:3px 8px}
+.tg.baixa{background:var(--green-soft);color:var(--green)}
+.tg.const{background:var(--accent-soft);color:var(--accent-dark)}
+.tg.iso{background:#eef1f2;color:var(--ink-2)}
+.flowcards{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.src-foot{margin-top:26px;padding-top:14px;border-top:1px solid var(--border);font-size:11.5px;color:var(--ink-3);line-height:1.6}
 
 footer{border-top:1px solid var(--border);padding:26px 24px 50px;color:var(--ink-3);font-size:12px;text-align:center;line-height:1.7;max-width:1180px;margin:0 auto}
 footer b{color:var(--ink-2);font-weight:600}
@@ -166,8 +195,9 @@ footer b{color:var(--ink-2);font-weight:600}
   header p.sub{font-size:14px}
   .nwrap,main,footer{padding-left:16px;padding-right:16px}
   .cards2{grid-template-columns:1fr}
-  .nav-actions input[type=search]{width:120px}
+  .nav-actions input[type=search]{width:110px}
   .cal-date{min-width:78px}
+  table.mtx{font-size:12px}
 }
 </style>
 </head>
@@ -198,26 +228,21 @@ footer b{color:var(--ink-2);font-weight:600}
 </nav>
 
 <main>
-  <!-- ============ ABA 1: NOTÍCIAS ============ -->
   <div id="view-noticias">
     <div class="grid kpis" id="kpis"></div>
     <div class="subtabs" id="sectorTabs"></div>
     <div class="filternote" id="filternote"></div>
     <div id="content"></div>
   </div>
-
-  <!-- ============ ABA 2: CALENDÁRIO ============ -->
   <div id="view-calendario" style="display:none"></div>
-
-  <!-- ============ ABA 3: RECOMPRA ============ -->
-  <div id="view-recompra" style="display:none"></div>
+  <div id="view-dor" style="display:none"></div>
+  <div id="view-loc" style="display:none"></div>
 </main>
 
 <footer>
-  Edição do analista · uso interno. <b>Notícias</b>: clipping por setor, janela dos últimos 3 dias. <b>Calendário</b>: agenda de RI (conference calls e eventos) e monitoramento de comunicados/fatos relevantes de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer. <b>Recompra</b>: em construção.
+  Edição do analista · uso interno. <b>Notícias</b>: clipping por setor (janela de 3 dias). <b>Calendário</b>: agenda de RI e fatos relevantes de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer. <b>Recompra D'Or / Localiza</b>: programas de recompra, execução, cancelamento e negócios de insiders (CVM Res. 44, art. 11) — réplica do dossiê CVM.
 </footer>
 
-<!-- Settings panel (edição da lista de notícias) -->
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
 <aside class="panel" id="panel">
   <header>
@@ -231,26 +256,20 @@ footer b{color:var(--ink-2);font-weight:600}
       <input id="newCompany" type="text" placeholder="Nova empresa (ex: WEG)">
       <select id="newSector"></select>
     </div>
-    <div class="addrow">
-      <button class="btn-solid" onclick="addCompany()">Adicionar empresa</button>
-    </div>
-
+    <div class="addrow"><button class="btn-solid" onclick="addCompany()">Adicionar empresa</button></div>
     <h4>Fontes / veículos</h4>
     <div style="font-size:12px;color:var(--ink-3);margin-bottom:6px">Desmarque para esconder notícias de um veículo.</div>
     <div id="sourceList"></div>
-
-    <div class="addrow">
-      <button class="btn-ghost" onclick="resetAll()">Restaurar padrão</button>
-    </div>
+    <div class="addrow"><button class="btn-ghost" onclick="resetAll()">Restaurar padrão</button></div>
     <div class="note">As mudanças valem na hora para o que é exibido. A busca automática diária passa a usar a lista nova na próxima execução.</div>
   </div>
 </aside>
 
 <script>
 // ====================================================================
-//  DADOS — NOTÍCIAS (busca de 12/07/2026)
+//  DADOS — NOTÍCIAS (busca de 10/07/2026)
 // ====================================================================
-const LAST_UPDATED = "2026-07-12";
+const LAST_UPDATED = "2026-07-10";
 const MAX_DAYS = 3;
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -261,41 +280,36 @@ const DEFAULT_COMPANIES = [
   ["Embraer","Aviação"]
 ];
 
-// r = array de parágrafos (2)
 const NEWS = {
-"Localiza":[],
-"Movida":[],
-"Rede D'Or":[],
-"SulAmérica":[],
-"Hapvida":[],
-"Fleury":[],
-"Amil":[],
+"Localiza":[],"Movida":[],"Rede D'Or":[],"SulAmérica":[],"Hapvida":[],"Fleury":[],"Amil":[],
 "Oncoclínicas":[
- {h:"Oncoclínicas (ONCO3) confirma tratativas para recuperação extrajudicial e ações caem quase 17%",f:"Seu Dinheiro",d:"2026-07-09",u:"https://www.seudinheiro.com/2026/empresas/oncoclinicas-onco3-confirma-tratativas-para-recuperacao-extrajudicial-mas-diz-que-nao-ha-data-definida-kaes/",r:[
-  "A Oncoclínicas confirmou, em fato relevante divulgado na noite de 8 de julho, que mantém tratativas para estruturar um eventual plano de recuperação extrajudicial, mas afirmou que ainda não há data definida para o protocolo do pedido. O comunicado respondeu a coluna de Lauro Jardim (O Globo), segundo a qual o documento já contaria com adesão de um terço dos credores, com meta de chegar a 50% em até 30 dias; no pregão de 9 de julho as ações caíam cerca de 17%, negociadas a R$ 0,88.",
-  "A crise decorre de uma expansão malsucedida em hospitais após o IPO de 2021: a dívida líquida encerrou março em R$ 3,2 bilhões, a alavancagem subiu para 5,2x Ebitda e a companhia reportou prejuízo de R$ 438,7 milhões no 1T26, com receita líquida em queda de 22,3%. As assembleias de debenturistas marcadas para 6 de julho não atingiram quórum, deixando sem solução a reestruturação de R$ 1,5 bilhão em debêntures (vencimentos entre 2027 e 2029); a empresa recorreu a empréstimo emergencial de R$ 150 milhões da Lumina Capital para reforçar a liquidez."]}
+ {h:"Oncoclínicas (ONCO3) confirma tratativas para recuperação extrajudicial e ações desabam",f:"Seu Dinheiro",d:"2026-07-09",u:"https://www.seudinheiro.com/2026/empresas/oncoclinicas-onco3-confirma-tratativas-para-recuperacao-extrajudicial-mas-diz-que-nao-ha-data-definida-kaes/",r:[
+  "A Oncoclínicas confirmou, em fato relevante divulgado na noite de 8 de julho, que mantém tratativas para estruturar um plano de recuperação extrajudicial, embora afirme que ainda não há data definida para o protocolo. O comunicado respondeu a reportagem do colunista Lauro Jardim (O Globo), segundo a qual o pedido já contaria com adesão de um terço dos credores; no pregão de 9 de julho as ações caíram cerca de 17%, negociadas a R$ 0,88.",
+  "A crise decorre de uma expansão malsucedida em hospitais após o IPO de 2021: a dívida líquida encerrou março em R$ 3,2 bilhões, a alavancagem subiu para 5,2x Ebitda e a companhia reportou prejuízo de R$ 438,7 milhões no 1T26. Duas assembleias de debenturistas convocadas para 6 de julho não atingiram quórum, deixando a reestruturação sem solução imediata."]}
 ],
 "BYD":[],
-"GWM":[],
-"Volkswagen":[
- {h:"Volkswagen aprova plano global de reestruturação e vai cortar modelos de baixa demanda",f:"Diário do Grande ABC",d:"2026-07-10",u:"https://www.dgabc.com.br/Noticia/4334511/volkswagen-acelera-reestruturacao-e-cortara-modelos-de-baixa-demanda",r:[
-  "O conselho de supervisão da Volkswagen aprovou em 9 de julho o plano global de reestruturação, criado para enfrentar a crise iniciada em 2024, e a montadora confirmou que vai retirar de linha modelos de baixo volume de vendas. O CEO Oliver Blume disse que é preciso eliminar a capacidade excedente e reduzir o número de versões para simplificar o portfólio e cortar custos — especula-se a extinção de cerca de 50% da gama atual; já estão confirmados os fins de Audi A1 e Q2, além de VW Touran e T-Roc Cabriolet, com redução de plataformas e arquiteturas eletrônicas.",
-  "O grupo afirmou que pretende produzir 9 milhões de veículos por ano (ante meta pré-pandemia de 12 milhões e 10 milhões mais recentemente) e planeja ao menos 20 lançamentos entre todas as marcas em 2026, concentrando investimentos nos modelos de maior demanda. A VW já mencionou cortes de até 50 mil postos até 2030 (35 mil só na marca Volkswagen); até o momento, nada do que foi anunciado afeta o mercado brasileiro."]}
+"GWM":[
+ {h:"GWM Brasil vence os prêmios Smart Customer 2026 e ClienteSA com estratégia de pós-venda",f:"Guru dos Carros",d:"2026-07-07",u:"https://gurudoscarros.com.br/2026/07/07/estrategia-de-pos-venda-da-gwm-rende-dois-premios-no-brasil/",r:[
+  "A GWM Brasil conquistou os prêmios Smart Customer 2026 e ClienteSA pela sua estratégia de Customer Care, em parceria com a Bosch Service Solutions. Segundo Daniel Conte, diretor de Pós-Venda, a operação foi estruturada desde o início das atividades da montadora no país para conectar consumidores, concessionárias e equipes internas.",
+  "O reconhecimento chega em meio à rápida expansão da GWM no Brasil, que amplia rede de concessionárias, vendas digitais e portfólio eletrificado. Fortalecer o pós-venda é peça-chave para sustentar reputação e recompra à medida que o volume de vendas cresce."]}
 ],
-"Stellantis":[],
-"GM":[],
-"Hyundai":[],
-"Toyota":[],
-"Embraer":[]
+"Volkswagen":[
+ {h:"Volkswagen define híbrido flex pleno (HEV) para o Brasil, com rodar elétrico urbano sem recarga externa",f:"Guru dos Carros",d:"2026-07-07",u:"https://gurudoscarros.com.br/2026/07/07/volkswagen-ja-tem-estrategia-definida-para-seus-hibridos-no-brasil/",r:[
+  "Como parte do plano de R$ 20 bilhões na América do Sul, a Volkswagen desenvolve uma motorização híbrida plena (HEV) flex baseada no motor 1.5 TSI evo2, com dois motores elétricos e bateria de 1,6 kWh. Em velocidades de até 55 km/h o veículo priorizará a tração elétrica; previstas duas calibrações, de 136 cv e 170 cv.",
+  "A nova propulsão será um dos pilares da renovação da linha de SUVs, que prevê cinco modelos nacionais até 2030. A aposta em híbrido flex, sem depender de infraestrutura de recarga, reforça a estratégia de eletrificação da VW frente às montadoras chinesas."]}
+],
+"Stellantis":[
+ {h:"Stellantis lidera vendas no Brasil e na América do Sul no 1º semestre de 2026",f:"O Tempo",d:"2026-07-08",u:"https://www.otempo.com.br/minas-sa/2026/7/8/stellantis-e-suas-marcas-lideram-vendas-no-brasil-e-na-america-do-sul-no-primeiro-semestre-de-2026",r:[
+  "A Stellantis encerrou o 1º semestre de 2026 na liderança de automóveis e comerciais leves no Brasil, Argentina e América do Sul, com cerca de 480 mil veículos emplacados na região (20,3% de participação). No Brasil foram mais de 372 mil unidades e 27,3% de market share.",
+  "A Fiat manteve a liderança nacional com mais de 270 mil veículos e a Strada como o carro mais vendido do país. Para sustentar o crescimento, a companhia anunciou mais de 1.400 vagas em Betim (MG) e um segundo turno em Porto Real (RJ) com a produção do novo Avenger."]}
+],
+"GM":[],"Hyundai":[],"Toyota":[],"Embraer":[]
 };
 
 // ====================================================================
-//  DADOS — CALENDÁRIO (RI): Localiza, Movida, Rede D'Or, Bradesco Saúde, Embraer
-//  Fonte de cada evento indicada em "obs". Datas "previstas" vêm de agenda
-//  de mercado (a confirmar no RI); Localiza é confirmada no próprio RI.
+//  DADOS — CALENDÁRIO (RI)
 // ====================================================================
 const CAL_COMPANIES = ["Localiza","Movida","Rede D'Or","Bradesco Saúde","Embraer"];
-
 const IR = {
   "Localiza":     {cal:"https://ri.localiza.com/en/ir-services/calendar-of-events/", com:"https://ri.localiza.com/", ticker:"RENT3"},
   "Movida":       {cal:"https://ri.movida.com.br/servicos-aos-investidores/calendario-de-eventos/", com:"https://ri.movida.com.br/", ticker:"MOVI3"},
@@ -303,9 +317,6 @@ const IR = {
   "Bradesco Saúde":{cal:"https://www.bradescori.com.br/en/market-information/events-calendar/", com:"https://www.bradescori.com.br/", ticker:"BBDC4 (Banco Bradesco)"},
   "Embraer":      {cal:"https://ri.embraer.com.br/en/events-e-news/events-calendar/", com:"https://ri.embraer.com.br/", ticker:"EMBR3"}
 };
-
-// kind: res (divulgação de resultados) | web (webcast/teleconferência) | conf (conferência) | oth (outros)
-// confirmed: true = confirmado no RI; false = previsto (agenda de mercado)
 const EVENTS = [
   {co:"Localiza",      d:"2026-08-06", kind:"res", title:"Divulgação de resultados 2T26", time:"18:00", confirmed:true,  obs:"Após o fechamento · fonte: RI Localiza"},
   {co:"Localiza",      d:"2026-08-07", kind:"web", title:"Webinar de resultados 2T26",    time:"11:00", confirmed:true,  obs:"Fonte: RI Localiza"},
@@ -315,11 +326,8 @@ const EVENTS = [
   {co:"Movida",        d:"2026-08-12", kind:"res", title:"Divulgação de resultados 2T26", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI"},
   {co:"Rede D'Or",     d:"2026-08-12", kind:"res", title:"Divulgação de resultados 2T26", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI"}
 ];
-
-// Comunicados / Fatos Relevantes recentes (verificados). Se vazio → nenhum novo detectado.
 const COMUNICADOS = {
-  "Localiza":[],
-  "Movida":[],
+  "Localiza":[], "Movida":[],
   "Rede D'Or":[
     {d:"2026-07-08", title:"Pagamento de JCP de R$ 400 milhões (R$ 0,1832/ação)", u:"https://br.advfn.com/jornal/2026/06/rede-d-or-aprova-pagamento-de-r-400-milhoes-em-jcp-investidores-acompanham-impacto-nos-dividendos-e-fluxo-de-caixa", src:"ADVFN", note:"Aprovado em jun/26; posição-base 25/06, ações 'ex' desde 26/06."}
   ],
@@ -330,57 +338,135 @@ const COMUNICADOS = {
 };
 
 // ====================================================================
+//  DADOS — RECOMPRA (réplica do dossiê CVM · dados de 10/07/2026)
+//  Fonte: IPE, VLMO, DFP & ITR da CVM (dossiê de R. Lavourinha).
+// ====================================================================
+const BUYBACK = {
+ "dor":{
+   ticker:"RDOR3", name:"Rede D'Or São Luiz", sub:"Saúde · Hospitais",
+   src:"https://rlavourinha.github.io/dossie-cvm/",
+   meta:"CNPJ 06.047.087/0001-39 · Tesouraria <b>60.084.941 ações</b> (jun/26) · dados de 10/07/2026",
+   kpis:[
+     {v:"4", l:"Programas de recompra", s:"aprovados"},
+     {v:"62.990.400", l:"Ações recompradas", s:"executado · concluídos"},
+     {v:"+R$ 2,20 bi", l:"Fluxo CVM 44 líquido", s:"à vista · compras − vendas", cls:"pos"},
+     {v:"R$ 2,97 bi", l:"Volume CVM 44", s:"à vista · 153 negócios"}
+   ],
+   matrix:[
+     {ag:"Tesouraria", sub:"Recompra", cells:["▲ R$ 467 mi","▲ R$ 925 mi","▲ R$ 925 mi","▲ R$ 925 mi"]},
+     {ag:"Controlador", sub:"Acionista controlador", cells:["—","▲ R$ 1,28 bi","▲ R$ 1,28 bi","▲ R$ 1,28 bi"]},
+     {ag:"Diretores", sub:"Diretoria", cells:["—","▲ R$ 1 mi · ▼ R$ 7 mi","▲ R$ 1 mi · ▼ R$ 7 mi","▲ R$ 1 mi · ▼ R$ 72 mi"]},
+     {ag:"Conselho", sub:"Conselho de adm.", cells:["—","—","—","—"]}
+   ],
+   current:{n:"Programa 4", ini:"10/06/2026", venc:"10/06/2027", prazo:"12 meses", limA:"30.000.000", limV:"R$ 1,00 bi", exec:"11.386.100 ações", pct:38, avg:"R$ 33,86"},
+   programs:[
+     {n:"Programa 3", per:"15/12/2025 → 10/06/2026", lim:"até 20.000.000 ações · até R$ 1,00 bi", exec:"14.725.400", pct:74, val:"R$ 540 mi · R$ 36,64 méd", by:"DECISÃO DO CONSELHO"},
+     {n:"Programa 2", per:"13/12/2024 → 15/12/2025", lim:"até 30.000.000 ações · até R$ 1,00 bi", exec:"18.265.000", pct:61, val:"R$ 500 mi · R$ 27,37 méd", by:"FIM DO PRAZO", note:"rotulado \"Programa 1\" no dossiê original"},
+     {n:"Programa 1", per:"11/06/2024 → 13/12/2024", lim:"até 30.000.000 ações · até R$ 1,00 bi", exec:"30.000.000", pct:100, val:"R$ 818 mi · R$ 27,26 méd", by:"LIMITE DE AÇÕES"}
+   ],
+   cancel:"Cancelamento de <b>49.000.000 ações</b> em tesouraria em 10/06/2026 (redução de capital — não é venda). Saíram da tesouraria sem ir ao mercado.",
+   treasury:"Saldo de tesouraria no balanço (custo): pico de <b>R$ 2,1 bi</b> em 31/03/2026; hoje R$ 2,1 bi. O cancelamento de 49M (Fato Relevante, 10/06/2026) ainda não entrou nos balanços — projeção de queda para ≈ R$ 0,4 bi no próximo ITR.",
+   flow:{since:"dez/20", items:[{ag:"Controlador",v:"+R$ 2,54 bi",pos:true},{ag:"Conselho",v:"−R$ 142 mi",pos:false},{ag:"Diretor",v:"−R$ 195 mi",pos:false}], neg:"153 negócios à vista"},
+   timing:[
+     {ag:"Tesouraria", vv:"74.376.500 ações · R$ 2,24 bi", info:"preço médio R$ 30,15 · mais barato que 66% dos pregões", tag:"COMPRA NA BAIXA", tg:"baixa"},
+     {ag:"Controlador", vv:"82.294.641 ações · R$ 2,57 bi", info:"preço médio R$ 31,27 · mais barato que 42% dos pregões", tag:"COMPRA CONSTANTE", tg:"const"},
+     {ag:"Conselho", vv:"330.000 ações · R$ 10 mi", info:"preço médio R$ 30,48 · evento isolado", tag:"EVENTO ISOLADO", tg:"iso"}
+   ],
+   trades:[
+     ["29/05/2026","Controlador","COMPRA","1.056.500","R$ 33,91","R$ 35,8 mi"],
+     ["28/05/2026","Controlador","COMPRA","1.017.441","R$ 34,89","R$ 35,5 mi"],
+     ["18/05/2026","Controlador","COMPRA","1.763.700","R$ 34,76","R$ 61,3 mi"],
+     ["15/05/2026","Controlador","COMPRA","2.584.400","R$ 34,69","R$ 89,7 mi"],
+     ["13/05/2026","Controlador","COMPRA","2.637.300","R$ 35,33","R$ 93,2 mi"],
+     ["12/05/2026","Controlador","COMPRA","2.032.400","R$ 36,04","R$ 73,2 mi"],
+     ["11/05/2026","Controlador","COMPRA","2.500.000","R$ 36,33","R$ 90,8 mi"],
+     ["07/05/2026","Controlador","COMPRA","3.386.500","R$ 37,67","R$ 127,6 mi"],
+     ["03/03/2026","Controlador","COMPRA","4.436.800","R$ 38,64","R$ 171,4 mi"],
+     ["27/02/2026","Controlador","COMPRA","2.875.700","R$ 40,80","R$ 117,3 mi"],
+     ["03/02/2026","Diretor","VENDA","50.000","R$ 43,68","R$ 2,2 mi"]
+   ],
+   leitura:{warn:false, txt:"Sinal fortemente comprador e alinhado: a empresa recomprou ~R$ 925 mi em 12 meses e o controlador comprou +R$ 1,28 bi no mesmo período (+R$ 2,54 bi desde dez/20), ainda cancelando 49M de ações. A diretoria vende pouco. Na prática, o próprio dono trata o papel como barato."}
+ },
+ "loc":{
+   ticker:"RENT3", name:"Localiza Rent a Car", sub:"Aluguel de carros · Mobilidade",
+   src:"https://rlavourinha.github.io/dossie-cvm/rent3.html",
+   meta:"CNPJ 16.670.085/0001-55 · Tesouraria <b>18.584.089 ações</b> (jun/26) · dados de 10/07/2026",
+   kpis:[
+     {v:"9", l:"Programas de recompra", s:"aprovados (nº 9 a 17)"},
+     {v:"29.446.205", l:"Ações recompradas", s:"executado · concluídos"},
+     {v:"−R$ 867,8 mi", l:"Fluxo CVM 44 líquido", s:"à vista · compras − vendas", cls:"neg"},
+     {v:"R$ 1,20 bi", l:"Volume CVM 44", s:"à vista · 780 negócios"}
+   ],
+   matrix:[
+     {ag:"Tesouraria", sub:"Recompra", cells:["—","▲ R$ 10 mi","▲ R$ 10 mi","▲ R$ 13 mi"]},
+     {ag:"Controlador", sub:"Acionista controlador", cells:["—","—","—","—"]},
+     {ag:"Diretores", sub:"Diretoria", cells:["—","▲ R$ 679 mil · ▼ R$ 2 mi","▲ R$ 679 mil · ▼ R$ 2 mi","▲ R$ 679 mil · ▼ R$ 3 mi"]},
+     {ag:"Conselho", sub:"Conselho de adm.", cells:["—","▲ R$ 43 mi · ▼ R$ 25 mi","▲ R$ 43 mi · ▼ R$ 25 mi","▲ R$ 96 mi · ▼ R$ 25 mi"]}
+   ],
+   current:{n:"Programa 17", ini:"20/01/2026", venc:"20/01/2027", prazo:"12 meses", limA:"72.000.000", limV:"—", exec:"239.877 ações", pct:1, avg:"—"},
+   programs:[
+     {n:"Programa 16", per:"23/07/2024 → 20/01/2026", lim:"até 87.000.000 ações", exec:"18.441.999", pct:21, val:"R$ 763 mi · R$ 41,37 méd", by:"FIM DO PRAZO"},
+     {n:"Programa 15", per:"23/07/2023 → 23/07/2024", lim:"até 70.000.000 ações", exec:"5.453.814", pct:8, val:"R$ 317 mi · R$ 58,17 méd", by:"FIM DO PRAZO"},
+     {n:"Programa 14", per:"23/07/2022 → 23/07/2023", lim:"até 50.000.000 ações", exec:"12.838", pct:0, val:"R$ 689 mil · R$ 53,64 méd", by:"FIM DO PRAZO"},
+     {n:"Programa 13", per:"23/07/2021 → 23/07/2022", lim:"até 50.000.000 ações", exec:"196.662", pct:0, val:"R$ 10 mi · R$ 53,15 méd", by:"FIM DO PRAZO"},
+     {n:"Programa 12", per:"23/07/2020 → 23/07/2021", lim:"até 50.000.000 ações", exec:"0", pct:0, val:"—", by:"FIM DO PRAZO"},
+     {n:"Programa 11", per:"23/07/2019 → 23/07/2020", lim:"até 50.000.000 ações", exec:"5.340.892", pct:11, val:"R$ 189 mi · R$ 35,36 méd", by:"FIM DO PRAZO"},
+     {n:"Programa 10", per:"23/07/2018 → 23/07/2019", lim:"até 43.000.000 ações", exec:"sem dado", pct:null, val:"—", by:"SEM DADO DE EXECUÇÃO"},
+     {n:"Programa 9",  per:"23/07/2017 → 23/07/2018", lim:"até 13.000.000 ações", exec:"sem dado", pct:null, val:"—", by:"SEM DADO DE EXECUÇÃO"}
+   ],
+   cancel:"",
+   treasury:"Saldo de tesouraria no balanço (custo): pico de <b>R$ 1,2 bi</b> em 31/12/2024; hoje R$ 1,2 bi (série DFP/ITR desde 2010).",
+   flow:{since:"abr/19", items:[{ag:"Controlador",v:"−R$ 483 mi",pos:false},{ag:"Conselho",v:"−R$ 360 mi",pos:false},{ag:"Diretor",v:"−R$ 24 mi",pos:false}], neg:"780 negócios à vista"},
+   timing:[
+     {ag:"Tesouraria", vv:"31.065.999 ações · R$ 1,33 bi", info:"preço médio R$ 42,75 · mais barato que 71% dos pregões", tag:"COMPRA NA BAIXA", tg:"baixa"},
+     {ag:"Controlador", vv:"361.612 ações · R$ 14 mi", info:"preço médio R$ 38,86 · mais barato que 66% dos pregões", tag:"COMPRA NA BAIXA", tg:"baixa"},
+     {ag:"Conselho", vv:"3.315.810 ações · R$ 142 mi", info:"preço médio R$ 42,92 · mais barato que 67% dos pregões", tag:"COMPRA NA BAIXA", tg:"baixa"}
+   ],
+   trades:[
+     ["29/05/2026","Conselho","COMPRA","24.300","R$ 40,28","R$ 979 mil"],
+     ["29/05/2026","Conselho","VENDA","24.300","R$ 41,81","R$ 1,0 mi"],
+     ["28/05/2026","Conselho","VENDA","10.600","R$ 42,92","R$ 455 mil"],
+     ["26/05/2026","Conselho","COMPRA","10.900","R$ 42,17","R$ 460 mil"],
+     ["26/05/2026","Conselho","COMPRA","10.700","R$ 41,43","R$ 443 mil"],
+     ["26/05/2026","Conselho","VENDA","10.900","R$ 43,68","R$ 476 mil"],
+     ["25/05/2026","Conselho","COMPRA","2.500","R$ 42,53","R$ 106 mil"],
+     ["22/05/2026","Conselho","COMPRA","2.600","R$ 41,56","R$ 108 mil"]
+   ],
+   leitura:{warn:true, txt:"Sinal oposto ao da Rede D'Or: controlador e administração são vendedores líquidos (−R$ 868 mi à vista desde 2019) e a recompra recente é modesta (R$ 13 mi em 12 meses). A tesouraria histórica é relevante (R$ 1,33 bi, comprando abaixo da média em 71% dos pregões), mas o fluxo de insider hoje não acompanha."}
+ }
+};
+
+// ====================================================================
 //  ESTADO
 // ====================================================================
 const LS_KEY = "clipping_config_v2";
 let config = loadConfig();
-let mainTab = "noticias";   // noticias | calendario | recompra
-let activeTab = "Todos";    // sub-aba de setor (dentro de Notícias)
-
-function defaultConfig(){
-  return { companies: DEFAULT_COMPANIES.map(([name,sector]) => ({name, sector})), hiddenSources: {} };
-}
-function loadConfig(){
-  try{ const s = JSON.parse(localStorage.getItem(LS_KEY)); if(s && s.companies) return s; }catch(e){}
-  return defaultConfig();
-}
+let mainTab = "noticias";
+let activeTab = "Todos";
+function defaultConfig(){ return { companies: DEFAULT_COMPANIES.map(([name,sector]) => ({name, sector})), hiddenSources: {} }; }
+function loadConfig(){ try{ const s=JSON.parse(localStorage.getItem(LS_KEY)); if(s&&s.companies) return s; }catch(e){} return defaultConfig(); }
 function saveConfig(){ localStorage.setItem(LS_KEY, JSON.stringify(config)); }
 
-// ====================================================================
-//  HELPERS
-// ====================================================================
-function daysOld(dateStr){
-  const today=new Date(); today.setHours(0,0,0,0);
-  const d=new Date(dateStr+"T00:00:00");
-  return Math.floor((today-d)/86400000);
-}
+// ---------- HELPERS ----------
+function daysOld(dateStr){ const t=new Date(); t.setHours(0,0,0,0); const d=new Date(dateStr+"T00:00:00"); return Math.floor((t-d)/86400000); }
 function fmtDate(s){ const [y,m,d]=s.split("-"); return `${d}/${m}/${y}`; }
 const MESES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
 const MESES_ABREV=["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
 const SEMANA=["dom","seg","ter","qua","qui","sex","sáb"];
 function fmtLong(s){ const [y,m,d]=s.split("-"); return `${parseInt(d)} de ${MESES[parseInt(m)-1]} de ${y}`; }
 function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
+function arrows(s){ return esc(s).replace(/▲/g,'<span class="up">▲</span>').replace(/▼/g,'<span class="down">▼</span>'); }
 function paras(r){ return Array.isArray(r)?r:[r]; }
 function sendPromptSafe(t){ if(typeof sendPrompt==="function") sendPrompt(t); else alert("Peça no chat: \"atualizar o clipping\"."); }
-function allSources(){
-  const set=new Set();
-  config.companies.forEach(c=>(NEWS[c.name]||[]).forEach(n=>set.add(n.f)));
-  return [...set].sort((a,b)=>a.localeCompare(b,'pt-BR'));
-}
-function liveItems(name){
-  return (NEWS[name]||[]).filter(n=>daysOld(n.d)<=MAX_DAYS && !config.hiddenSources[n.f])
-                         .sort((a,b)=>b.d.localeCompare(a.d));
-}
+function allSources(){ const set=new Set(); config.companies.forEach(c=>(NEWS[c.name]||[]).forEach(n=>set.add(n.f))); return [...set].sort((a,b)=>a.localeCompare(b,'pt-BR')); }
+function liveItems(name){ return (NEWS[name]||[]).filter(n=>daysOld(n.d)<=MAX_DAYS && !config.hiddenSources[n.f]).sort((a,b)=>b.d.localeCompare(a.d)); }
 
-// ====================================================================
-//  ABAS PRINCIPAIS
-// ====================================================================
+// ---------- ABAS PRINCIPAIS ----------
 function renderMainTabs(){
   const upcoming = EVENTS.filter(e=>daysOld(e.d)<=0).length;
-  const tabs=[["noticias","Notícias"],["calendario","Calendário"],["recompra","Recompra"]];
+  const tabs=[["noticias","Notícias"],["calendario","Calendário"],["dor","Recompra D'Or"],["loc","Recompra Localiza"]];
   document.getElementById("mainTabs").innerHTML = tabs.map(([id,label])=>{
-    let badge="";
-    if(id==="calendario" && upcoming) badge=` · ${upcoming}`;
+    let badge = (id==="calendario" && upcoming) ? ` · ${upcoming}` : "";
     return `<button class="tabbtn ${id===mainTab?'active':''}" onclick="setMainTab('${id}')">${label}${badge}</button>`;
   }).join("");
 }
@@ -388,20 +474,19 @@ function setMainTab(t){
   mainTab=t;
   document.getElementById("view-noticias").style.display   = t==="noticias"?"":"none";
   document.getElementById("view-calendario").style.display = t==="calendario"?"":"none";
-  document.getElementById("view-recompra").style.display   = t==="recompra"?"":"none";
+  document.getElementById("view-dor").style.display        = t==="dor"?"":"none";
+  document.getElementById("view-loc").style.display        = t==="loc"?"":"none";
   document.getElementById("newsActions").style.display     = t==="noticias"?"":"none";
   renderMainTabs();
   if(t==="calendario") renderCalendar();
-  if(t==="recompra") renderRecompra();
+  if(t==="dor") renderBuyback("dor","view-dor");
+  if(t==="loc") renderBuyback("loc","view-loc");
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-// ====================================================================
-//  ABA 1 — NOTÍCIAS
-// ====================================================================
+// ---------- ABA 1 — NOTÍCIAS ----------
 function renderKpis(){
-  let arts=0;
-  config.companies.forEach(c=>arts+=liveItems(c.name).length);
+  let arts=0; config.companies.forEach(c=>arts+=liveItems(c.name).length);
   const withNews=config.companies.filter(c=>liveItems(c.name).length).length;
   const sectorsUsed=new Set(config.companies.map(c=>c.sector)).size;
   const k=[
@@ -417,28 +502,23 @@ function renderKpis(){
 function renderSectorTabs(){
   const tabs=["Todos",...SECTORS];
   document.getElementById("sectorTabs").innerHTML = tabs.map(t=>{
-    const n = t==="Todos"
-      ? config.companies.reduce((a,c)=>a+liveItems(c.name).length,0)
+    const n = t==="Todos" ? config.companies.reduce((a,c)=>a+liveItems(c.name).length,0)
       : config.companies.filter(c=>c.sector===t).reduce((a,c)=>a+liveItems(c.name).length,0);
     return `<button class="subtab ${t===activeTab?'active':''}" onclick="setTab('${esc(t).replace(/'/g,"\\'")}')">${esc(t)}${n?` · ${n}`:''}</button>`;
   }).join("");
 }
 function setTab(t){ activeTab=t; document.getElementById("search").value=""; renderSectorTabs(); applyView(); }
-
 function articleHTML(n){
-  return `<article class="item">
-    <a class="hl" href="${esc(n.u)}" target="_blank" rel="noopener">${esc(n.h)}</a>
+  return `<article class="item"><a class="hl" href="${esc(n.u)}" target="_blank" rel="noopener">${esc(n.h)}</a>
     <div class="byline"><span class="src">${esc(n.f)}</span> &nbsp;·&nbsp; ${fmtDate(n.d)}</div>
-    ${paras(n.r).map(p=>`<p class="resumo">${esc(p)}</p>`).join("")}
-  </article>`;
+    ${paras(n.r).map(p=>`<p class="resumo">${esc(p)}</p>`).join("")}</article>`;
 }
 function companyCardHTML(c){
   const items=liveItems(c.name);
   const blob=(c.name+" "+items.map(n=>n.h+" "+n.f+" "+paras(n.r).join(" ")).join(" ")).toLowerCase();
   return `<div class="card co-card" data-company="${esc(c.name.toLowerCase())}" data-blob="${esc(blob)}">
     <div class="co-head"><span class="co-name">${esc(c.name)}</span><span class="tick">${esc(c.sector)}</span></div>
-    ${items.map(articleHTML).join("")}
-  </div>`;
+    ${items.map(articleHTML).join("")}</div>`;
 }
 function sectorHTML(sector){
   const comps=config.companies.filter(c=>c.sector===sector);
@@ -446,26 +526,15 @@ function sectorHTML(sector){
   const withNews=comps.filter(c=>liveItems(c.name).length);
   const empty=comps.filter(c=>!liveItems(c.name).length);
   const count=withNews.reduce((a,c)=>a+liveItems(c.name).length,0);
-  let body="";
-  if(withNews.length){
-    body+=`<div class="grid cards2">${withNews.map(companyCardHTML).join("")}</div>`;
-  } else {
-    body+=`<div class="sector-empty">Sem notícias nos últimos ${MAX_DAYS} dias neste setor.</div>`;
-  }
+  let body = withNews.length ? `<div class="grid cards2">${withNews.map(companyCardHTML).join("")}</div>`
+    : `<div class="sector-empty">Sem notícias nos últimos ${MAX_DAYS} dias neste setor.</div>`;
   if(empty.length){
     body+=`<div class="emptyrow"><span class="erlabel">Acompanhadas sem novidade</span>
       <span class="tk">${empty.map(c=>`<span class="tick gray" data-company="${esc(c.name.toLowerCase())}">${esc(c.name)}</span>`).join("")}</span></div>`;
   }
-  return `<section class="sector" data-sector="${esc(sector)}">
-    <h2>${esc(sector)} ${count?`<span class="cnt">${count} matéria(s)</span>`:''}</h2>
-    ${body}
-  </section>`;
+  return `<section class="sector" data-sector="${esc(sector)}"><h2>${esc(sector)} ${count?`<span class="cnt">${count} matéria(s)</span>`:''}</h2>${body}</section>`;
 }
-function renderNews(){
-  const content=document.getElementById("content");
-  content.innerHTML = SECTORS.map(sectorHTML).join("");
-  applyView();
-}
+function renderNews(){ document.getElementById("content").innerHTML = SECTORS.map(sectorHTML).join(""); applyView(); }
 function applyView(){
   const q=(document.getElementById("search").value||"").toLowerCase().trim();
   let shown=0;
@@ -487,123 +556,134 @@ function applyView(){
 }
 function onSearch(){ applyView(); }
 
-// ====================================================================
-//  ABA 2 — CALENDÁRIO (RI)
-// ====================================================================
+// ---------- ABA 2 — CALENDÁRIO ----------
 function kindClass(k){ return k==="res"?"k-res":k==="web"?"k-web":k==="conf"?"k-conf":"k-oth"; }
 function kindLabel(k){ return k==="res"?"Resultados":k==="web"?"Webcast":k==="conf"?"Conferência":"Evento"; }
-
 function agendaRowHTML(e){
-  const [y,m,d]=e.d.split("-");
-  const wd=new Date(e.d+"T00:00:00").getDay();
-  const dd=daysOld(e.d); // <=0 futuro
+  const [y,m,d]=e.d.split("-"); const wd=new Date(e.d+"T00:00:00").getDay(); const dd=daysOld(e.d);
   const countdown = dd===0?"hoje":dd<0?`em ${-dd} dia(s)`:`há ${dd} dia(s)`;
   const pill = e.confirmed?`<span class="pill ok">confirmado</span>`:`<span class="pill prev">previsto</span>`;
   return `<div class="cal-row">
-    <div class="cal-date">
-      <div class="d">${parseInt(d)} ${MESES_ABREV[parseInt(m)-1]}</div>
-      <div class="w">${SEMANA[wd]} · ${y}</div>
-      <div class="cd">${countdown}</div>
-    </div>
-    <div class="cal-main">
-      <div class="cal-title">${esc(e.title)}${e.time?` · ${esc(e.time)}`:''}</div>
-      <div class="evt-badges">
-        <span class="badge-co">${esc(e.co)}</span>
-        <span class="kind ${kindClass(e.kind)}">${kindLabel(e.kind)}</span>
-        ${pill}
-      </div>
-      ${e.obs?`<div class="cal-sub">${esc(e.obs)}</div>`:''}
-    </div>
-  </div>`;
+    <div class="cal-date"><div class="d">${parseInt(d)} ${MESES_ABREV[parseInt(m)-1]}</div><div class="w">${SEMANA[wd]} · ${y}</div><div class="cd">${countdown}</div></div>
+    <div class="cal-main"><div class="cal-title">${esc(e.title)}${e.time?` · ${esc(e.time)}`:''}</div>
+      <div class="evt-badges"><span class="badge-co">${esc(e.co)}</span><span class="kind ${kindClass(e.kind)}">${kindLabel(e.kind)}</span>${pill}</div>
+      ${e.obs?`<div class="cal-sub">${esc(e.obs)}</div>`:''}</div></div>`;
 }
 function coBlockHTML(co){
   const ev = EVENTS.filter(e=>e.co===co && daysOld(e.d)<=0).sort((a,b)=>a.d.localeCompare(b.d));
   const com = (COMUNICADOS[co]||[]).slice().sort((a,b)=>b.d.localeCompare(a.d));
-  const evHTML = ev.length ? ev.map(e=>`
-      <div class="mini">
-        <div class="mt">${esc(e.title)}${e.time?` · ${esc(e.time)}`:''}</div>
-        <div class="md">${fmtDate(e.d)} · ${kindLabel(e.kind)} · ${e.confirmed?'confirmado':'previsto'}</div>
-        ${e.obs?`<div class="mtext">${esc(e.obs)}</div>`:''}
-      </div>`).join("")
+  const evHTML = ev.length ? ev.map(e=>`<div class="mini"><div class="mt">${esc(e.title)}${e.time?` · ${esc(e.time)}`:''}</div>
+        <div class="md">${fmtDate(e.d)} · ${kindLabel(e.kind)} · ${e.confirmed?'confirmado':'previsto'}</div>${e.obs?`<div class="mtext">${esc(e.obs)}</div>`:''}</div>`).join("")
     : `<div class="mini none-note">Nenhum evento futuro publicado no RI.</div>`;
-  const comHTML = com.length ? com.map(c=>`
-      <div class="mini">
-        <div class="mt"><a href="${esc(c.u)}" target="_blank" rel="noopener">${esc(c.title)}</a></div>
-        <div class="md">${fmtDate(c.d)} · ${esc(c.src||'RI')}</div>
-        ${c.note?`<div class="mtext">${esc(c.note)}</div>`:''}
-      </div>`).join("")
+  const comHTML = com.length ? com.map(c=>`<div class="mini"><div class="mt"><a href="${esc(c.u)}" target="_blank" rel="noopener">${esc(c.title)}</a></div>
+        <div class="md">${fmtDate(c.d)} · ${esc(c.src||'RI')}</div>${c.note?`<div class="mtext">${esc(c.note)}</div>`:''}</div>`).join("")
     : `<div class="mini none-note">Nenhum comunicado/fato relevante novo detectado.</div>`;
-  return `<div class="card co-block">
-    <div class="co-head"><span class="co-name">${esc(co)}</span><span class="tick gray">${esc(IR[co].ticker)}</span></div>
-    <div class="sec-h">Agenda — próximos eventos</div>
-    ${evHTML}
-    <div class="sec-h">Comunicados &amp; fatos relevantes</div>
-    ${comHTML}
-    <div class="co-links">
-      <a href="${esc(IR[co].cal)}" target="_blank" rel="noopener">Calendário de RI ↗</a>
-      <a href="${esc(IR[co].com)}" target="_blank" rel="noopener">Comunicados/RI ↗</a>
-    </div>
-  </div>`;
+  return `<div class="card co-block"><div class="co-head"><span class="co-name">${esc(co)}</span><span class="tick gray">${esc(IR[co].ticker)}</span></div>
+    <div class="sec-h">Agenda — próximos eventos</div>${evHTML}
+    <div class="sec-h">Comunicados &amp; fatos relevantes</div>${comHTML}
+    <div class="co-links"><a href="${esc(IR[co].cal)}" target="_blank" rel="noopener">Calendário de RI ↗</a><a href="${esc(IR[co].com)}" target="_blank" rel="noopener">Comunicados/RI ↗</a></div></div>`;
 }
 function renderCalendar(){
   const view=document.getElementById("view-calendario");
   const upcoming = EVENTS.filter(e=>daysOld(e.d)<=0).sort((a,b)=>a.d.localeCompare(b.d));
-  const agenda = upcoming.length
-    ? `<div class="cal-agenda">${upcoming.map(agendaRowHTML).join("")}</div>`
+  const agenda = upcoming.length ? `<div class="cal-agenda">${upcoming.map(agendaRowHTML).join("")}</div>`
     : `<div class="sector-empty">Nenhum evento futuro cadastrado.</div>`;
   view.innerHTML = `
-    <h2>Agenda de RI <span class="cnt">${upcoming.length} evento(s)</span></h2>
-    <p class="lead">Conference calls, divulgações de resultados e outros eventos publicados nos sites de RI de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer. Datas marcadas como <b>confirmado</b> vêm do próprio RI; <b>previsto</b> vem da agenda de mercado e precisa de confirmação.</p>
+    <h2 class="first">Agenda de RI <span class="cnt">${upcoming.length} evento(s)</span></h2>
+    <p class="lead">Conference calls, divulgações de resultados e outros eventos dos sites de RI de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer. <b>Confirmado</b> vem do próprio RI; <b>previsto</b> vem da agenda de mercado.</p>
     ${agenda}
-    <h2 style="margin-top:34px">Por empresa</h2>
-    <p class="lead">Agenda individual e monitoramento de comunicados ao mercado / fatos relevantes. Clique nos links para abrir o RI oficial.</p>
+    <h2>Por empresa</h2>
+    <p class="lead">Agenda individual e monitoramento de comunicados ao mercado / fatos relevantes. Links abrem o RI oficial.</p>
     <div class="grid cards2">${CAL_COMPANIES.map(coBlockHTML).join("")}</div>`;
 }
 
-// ====================================================================
-//  ABA 3 — RECOMPRA (placeholder)
-// ====================================================================
-function renderRecompra(){
-  document.getElementById("view-recompra").innerHTML = `
-    <div class="placeholder">
-      <h3>Monitor de recompra de ações — em construção</h3>
-      <p>Esta aba vai acompanhar os programas de recompra das empresas cobertas: programas aprovados e vigentes, quantidade e % do free float, execução (ações recompradas por período), preço médio e status (aberto/encerrado/cancelado).</p>
-      <p>Vamos configurar os detalhes numa próxima etapa.</p>
-    </div>`;
+// ---------- ABAS 3/4 — RECOMPRA ----------
+function progBar(pct){ if(pct===null||pct===undefined) return ""; const w=Math.max(2,Math.min(100,pct)); return `<div class="prog-track"><div class="prog-fill" style="width:${w}%"></div></div>`; }
+function renderBuyback(key, viewId){
+  const b=BUYBACK[key]; const view=document.getElementById(viewId);
+  const kpis = b.kpis.map(x=>`<div class="kpi"><div class="v ${x.cls||''}">${esc(x.v)}</div><div class="l">${esc(x.l)}</div><div class="s">${esc(x.s)}</div></div>`).join("");
+  const matrix = `<table class="mtx"><thead><tr><th>Agente</th><th>Último mês</th><th>6 meses</th><th>2026 · YTD</th><th>12 meses</th></tr></thead><tbody>`+
+    b.matrix.map(r=>`<tr><td><b>${esc(r.ag)}</b><br><small>${esc(r.sub)}</small></td>${r.cells.map(c=>`<td>${arrows(c)}</td>`).join("")}</tr>`).join("")+`</tbody></table>`;
+  const cur=b.current;
+  const curCard = `<div class="card prog-card">
+    <div class="co-head"><span class="co-name">${esc(cur.n)}</span><span class="pill ok">em andamento</span></div>
+    <div class="progflds">
+      <div class="f"><div class="k">Início</div><div class="v">${esc(cur.ini)}</div></div>
+      <div class="f"><div class="k">Vencimento</div><div class="v">${esc(cur.venc)}</div></div>
+      <div class="f"><div class="k">Prazo</div><div class="v">${esc(cur.prazo)}</div></div>
+      <div class="f"><div class="k">Limite de ações</div><div class="v">${esc(cur.limA)}</div></div>
+      <div class="f"><div class="k">Limite de valor</div><div class="v">${esc(cur.limV)}</div></div>
+      <div class="f"><div class="k">Executado</div><div class="v">${esc(cur.exec)}</div></div>
+      <div class="f"><div class="k">Preço médio</div><div class="v">${esc(cur.avg)}</div></div>
+      <div class="f"><div class="k">% do limite</div><div class="v">${cur.pct}%</div></div>
+    </div>${progBar(cur.pct)}</div>`;
+  const progList = `<div class="card">`+ b.programs.map(p=>`<div class="prow">
+      <div class="ph"><span class="pn">${esc(p.n)}</span><span class="motivo">${esc(p.by)}</span></div>
+      <div class="pmeta">${esc(p.per)} · ${esc(p.lim)}</div>
+      <div class="pexec">Executado ${esc(p.exec)}${p.pct!==null?` (${p.pct}%)`:''}${p.val&&p.val!=="—"?` · ${esc(p.val)}`:''}</div>
+      ${progBar(p.pct)}${p.note?`<div class="pmeta" style="margin-top:4px;color:var(--ink-3)">${esc(p.note)}</div>`:''}
+    </div>`).join("") + `</div>`;
+  const cancelHTML = b.cancel ? `<div class="callout"><b>Cancelamento de ações em tesouraria.</b> ${b.cancel}</div>` : "";
+  const treasuryHTML = `<div class="card" style="border-top:3px solid var(--blue)"><div class="co-head"><span class="co-name">Ações em tesouraria no tempo</span><span class="tick gray">DFP + ITR</span></div><p class="resumo" style="margin-top:6px">${b.treasury}</p></div>`;
+  const flowCards = b.flow.items.map(i=>`<div class="tcard"><div class="ag">${esc(i.ag)}</div><div class="vv" style="color:${i.pos?'var(--green)':'var(--red)'}">${esc(i.v)}</div></div>`).join("");
+  const tradeRows = b.trades.map(t=>`<tr><td>${esc(t[0])}</td><td>${esc(t[1])}</td><td class="${t[2]==='COMPRA'?'up':'down'}">${esc(t[2])}</td><td class="num">${esc(t[3])}</td><td class="num">${esc(t[4])}</td><td class="num">${esc(t[5])}</td></tr>`).join("");
+  const tradesTable = `<table class="mtx"><thead><tr><th>Data</th><th>Órgão</th><th>Operação</th><th>Qtde</th><th>Preço</th><th>Valor</th></tr></thead><tbody>${tradeRows}</tbody></table>`;
+  const timingCards = b.timing.map(t=>`<div class="tcard"><div class="ag">${esc(t.ag)}</div><div class="vv">${esc(t.vv)}</div><div class="info">${esc(t.info)}</div><span class="tg ${t.tg}">${esc(t.tag)}</span></div>`).join("");
+
+  view.innerHTML = `
+    <h2 class="first">${esc(b.name)} <span class="cnt">${esc(b.ticker)}</span></h2>
+    <div class="meta-line">${esc(b.sub)} · ${b.meta}</div>
+    <div class="leitura ${b.leitura.warn?'warn':''}"><b>Leitura:</b> ${esc(b.leitura.txt)}</div>
+
+    <div class="grid kpis">${kpis}</div>
+
+    <h2>Movimentações recentes</h2>
+    <p class="lead">Compras ▲ e vendas ▼ por agente, em quatro janelas até 10/07/2026. Tesouraria = recompra; Controlador, Diretores e Conselho = negócios à vista no CVM 44 (Res. 44).</p>
+    ${matrix}
+
+    <h2>Programas de recompra &amp; execução</h2>
+    <p class="lead">Programas autorizados pelo Conselho — o vigente em destaque; os encerrados com o quanto foi efetivamente recomprado e o motivo do encerramento (limite de ações, limite de valor, fim do prazo ou decisão do Conselho).</p>
+    ${curCard}
+    <div style="height:16px"></div>
+    ${progList}
+    ${cancelHTML}
+    <div style="height:16px"></div>
+    ${treasuryHTML}
+
+    <h2>Movimentações CVM 44 (à vista)</h2>
+    <p class="lead">Compras e vendas de mercado declaradas por controlador, administradores e tesouraria (Res. CVM 44, art. 11) — exclui empréstimo, bonificação e plano de remuneração. Fluxo líquido desde ${esc(b.flow.since)} · ${esc(b.flow.neg)}.</p>
+    <div class="grid flowcards" style="margin-bottom:16px">${flowCards}</div>
+    ${tradesTable}
+
+    <h2>Timing de compra × preço</h2>
+    <p class="lead">Quem compra na baixa: preço médio pago por cada grupo e em quantos pregões da janela o papel esteve mais barato que esse preço médio.</p>
+    <div class="grid tcards">${timingCards}</div>
+
+    <div class="src-foot">Réplica do dossiê CVM (recompra + CVM 44 art. 11 + saldo de tesouraria DFP/ITR). Fonte: IPE, VLMO, DFP &amp; ITR da CVM · dados de 10/07/2026. Dossiê original: <a href="${esc(b.src)}" target="_blank" rel="noopener">${esc(b.src)}</a></div>`;
 }
 
-// ====================================================================
-//  RENDER GERAL
-// ====================================================================
+// ---------- RENDER GERAL ----------
 function render(){
   document.getElementById("chip-date").textContent = "Atualizado em "+fmtLong(LAST_UPDATED);
-  renderMainTabs();
-  renderKpis();
-  renderSectorTabs();
-  renderNews();
+  renderMainTabs(); renderKpis(); renderSectorTabs(); renderNews();
 }
 
-// ---------- PAINEL (edição de notícias) ----------
+// ---------- PAINEL ----------
 function openPanel(){ buildPanel(); document.getElementById("overlay").classList.add("open"); document.getElementById("panel").classList.add("open"); }
 function closePanel(){ document.getElementById("overlay").classList.remove("open"); document.getElementById("panel").classList.remove("open"); }
 function buildPanel(){
   document.getElementById("companyList").innerHTML = config.companies.map((c,i)=>`
-    <div class="row"><span class="lbl">${esc(c.name)} <small>· ${esc(c.sector)}</small></span>
-    <button class="x" onclick="removeCompany(${i})">remover</button></div>`).join("");
+    <div class="row"><span class="lbl">${esc(c.name)} <small>· ${esc(c.sector)}</small></span><button class="x" onclick="removeCompany(${i})">remover</button></div>`).join("");
   document.getElementById("newSector").innerHTML = SECTORS.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("");
   document.getElementById("sourceList").innerHTML = allSources().map(f=>`
-    <label class="src-line"><input type="checkbox" ${config.hiddenSources[f]?"":"checked"}
-    onchange="toggleSource('${esc(f).replace(/'/g,"\\'")}', this.checked)"> ${esc(f)}</label>`).join("")
+    <label class="src-line"><input type="checkbox" ${config.hiddenSources[f]?"":"checked"} onchange="toggleSource('${esc(f).replace(/'/g,"\\'")}', this.checked)"> ${esc(f)}</label>`).join("")
     || `<div class="note">Nenhuma fonte ainda.</div>`;
 }
 function addCompany(){
-  const name=document.getElementById("newCompany").value.trim();
-  const sector=document.getElementById("newSector").value;
+  const name=document.getElementById("newCompany").value.trim(); const sector=document.getElementById("newSector").value;
   if(!name) return;
   if(config.companies.some(c=>c.name.toLowerCase()===name.toLowerCase())){ alert("Empresa já está na lista."); return; }
-  config.companies.push({name,sector});
-  document.getElementById("newCompany").value="";
-  saveConfig(); buildPanel(); render();
+  config.companies.push({name,sector}); document.getElementById("newCompany").value=""; saveConfig(); buildPanel(); render();
 }
 function removeCompany(i){ config.companies.splice(i,1); saveConfig(); buildPanel(); render(); }
 function toggleSource(f,checked){ if(checked) delete config.hiddenSources[f]; else config.hiddenSources[f]=true; saveConfig(); render(); }
