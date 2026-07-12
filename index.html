@@ -345,6 +345,7 @@ const BUYBACK = {
  "dor":{
    ticker:"RDOR3", name:"Rede D'Or São Luiz", sub:"Saúde · Hospitais",
    src:"https://rlavourinha.github.io/dossie-cvm/",
+   cvm:"Fluxo CVM 44 (Controlador, Conselho e Diretor) apurado direto da base VLMO/2026 da CVM e conferido com o dossiê — bate ao milhão. Tesouraria, programas, cancelamento e timing seguem do dossiê (bases IPE e DFP/ITR, a apurar via CVM).",
    meta:"CNPJ 06.047.087/0001-39 · Tesouraria <b>60.084.941 ações</b> (jun/26) · dados de 10/07/2026",
    kpis:[
      {v:"4", l:"Programas de recompra", s:"aprovados"},
@@ -390,6 +391,7 @@ const BUYBACK = {
  "loc":{
    ticker:"RENT3", name:"Localiza Rent a Car", sub:"Aluguel de carros · Mobilidade",
    src:"https://rlavourinha.github.io/dossie-cvm/rent3.html",
+   cvm:"Fluxo CVM 44 (Controlador, Conselho e Diretor) apurado direto da base VLMO/2026 da CVM e conferido com o dossiê — bate ao milhão. Tesouraria, programas e timing seguem do dossiê (bases IPE e DFP/ITR, a apurar via CVM).",
    meta:"CNPJ 16.670.085/0001-55 · Tesouraria <b>18.584.089 ações</b> (jun/26) · dados de 10/07/2026",
    kpis:[
      {v:"9", l:"Programas de recompra", s:"aprovados (nº 9 a 17)"},
@@ -652,6 +654,7 @@ function renderBuyback(key, viewId){
 
     <h2>Movimentações CVM 44 (à vista)</h2>
     <p class="lead">Compras e vendas de mercado declaradas por controlador, administradores e tesouraria (Res. CVM 44, art. 11) — exclui empréstimo, bonificação e plano de remuneração. Fluxo líquido desde ${esc(b.flow.since)} · ${esc(b.flow.neg)}.</p>
+    ${b.cvm?`<div class="leitura" style="border-left-color:var(--accent);background:var(--accent-soft);color:var(--accent-dark)"><b>✓ Conferido com a CVM.</b> ${esc(b.cvm)}</div>`:''}
     <div class="grid flowcards" style="margin-bottom:16px">${flowCards}</div>
     ${tradesTable}
 
@@ -659,7 +662,7 @@ function renderBuyback(key, viewId){
     <p class="lead">Quem compra na baixa: preço médio pago por cada grupo e em quantos pregões da janela o papel esteve mais barato que esse preço médio.</p>
     <div class="grid tcards">${timingCards}</div>
 
-    <div class="src-foot">Réplica do dossiê CVM (recompra + CVM 44 art. 11 + saldo de tesouraria DFP/ITR). Fonte: IPE, VLMO, DFP &amp; ITR da CVM · dados de 10/07/2026. Dossiê original: <a href="${esc(b.src)}" target="_blank" rel="noopener">${esc(b.src)}</a></div>`;
+    <div class="src-foot">Fluxo e negócios de insiders (CVM 44 art. 11): <b>apurados direto da base VLMO da CVM</b> e conferidos com o dossiê. Saldo de tesouraria, programas de recompra e timing: dossiê CVM (bases IPE + DFP/ITR, a apurar). Dados de 10/07/2026. Dossiê original: <a href="${esc(b.src)}" target="_blank" rel="noopener">${esc(b.src)}</a></div>`;
 }
 
 // ---------- RENDER GERAL ----------
