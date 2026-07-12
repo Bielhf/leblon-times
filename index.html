@@ -2,21 +2,21 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com 2+ dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 12/06/2026."
+  "description": "Monitor da cobertura (Locadoras, Saúde, Montadoras e Aviação). Três abas: Notícias (clipping por setor, janela de 3 dias), Calendário (agenda de RI e fatos relevantes de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer) e Recompra (em construção)."
 }
 </script>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leblon Times — Clipping de Cobertura</title>
+<title>Monitor da cobertura — Leblon Times</title>
 <style>
 :root{
   --bg:#f6f8f9; --card:#ffffff; --ink:#15282e; --ink-2:#52676e; --ink-3:#8aa0a6;
-  /* paleta azul (antes verde) */
   --accent:#1366c4; --accent-soft:#e7f0fb; --accent-dark:#0c4a8f;
   --amber:#b45309; --amber-soft:#fef3e2; --red:#b91c1c; --red-soft:#fdeaea;
-  --blue:#0e8f9c; --blue-soft:#e2f4f6;  /* contraste (teal) */
+  --green:#0f7b52; --green-soft:#e3f4ec;
+  --blue:#0e8f9c; --blue-soft:#e2f4f6;
   --border:#e4eaec; --radius:14px;
   --shadow:0 1px 2px rgba(21,40,46,.05),0 4px 16px rgba(21,40,46,.06);
 }
@@ -31,15 +31,15 @@ header{background:linear-gradient(135deg,#0a2e54 0%,#1366c4 70%,#2f8fd6 100%);co
 .hwrap{max-width:1180px;margin:0 auto}
 .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.78;font-weight:600;margin-bottom:10px}
 header h1{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
-header p.sub{margin-top:10px;max-width:780px;opacity:.88;font-size:15px}
+header p.sub{margin-top:8px;max-width:780px;opacity:.9;font-size:16px;font-weight:600}
 .meta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
 .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600}
 
-/* ---------- nav ---------- */
+/* ---------- nav (abas principais) ---------- */
 nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin-top:-52px}
 .nwrap{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:6px;padding:10px 24px}
 .tabs{display:flex;gap:4px;overflow-x:auto}
-.tabbtn{border:0;background:transparent;font:inherit;font-weight:600;font-size:13.5px;color:var(--ink-2);padding:8px 14px;border-radius:9px;cursor:pointer;white-space:nowrap}
+.tabbtn{border:0;background:transparent;font:inherit;font-weight:700;font-size:14px;color:var(--ink-2);padding:9px 16px;border-radius:9px;cursor:pointer;white-space:nowrap}
 .tabbtn:hover{background:var(--accent-soft);color:var(--accent-dark)}
 .tabbtn.active{background:var(--accent);color:#fff}
 .nav-actions{margin-left:auto;display:flex;align-items:center;gap:8px;padding-left:12px}
@@ -49,6 +49,12 @@ nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-f
 .iconbtn:hover{background:var(--accent-soft);border-color:var(--accent-soft)}
 
 main{max-width:1180px;margin:0 auto;padding:26px 24px 70px}
+
+/* sub-abas de setor (dentro de Notícias) */
+.subtabs{display:flex;gap:4px;overflow-x:auto;margin-bottom:14px}
+.subtab{border:1px solid var(--border);background:#fff;font:inherit;font-weight:600;font-size:13px;color:var(--ink-2);padding:6px 13px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.subtab:hover{background:var(--accent-soft);color:var(--accent-dark)}
+.subtab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
 /* ---------- KPI strip ---------- */
 .grid{display:grid;gap:16px}
@@ -62,7 +68,7 @@ main{max-width:1180px;margin:0 auto;padding:26px 24px 70px}
 section.sector{margin-top:14px}
 h2{font-size:21px;font-weight:800;letter-spacing:-.01em;margin:30px 0 4px;display:flex;align-items:center;gap:10px}
 h2 .cnt{font-size:12px;font-weight:700;color:var(--accent-dark);background:var(--accent-soft);border-radius:999px;padding:2px 10px;letter-spacing:.02em}
-p.lead{color:var(--ink-2);max-width:860px;margin:0 0 16px;font-size:13.5px}
+p.lead{color:var(--ink-2);max-width:900px;margin:0 0 16px;font-size:13.5px}
 
 .cards2{grid-template-columns:repeat(auto-fit,minmax(420px,1fr))}
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
@@ -85,7 +91,46 @@ article.item:first-of-type{padding-top:8px;margin-top:6px;border-top:0}
 .tk{display:flex;flex-wrap:wrap;gap:6px}
 .sector-empty{background:var(--card);border:1px dashed var(--border);border-radius:var(--radius);padding:18px 20px;color:var(--ink-3);font-size:13.5px}
 
-.filternote{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 0}
+.filternote{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:6px 0 0}
+
+/* ---------- calendário ---------- */
+.cal-agenda{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:8px}
+.cal-row{display:flex;align-items:flex-start;gap:14px;padding:13px 20px;border-top:1px solid var(--border)}
+.cal-row:first-child{border-top:0}
+.cal-date{min-width:104px;text-align:center}
+.cal-date .d{font-size:19px;font-weight:800;color:var(--accent-dark);letter-spacing:-.02em}
+.cal-date .w{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-top:2px}
+.cal-date .cd{font-size:10.5px;color:var(--ink-3);margin-top:3px}
+.cal-main{flex:1;min-width:0}
+.cal-title{font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.3}
+.cal-sub{font-size:12px;color:var(--ink-2);margin-top:3px}
+.evt-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;align-items:center}
+.kind{font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;border-radius:6px;padding:2px 8px}
+.k-res{background:var(--accent-soft);color:var(--accent-dark)}
+.k-web{background:var(--blue-soft);color:#0b6b76}
+.k-oth{background:#eef1f2;color:var(--ink-2)}
+.k-conf{background:var(--amber-soft);color:var(--amber)}
+.badge-co{font-size:10.5px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--ink)}
+.pill{font-size:10px;font-weight:700;border-radius:999px;padding:2px 8px}
+.pill.ok{background:var(--green-soft);color:var(--green)}
+.pill.prev{background:var(--amber-soft);color:var(--amber)}
+
+.co-block{border-top:3px solid var(--blue)}
+.co-block .sec-h{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);font-weight:700;margin:14px 0 6px}
+.mini{padding:9px 0;border-top:1px dashed var(--border);font-size:13px}
+.mini:first-of-type{border-top:0;padding-top:4px}
+.mini .mt{font-weight:700;color:var(--ink)}
+.mini .md{font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.mini .mtext{color:var(--ink-2);margin-top:4px;line-height:1.55}
+.co-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+.co-links a{font-size:11.5px;font-weight:700;border:1px solid var(--border);border-radius:8px;padding:6px 10px;color:var(--accent-dark)}
+.co-links a:hover{background:var(--accent-soft);text-decoration:none}
+.none-note{color:var(--ink-3);font-size:12.5px;font-style:normal}
+
+/* ---------- placeholder recompra ---------- */
+.placeholder{background:var(--card);border:1px dashed var(--border);border-radius:var(--radius);padding:40px 28px;text-align:center;box-shadow:var(--shadow)}
+.placeholder h3{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.placeholder p{color:var(--ink-2);font-size:14px;max-width:620px;margin:0 auto 6px}
 
 footer{border-top:1px solid var(--border);padding:26px 24px 50px;color:var(--ink-3);font-size:12px;text-align:center;line-height:1.7;max-width:1180px;margin:0 auto}
 footer b{color:var(--ink-2);font-weight:600}
@@ -118,9 +163,11 @@ footer b{color:var(--ink-2);font-weight:600}
 @media (max-width:680px){
   header{padding:34px 20px 84px}
   header h1{font-size:23px}
+  header p.sub{font-size:14px}
   .nwrap,main,footer{padding-left:16px;padding-right:16px}
   .cards2{grid-template-columns:1fr}
-  .nav-actions input[type=search]{width:130px}
+  .nav-actions input[type=search]{width:120px}
+  .cal-date{min-width:78px}
 }
 </style>
 </head>
@@ -128,22 +175,21 @@ footer b{color:var(--ink-2);font-weight:600}
 
 <header>
   <div class="hwrap">
-    <div class="eyebrow">Leblon Times · Clipping de Cobertura</div>
-    <h1>Monitor de Cobertura — Locação, Saúde, Montadoras &amp; Baterias e Aviação</h1>
-    <p class="sub">Acompanhamento diário das 16 companhias cobertas, por setor e por todas as linhas de negócio. Mostra apenas o que foi publicado nos últimos três dias, com resumo de dois parágrafos por matéria.</p>
+    <div class="eyebrow">Leblon Times · Uso interno do analista</div>
+    <h1>Monitor da cobertura</h1>
+    <p class="sub">Locadoras, Saúde, Montadoras e Aviação</p>
     <div class="meta">
       <span class="chip" id="chip-date">—</span>
-      <span class="chip">Janela: últimos 3 dias</span>
+      <span class="chip">Notícias · Calendário · Recompra</span>
       <span class="chip">Brasil &amp; Global</span>
-      <span class="chip">Uso interno do analista</span>
     </div>
   </div>
 </header>
 
 <nav>
   <div class="nwrap">
-    <div class="tabs" id="tabs"></div>
-    <div class="nav-actions">
+    <div class="tabs" id="mainTabs"></div>
+    <div class="nav-actions" id="newsActions">
       <input type="search" id="search" placeholder="Filtrar…" oninput="onSearch()">
       <button class="iconbtn" onclick="openPanel()">Editar</button>
       <button class="iconbtn" onclick="sendPromptSafe('Atualize o clipping de notícias agora, buscando notícias dos últimos 3 dias para todas as empresas que cubro (cobrindo todas as linhas de negócio de cada uma), com resumos de dois parágrafos, e atualize a página.')">Atualizar</button>
@@ -152,16 +198,26 @@ footer b{color:var(--ink-2);font-weight:600}
 </nav>
 
 <main>
-  <div class="grid kpis" id="kpis"></div>
-  <div class="filternote" id="filternote"></div>
-  <div id="content"></div>
+  <!-- ============ ABA 1: NOTÍCIAS ============ -->
+  <div id="view-noticias">
+    <div class="grid kpis" id="kpis"></div>
+    <div class="subtabs" id="sectorTabs"></div>
+    <div class="filternote" id="filternote"></div>
+    <div id="content"></div>
+  </div>
+
+  <!-- ============ ABA 2: CALENDÁRIO ============ -->
+  <div id="view-calendario" style="display:none"></div>
+
+  <!-- ============ ABA 3: RECOMPRA ============ -->
+  <div id="view-recompra" style="display:none"></div>
 </main>
 
 <footer>
-  Edição do analista · uso interno. Cada empresa é pesquisada por todas as suas linhas de negócio (ex.: a BYD cobre automóveis <b>e</b> baterias/armazenamento de energia). Edite a lista de empresas e os veículos em <b>Editar</b>; para puxar notícias novas use <b>Atualizar</b> ou deixe a rotina diária rodar.
+  Edição do analista · uso interno. <b>Notícias</b>: clipping por setor, janela dos últimos 3 dias. <b>Calendário</b>: agenda de RI (conference calls e eventos) e monitoramento de comunicados/fatos relevantes de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer. <b>Recompra</b>: em construção.
 </footer>
 
-<!-- Settings panel -->
+<!-- Settings panel (edição da lista de notícias) -->
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
 <aside class="panel" id="panel">
   <header>
@@ -169,7 +225,7 @@ footer b{color:var(--ink-2);font-weight:600}
     <button class="iconbtn" onclick="closePanel()">Fechar</button>
   </header>
   <div class="body">
-    <h4>Empresas cobertas</h4>
+    <h4>Empresas cobertas (Notícias)</h4>
     <div id="companyList"></div>
     <div class="addrow">
       <input id="newCompany" type="text" placeholder="Nova empresa (ex: WEG)">
@@ -191,9 +247,11 @@ footer b{color:var(--ink-2);font-weight:600}
 </aside>
 
 <script>
-// ---------- DADOS (busca de 10/07/2026) ----------
+// ====================================================================
+//  DADOS — NOTÍCIAS (busca de 10/07/2026)
+// ====================================================================
 const LAST_UPDATED = "2026-07-10";
-const MAX_DAYS = 3;   // mostra hoje, ontem, anteontem e anteanteontem
+const MAX_DAYS = 3;
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
 const DEFAULT_COMPANIES = [
@@ -239,10 +297,53 @@ const NEWS = {
 "Embraer":[]
 };
 
-// ---------- ESTADO EDITÁVEL (localStorage) ----------
+// ====================================================================
+//  DADOS — CALENDÁRIO (RI): Localiza, Movida, Rede D'Or, Bradesco Saúde, Embraer
+//  Fonte de cada evento indicada em "obs". Datas "previstas" vêm de agenda
+//  de mercado (a confirmar no RI); Localiza é confirmada no próprio RI.
+// ====================================================================
+const CAL_COMPANIES = ["Localiza","Movida","Rede D'Or","Bradesco Saúde","Embraer"];
+
+const IR = {
+  "Localiza":     {cal:"https://ri.localiza.com/en/ir-services/calendar-of-events/", com:"https://ri.localiza.com/", ticker:"RENT3"},
+  "Movida":       {cal:"https://ri.movida.com.br/servicos-aos-investidores/calendario-de-eventos/", com:"https://ri.movida.com.br/", ticker:"MOVI3"},
+  "Rede D'Or":    {cal:"https://ri.rededorsaoluiz.com.br/", com:"https://ri.rededorsaoluiz.com.br/", ticker:"RDOR3"},
+  "Bradesco Saúde":{cal:"https://www.bradescori.com.br/en/market-information/events-calendar/", com:"https://www.bradescori.com.br/", ticker:"BBDC4 (Banco Bradesco)"},
+  "Embraer":      {cal:"https://ri.embraer.com.br/en/events-e-news/events-calendar/", com:"https://ri.embraer.com.br/", ticker:"EMBR3"}
+};
+
+// kind: res (divulgação de resultados) | web (webcast/teleconferência) | conf (conferência) | oth (outros)
+// confirmed: true = confirmado no RI; false = previsto (agenda de mercado)
+const EVENTS = [
+  {co:"Localiza",      d:"2026-08-06", kind:"res", title:"Divulgação de resultados 2T26", time:"18:00", confirmed:true,  obs:"Após o fechamento · fonte: RI Localiza"},
+  {co:"Localiza",      d:"2026-08-07", kind:"web", title:"Webinar de resultados 2T26",    time:"11:00", confirmed:true,  obs:"Fonte: RI Localiza"},
+  {co:"Localiza",      d:"2026-11-05", kind:"res", title:"Divulgação de resultados 3T26", time:"18:00", confirmed:true,  obs:"Após o fechamento · fonte: RI Localiza"},
+  {co:"Localiza",      d:"2026-11-06", kind:"web", title:"Webinar de resultados 3T26",    time:"11:00", confirmed:true,  obs:"Fonte: RI Localiza"},
+  {co:"Bradesco Saúde",d:"2026-07-30", kind:"res", title:"Resultados 2T26 — Banco Bradesco", time:"", confirmed:false, obs:"Previsto (agenda de mercado). Bradesco Saúde reporta via Banco Bradesco"},
+  {co:"Movida",        d:"2026-08-12", kind:"res", title:"Divulgação de resultados 2T26", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI"},
+  {co:"Rede D'Or",     d:"2026-08-12", kind:"res", title:"Divulgação de resultados 2T26", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI"}
+];
+
+// Comunicados / Fatos Relevantes recentes (verificados). Se vazio → nenhum novo detectado.
+const COMUNICADOS = {
+  "Localiza":[],
+  "Movida":[],
+  "Rede D'Or":[
+    {d:"2026-07-08", title:"Pagamento de JCP de R$ 400 milhões (R$ 0,1832/ação)", u:"https://br.advfn.com/jornal/2026/06/rede-d-or-aprova-pagamento-de-r-400-milhoes-em-jcp-investidores-acompanham-impacto-nos-dividendos-e-fluxo-de-caixa", src:"ADVFN", note:"Aprovado em jun/26; posição-base 25/06, ações 'ex' desde 26/06."}
+  ],
+  "Bradesco Saúde":[],
+  "Embraer":[
+    {d:"2026-07-02", title:"Prévia operacional do 2T26: 65 entregas (+48% a/a), melhor 2º tri em 16 anos", u:"https://br.advfn.com/jornal/2026/07/embraer-entrega-65-aeronaves-no-2t26-cresce-48-e-registra-melhor-desempenho-em-16-anos", src:"ADVFN", note:"45 executivos e 20 comerciais. Resultado financeiro do 2T26 ainda sem data no RI."}
+  ]
+};
+
+// ====================================================================
+//  ESTADO
+// ====================================================================
 const LS_KEY = "clipping_config_v2";
 let config = loadConfig();
-let activeTab = "Todos";
+let mainTab = "noticias";   // noticias | calendario | recompra
+let activeTab = "Todos";    // sub-aba de setor (dentro de Notícias)
 
 function defaultConfig(){
   return { companies: DEFAULT_COMPANIES.map(([name,sector]) => ({name, sector})), hiddenSources: {} };
@@ -253,18 +354,19 @@ function loadConfig(){
 }
 function saveConfig(){ localStorage.setItem(LS_KEY, JSON.stringify(config)); }
 
-// ---------- HELPERS ----------
+// ====================================================================
+//  HELPERS
+// ====================================================================
 function daysOld(dateStr){
   const today=new Date(); today.setHours(0,0,0,0);
   const d=new Date(dateStr+"T00:00:00");
   return Math.floor((today-d)/86400000);
 }
 function fmtDate(s){ const [y,m,d]=s.split("-"); return `${d}/${m}/${y}`; }
-function fmtLong(s){
-  const [y,m,d]=s.split("-");
-  const meses=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
-  return `${parseInt(d)} de ${meses[parseInt(m)-1]} de ${y}`;
-}
+const MESES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const MESES_ABREV=["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
+const SEMANA=["dom","seg","ter","qua","qui","sex","sáb"];
+function fmtLong(s){ const [y,m,d]=s.split("-"); return `${parseInt(d)} de ${MESES[parseInt(m)-1]} de ${y}`; }
 function esc(s){ return (s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
 function paras(r){ return Array.isArray(r)?r:[r]; }
 function sendPromptSafe(t){ if(typeof sendPrompt==="function") sendPrompt(t); else alert("Peça no chat: \"atualizar o clipping\"."); }
@@ -273,13 +375,38 @@ function allSources(){
   config.companies.forEach(c=>(NEWS[c.name]||[]).forEach(n=>set.add(n.f)));
   return [...set].sort((a,b)=>a.localeCompare(b,'pt-BR'));
 }
-// itens visíveis de uma empresa (janela + fontes ativas)
 function liveItems(name){
   return (NEWS[name]||[]).filter(n=>daysOld(n.d)<=MAX_DAYS && !config.hiddenSources[n.f])
                          .sort((a,b)=>b.d.localeCompare(a.d));
 }
 
-// ---------- KPIs ----------
+// ====================================================================
+//  ABAS PRINCIPAIS
+// ====================================================================
+function renderMainTabs(){
+  const upcoming = EVENTS.filter(e=>daysOld(e.d)<=0).length;
+  const tabs=[["noticias","Notícias"],["calendario","Calendário"],["recompra","Recompra"]];
+  document.getElementById("mainTabs").innerHTML = tabs.map(([id,label])=>{
+    let badge="";
+    if(id==="calendario" && upcoming) badge=` · ${upcoming}`;
+    return `<button class="tabbtn ${id===mainTab?'active':''}" onclick="setMainTab('${id}')">${label}${badge}</button>`;
+  }).join("");
+}
+function setMainTab(t){
+  mainTab=t;
+  document.getElementById("view-noticias").style.display   = t==="noticias"?"":"none";
+  document.getElementById("view-calendario").style.display = t==="calendario"?"":"none";
+  document.getElementById("view-recompra").style.display   = t==="recompra"?"":"none";
+  document.getElementById("newsActions").style.display     = t==="noticias"?"":"none";
+  renderMainTabs();
+  if(t==="calendario") renderCalendar();
+  if(t==="recompra") renderRecompra();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ====================================================================
+//  ABA 1 — NOTÍCIAS
+// ====================================================================
 function renderKpis(){
   let arts=0;
   config.companies.forEach(c=>arts+=liveItems(c.name).length);
@@ -295,20 +422,17 @@ function renderKpis(){
   document.getElementById("kpis").innerHTML = k.map(x=>
     `<div class="kpi"><div class="v">${esc(String(x.v))}</div><div class="l">${esc(x.l)}</div><div class="s">${esc(x.s)}</div></div>`).join("");
 }
-
-// ---------- TABS ----------
-function renderTabs(){
+function renderSectorTabs(){
   const tabs=["Todos",...SECTORS];
-  document.getElementById("tabs").innerHTML = tabs.map(t=>{
+  document.getElementById("sectorTabs").innerHTML = tabs.map(t=>{
     const n = t==="Todos"
       ? config.companies.reduce((a,c)=>a+liveItems(c.name).length,0)
       : config.companies.filter(c=>c.sector===t).reduce((a,c)=>a+liveItems(c.name).length,0);
-    return `<button class="tabbtn ${t===activeTab?'active':''}" onclick="setTab('${esc(t).replace(/'/g,"\\'")}')">${esc(t)}${n?` · ${n}`:''}</button>`;
+    return `<button class="subtab ${t===activeTab?'active':''}" onclick="setTab('${esc(t).replace(/'/g,"\\'")}')">${esc(t)}${n?` · ${n}`:''}</button>`;
   }).join("");
 }
-function setTab(t){ activeTab=t; document.getElementById("search").value=""; renderTabs(); applyView(); window.scrollTo({top:0,behavior:'smooth'}); }
+function setTab(t){ activeTab=t; document.getElementById("search").value=""; renderSectorTabs(); applyView(); }
 
-// ---------- CONTEÚDO ----------
 function articleHTML(n){
   return `<article class="item">
     <a class="hl" href="${esc(n.u)}" target="_blank" rel="noopener">${esc(n.h)}</a>
@@ -345,16 +469,11 @@ function sectorHTML(sector){
     ${body}
   </section>`;
 }
-function render(){
-  document.getElementById("chip-date").textContent = "Atualizado em "+fmtLong(LAST_UPDATED);
-  renderKpis();
-  renderTabs();
+function renderNews(){
   const content=document.getElementById("content");
   content.innerHTML = SECTORS.map(sectorHTML).join("");
   applyView();
 }
-
-// mostra a aba ativa (ou todas, quando há busca) e aplica filtro de texto
 function applyView(){
   const q=(document.getElementById("search").value||"").toLowerCase().trim();
   let shown=0;
@@ -367,7 +486,6 @@ function applyView(){
       card.style.display = match?'':'none';
       if(match){ anyVisible=true; shown+=card.querySelectorAll('.item').length; }
     });
-    // linha "sem novidade" e seção vazia: escondem durante busca
     sec.querySelectorAll('.emptyrow, .sector-empty').forEach(el=>{ el.style.display = q?'none':''; });
     sec.style.display = (q && !anyVisible) ? 'none' : '';
   });
@@ -377,7 +495,103 @@ function applyView(){
 }
 function onSearch(){ applyView(); }
 
-// ---------- PAINEL ----------
+// ====================================================================
+//  ABA 2 — CALENDÁRIO (RI)
+// ====================================================================
+function kindClass(k){ return k==="res"?"k-res":k==="web"?"k-web":k==="conf"?"k-conf":"k-oth"; }
+function kindLabel(k){ return k==="res"?"Resultados":k==="web"?"Webcast":k==="conf"?"Conferência":"Evento"; }
+
+function agendaRowHTML(e){
+  const [y,m,d]=e.d.split("-");
+  const wd=new Date(e.d+"T00:00:00").getDay();
+  const dd=daysOld(e.d); // <=0 futuro
+  const countdown = dd===0?"hoje":dd<0?`em ${-dd} dia(s)`:`há ${dd} dia(s)`;
+  const pill = e.confirmed?`<span class="pill ok">confirmado</span>`:`<span class="pill prev">previsto</span>`;
+  return `<div class="cal-row">
+    <div class="cal-date">
+      <div class="d">${parseInt(d)} ${MESES_ABREV[parseInt(m)-1]}</div>
+      <div class="w">${SEMANA[wd]} · ${y}</div>
+      <div class="cd">${countdown}</div>
+    </div>
+    <div class="cal-main">
+      <div class="cal-title">${esc(e.title)}${e.time?` · ${esc(e.time)}`:''}</div>
+      <div class="evt-badges">
+        <span class="badge-co">${esc(e.co)}</span>
+        <span class="kind ${kindClass(e.kind)}">${kindLabel(e.kind)}</span>
+        ${pill}
+      </div>
+      ${e.obs?`<div class="cal-sub">${esc(e.obs)}</div>`:''}
+    </div>
+  </div>`;
+}
+function coBlockHTML(co){
+  const ev = EVENTS.filter(e=>e.co===co && daysOld(e.d)<=0).sort((a,b)=>a.d.localeCompare(b.d));
+  const com = (COMUNICADOS[co]||[]).slice().sort((a,b)=>b.d.localeCompare(a.d));
+  const evHTML = ev.length ? ev.map(e=>`
+      <div class="mini">
+        <div class="mt">${esc(e.title)}${e.time?` · ${esc(e.time)}`:''}</div>
+        <div class="md">${fmtDate(e.d)} · ${kindLabel(e.kind)} · ${e.confirmed?'confirmado':'previsto'}</div>
+        ${e.obs?`<div class="mtext">${esc(e.obs)}</div>`:''}
+      </div>`).join("")
+    : `<div class="mini none-note">Nenhum evento futuro publicado no RI.</div>`;
+  const comHTML = com.length ? com.map(c=>`
+      <div class="mini">
+        <div class="mt"><a href="${esc(c.u)}" target="_blank" rel="noopener">${esc(c.title)}</a></div>
+        <div class="md">${fmtDate(c.d)} · ${esc(c.src||'RI')}</div>
+        ${c.note?`<div class="mtext">${esc(c.note)}</div>`:''}
+      </div>`).join("")
+    : `<div class="mini none-note">Nenhum comunicado/fato relevante novo detectado.</div>`;
+  return `<div class="card co-block">
+    <div class="co-head"><span class="co-name">${esc(co)}</span><span class="tick gray">${esc(IR[co].ticker)}</span></div>
+    <div class="sec-h">Agenda — próximos eventos</div>
+    ${evHTML}
+    <div class="sec-h">Comunicados &amp; fatos relevantes</div>
+    ${comHTML}
+    <div class="co-links">
+      <a href="${esc(IR[co].cal)}" target="_blank" rel="noopener">Calendário de RI ↗</a>
+      <a href="${esc(IR[co].com)}" target="_blank" rel="noopener">Comunicados/RI ↗</a>
+    </div>
+  </div>`;
+}
+function renderCalendar(){
+  const view=document.getElementById("view-calendario");
+  const upcoming = EVENTS.filter(e=>daysOld(e.d)<=0).sort((a,b)=>a.d.localeCompare(b.d));
+  const agenda = upcoming.length
+    ? `<div class="cal-agenda">${upcoming.map(agendaRowHTML).join("")}</div>`
+    : `<div class="sector-empty">Nenhum evento futuro cadastrado.</div>`;
+  view.innerHTML = `
+    <h2>Agenda de RI <span class="cnt">${upcoming.length} evento(s)</span></h2>
+    <p class="lead">Conference calls, divulgações de resultados e outros eventos publicados nos sites de RI de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer. Datas marcadas como <b>confirmado</b> vêm do próprio RI; <b>previsto</b> vem da agenda de mercado e precisa de confirmação.</p>
+    ${agenda}
+    <h2 style="margin-top:34px">Por empresa</h2>
+    <p class="lead">Agenda individual e monitoramento de comunicados ao mercado / fatos relevantes. Clique nos links para abrir o RI oficial.</p>
+    <div class="grid cards2">${CAL_COMPANIES.map(coBlockHTML).join("")}</div>`;
+}
+
+// ====================================================================
+//  ABA 3 — RECOMPRA (placeholder)
+// ====================================================================
+function renderRecompra(){
+  document.getElementById("view-recompra").innerHTML = `
+    <div class="placeholder">
+      <h3>Monitor de recompra de ações — em construção</h3>
+      <p>Esta aba vai acompanhar os programas de recompra das empresas cobertas: programas aprovados e vigentes, quantidade e % do free float, execução (ações recompradas por período), preço médio e status (aberto/encerrado/cancelado).</p>
+      <p>Vamos configurar os detalhes numa próxima etapa.</p>
+    </div>`;
+}
+
+// ====================================================================
+//  RENDER GERAL
+// ====================================================================
+function render(){
+  document.getElementById("chip-date").textContent = "Atualizado em "+fmtLong(LAST_UPDATED);
+  renderMainTabs();
+  renderKpis();
+  renderSectorTabs();
+  renderNews();
+}
+
+// ---------- PAINEL (edição de notícias) ----------
 function openPanel(){ buildPanel(); document.getElementById("overlay").classList.add("open"); document.getElementById("panel").classList.add("open"); }
 function closePanel(){ document.getElementById("overlay").classList.remove("open"); document.getElementById("panel").classList.remove("open"); }
 function buildPanel(){
