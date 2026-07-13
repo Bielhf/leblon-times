@@ -240,7 +240,7 @@ footer b{color:var(--ink-2);font-weight:600}
 </main>
 
 <footer>
-  Edição do analista · uso interno. <b>Notícias</b>: clipping por setor (janela de 3 dias). <b>Calendário</b>: agenda de RI e fatos relevantes de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer. <b>Recompra D'Or / Localiza</b>: programas de recompra, execução, cancelamento e negócios de insiders (CVM Res. 44, art. 11) — réplica do dossiê CVM.
+  Edição do analista · uso interno. <b>Notícias</b>: clipping por setor (janela de 14 dias). <b>Calendário</b>: agenda de RI e fatos relevantes de Localiza, Movida, Rede D'Or, Bradesco Saúde e Embraer. <b>Recompra D'Or / Localiza</b>: programas de recompra, execução, cancelamento e negócios de insiders (CVM Res. 44, art. 11) — réplica do dossiê CVM.
 </footer>
 
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
@@ -270,7 +270,7 @@ footer b{color:var(--ink-2);font-weight:600}
 //  DADOS — NOTÍCIAS (busca de 13/07/2026)
 // ====================================================================
 const LAST_UPDATED = "2026-07-13";
-const MAX_DAYS = 3;
+const MAX_DAYS = 14;
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
 const DEFAULT_COMPANIES = [
@@ -281,15 +281,32 @@ const DEFAULT_COMPANIES = [
 ];
 
 const NEWS = {
-"Localiza":[],"Movida":[],"Rede D'Or":[],"SulAmérica":[],"Hapvida":[],"Fleury":[],"Amil":[],"Oncoclínicas":[],
-"BYD":[],"GWM":[],"Volkswagen":[],
-"Stellantis":[
-  {h:"Stellantis abre Programa de Estágio 2026 com 166 vagas em 13 unidades no Brasil", f:"Conexão Tocantins", d:"2026-07-12", u:"https://conexaoto.com.br/2026/07/12/programa-de-estagio-stellantis-oferece-166-vagas-no-brasil", r:[
-    "A Stellantis abriu inscrições (até 6/ago) para o Programa de Estágio 2026, com 166 vagas em 13 localidades de seis estados e no DF — incluindo os polos automotivos de Betim (MG), Goiana (PE) e Porto Real (RJ) —, voltadas a estudantes com conclusão prevista entre 2027 e 2029.",
-    "O processo valoriza inglês, espanhol e uso de IA no trabalho e integra a estratégia de formação de talentos da montadora, líder do mercado brasileiro no 1S26 com ~27% de participação. Reforça o ciclo de contratações ligado aos novos modelos locais (novo Fiat em Betim e produção do Jeep Avenger iniciada em Porto Real em jul/26)."
+"Localiza":[],"Movida":[],"Rede D'Or":[],"SulAmérica":[],"Hapvida":[],"Fleury":[],
+"Amil":[
+  {h:"Amil avalia venda para os fundos Advent e Bain Capital; controle está em jogo", f:"O Globo", d:"2026-07-02", u:"https://cqcs.com.br/noticia/amil-avalia-venda-da-empresa-ou-parte-dela-aos-fundos-advent-e-bain-capital/", r:[
+    "Segundo O Globo (coluna Capital, confirmando apuração do Valor), Advent e Bain Capital negociam a compra da Amil, uma das maiores operadoras do país (3,10 mi de beneficiários). Os fundos querem o controle, mas segue em aberto manter parte da operação sob José Seripieri Filho (Júnior), que comprou a Amil da UnitedHealth em 2023. As conversas são preliminares e sem garantia de conclusão.",
+    "A Amil virou o resultado — de receita bruta negativa de R$ 4 bi em 2023 para +R$ 5,4 bi em 2025, com lucro de R$ 519,7 mi no 1T26 (−28% a/a) — e formou joint venture com a Dasa (25 hospitais), hoje o 2º maior grupo hospitalar privado, atrás só da Rede D'Or. O movimento reforça a onda de consolidação na saúde suplementar, com IPO citado como alternativa."
   ]}
 ],
-"GM":[],"Hyundai":[],"Toyota":[],"Embraer":[]
+"Oncoclínicas":[],
+"BYD":[],"GWM":[],"Volkswagen":[],
+"Stellantis":[
+  {h:"Stellantis lidera vendas no Brasil e na América do Sul no 1º semestre de 2026", f:"O Tempo", d:"2026-07-08", u:"https://www.otempo.com.br/minas-sa/2026/7/8/stellantis-e-suas-marcas-lideram-vendas-no-brasil-e-na-america-do-sul-no-primeiro-semestre-de-2026", r:[
+    "A Stellantis fechou o 1S26 como líder de vendas no Brasil, na Argentina e na América do Sul, com quase 480 mil veículos. No Brasil, a Fiat manteve a liderança com mais de 270 mil emplacamentos (≈30 mil a mais que no 1S25) e a Strada seguiu como o carro mais vendido do país (83 mil unidades); a Jeep passou de 56 mil emplacamentos no semestre.",
+    "Em comerciais leves (LCV) a companhia ampliou a liderança para 52,7% de participação (+6,5 p.p. a/a). Em junho isolado foram ~67 mil unidades (+14% a/a), com 25,6% de market share. O desempenho sustenta o ciclo de investimentos e de novos modelos locais (novo Fiat em Betim, Jeep Avenger em Porto Real)."
+  ]}
+],
+"GM":[],"Hyundai":[],"Toyota":[],
+"Embraer":[
+  {h:"Família E-Jets recebe certificação de tipo da autoridade de aviação civil da Índia", f:"Embraer", d:"2026-07-07", u:"https://embraer.com/media-center/pt?mediatype=NEWS&detail=27171", r:[
+    "A autoridade de aviação civil da Índia (DGCA) concedeu a certificação de tipo à família de jatos comerciais E-Jets da Embraer, habilitando a operação dos modelos no país.",
+    "A homologação abre caminho para vendas e operação dos E-Jets (incluindo os E2) em um dos mercados de aviação que mais crescem, e complementa a estratégia de localização da Embraer na Índia (proposta de linha de montagem do E175 com a Adani e MRO do C-390 com a Mahindra)."
+  ]},
+  {h:"Embraer apresenta o Ipanema 203 pela 1ª vez na Exposición Rural, na Argentina", f:"Embraer", d:"2026-07-08", u:"https://embraer.com/media-center/pt?mediatype=NEWS&detail=27177", r:[
+    "A Embraer exibiu o avião agrícola Ipanema 203 na Exposición Rural de Buenos Aires — a primeira apresentação do modelo na Argentina.",
+    "É parte da estratégia de expandir a aviação agrícola para novos mercados na América Latina. O Ipanema é o único avião agrícola homologado de fábrica para voar com etanol, alinhado à agenda de descarbonização do agronegócio."
+  ]}
+]
 };
 
 // ====================================================================
@@ -482,7 +499,7 @@ function renderKpis(){
     {v:arts, l:"Matérias no período", s:`últimos ${MAX_DAYS} dias`},
     {v:withNews, l:"Empresas com novidade", s:"hoje"},
     {v:config.companies.length, l:"Empresas cobertas", s:`${sectorsUsed} setores`},
-    {v:MAX_DAYS+"d", l:"Janela de cobertura", s:"hoje + 2 dias anteriores"},
+    {v:MAX_DAYS+"d", l:"Janela de cobertura", s:"hoje + 13 dias anteriores"},
     {v:fmtDate(LAST_UPDATED), l:"Última atualização", s:fmtLong(LAST_UPDATED)}
   ];
   document.getElementById("kpis").innerHTML = k.map(x=>
