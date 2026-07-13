@@ -2,7 +2,7 @@
 {
   "name": "Clipping Cobertura",
   "schemaVersion": 1,
-  "description": "Monitor da cobertura (Locadoras, Saúde, Montadoras e Aviação). Abas: Notícias (clipping por setor), Calendário (agenda de RI e fatos relevantes) e Recompra D'Or / Recompra Localiza (programas de recompra, execução, cancelamento e negócios de insiders via CVM Res. 44 — réplica do dossiê CVM, dados de 10/07/2026)."
+  "description": "Clipping de notícias das 16 empresas cobertas (Locação, Saúde, Montadoras & Baterias, Aviação). Mostra apenas notícias com 2+ dias de idade. Lista de empresas e fontes editáveis pelo usuário (salvas em localStorage). Dados da busca web de 12/06/2026."
 }
 </script>
 <html lang="pt-BR">
@@ -301,7 +301,8 @@ const EVENTS = [
   {co:"Localiza",      d:"2026-08-07", kind:"web", title:"Webinar de resultados 2T26",    time:"11:00", confirmed:true,  obs:"Fonte: RI Localiza"},
   {co:"Localiza",      d:"2026-11-05", kind:"res", title:"Divulgação de resultados 3T26", time:"18:00", confirmed:true,  obs:"Após o fechamento · fonte: RI Localiza"},
   {co:"Localiza",      d:"2026-11-06", kind:"web", title:"Webinar de resultados 3T26",    time:"11:00", confirmed:true,  obs:"Fonte: RI Localiza"},
-  {co:"Bradesco Saúde",d:"2026-07-30", kind:"res", title:"Resultados 2T26 — Banco Bradesco", time:"", confirmed:false, obs:"Previsto (agenda de mercado). Bradesco Saúde reporta via Banco Bradesco"},
+  {co:"Bradesco Saúde",d:"2026-08-05", kind:"res", title:"Resultados 2T26 — Banco Bradesco", time:"", confirmed:false, obs:"Previsto (agenda de mercado, após o fechamento). Bradesco Saúde reporta via Banco Bradesco"},
+  {co:"Embraer",       d:"2026-08-10", kind:"res", title:"Resultados 2T26 (antes da abertura)", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI Embraer"},
   {co:"Movida",        d:"2026-08-12", kind:"res", title:"Divulgação de resultados 2T26", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI"},
   {co:"Rede D'Or",     d:"2026-08-12", kind:"res", title:"Divulgação de resultados 2T26", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI"}
 ];
@@ -312,7 +313,7 @@ const COMUNICADOS = {
   ],
   "Bradesco Saúde":[],
   "Embraer":[
-    {d:"2026-07-02", title:"Prévia operacional do 2T26: 65 entregas (+48% a/a), melhor 2º tri em 16 anos", u:"https://br.advfn.com/jornal/2026/07/embraer-entrega-65-aeronaves-no-2t26-cresce-48-e-registra-melhor-desempenho-em-16-anos", src:"ADVFN", note:"45 executivos e 20 comerciais. Resultado financeiro do 2T26 ainda sem data no RI."}
+    {d:"2026-07-02", title:"Prévia operacional do 2T26: 65 entregas (+48% t/t), melhor 2º tri em 16 anos", u:"https://br.advfn.com/jornal/2026/07/embraer-entrega-65-aeronaves-no-2t26-cresce-48-e-registra-melhor-desempenho-em-16-anos", src:"ADVFN", note:"45 executivos e 20 comerciais; 109 no 1S26 (+20% a/a). Resultado financeiro do 2T26 previsto para 10/08 (agenda de mercado)."}
   ]
 };
 
