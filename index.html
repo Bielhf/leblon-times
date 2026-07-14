@@ -267,9 +267,9 @@ footer b{color:var(--ink-2);font-weight:600}
 
 <script>
 // ====================================================================
-//  DADOS — NOTÍCIAS (busca de 13/07/2026)
+//  DADOS — NOTÍCIAS (busca de 14/07/2026)
 // ====================================================================
-const LAST_UPDATED = "2026-07-13";
+const LAST_UPDATED = "2026-07-14";
 const MAX_DAYS = 14;
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -282,29 +282,30 @@ const DEFAULT_COMPANIES = [
 
 const NEWS = {
 "Localiza":[],"Movida":[],"Rede D'Or":[],"SulAmérica":[],"Hapvida":[],"Fleury":[],
-"Amil":[
-  {h:"Bain Capital e Advent articulam financiamento bilionário para a compra da Amil", f:"O Globo", d:"2026-07-12", u:"https://oglobo.globo.com/blogs/lauro-jardim/", r:[
-    "Segundo a coluna de Lauro Jardim (O Globo), Bain Capital e Advent já conversam com bancos para montar o financiamento bilionário da aquisição da Amil — a negociação passou de sondagem para a estruturação do funding. A dupla busca o controle da operadora (3,10 mi de beneficiários), avaliada em torno de R$ 17 bi (EV), embora siga em aberto a permanência de parte da operação com José Seripieri Filho (Júnior).",
-    "O interesse foi revelado no fim de junho pelo Valor e por O Globo e agora avança para diligência e arranjo de dívida. A Amil virou o resultado (lucro líquido de R$ 814 mi em 2025, ante prejuízo de R$ 4 bi no ano anterior) e formou joint venture com a Dasa (25 hospitais), hoje o 2º maior grupo hospitalar privado do país, atrás só da Rede D'Or — pano de fundo da consolidação em saúde suplementar, com IPO citado como alternativa."
-  ]}
-],
+"Amil":[],
 "Oncoclínicas":[],
-"BYD":[],"GWM":[],"Volkswagen":[],
-"Stellantis":[
-  {h:"Stellantis lidera vendas no Brasil e na América do Sul no 1º semestre de 2026", f:"O Tempo", d:"2026-07-08", u:"https://www.otempo.com.br/minas-sa/2026/7/8/stellantis-e-suas-marcas-lideram-vendas-no-brasil-e-na-america-do-sul-no-primeiro-semestre-de-2026", r:[
-    "A Stellantis fechou o 1S26 como líder de vendas no Brasil, na Argentina e na América do Sul, com quase 480 mil veículos. No Brasil, a Fiat manteve a liderança com mais de 270 mil emplacamentos (≈30 mil a mais que no 1S25) e a Strada seguiu como o carro mais vendido do país (83 mil unidades); a Jeep passou de 56 mil emplacamentos no semestre.",
-    "Em comerciais leves (LCV) a companhia ampliou a liderança para 52,7% de participação (+6,5 p.p. a/a). Em junho isolado foram ~67 mil unidades (+14% a/a), com 25,6% de market share. O desempenho sustenta o ciclo de investimentos e de novos modelos locais (novo Fiat em Betim, Jeep Avenger em Porto Real)."
+"BYD":[
+  {h:"BYD coloca três modelos no Top 7 do mercado brasileiro na parcial de julho", f:"Car.Blog.BR", d:"2026-07-13", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-13.html", r:[
+    "No ranking Fenabrave consolidado até 12/jul, a BYD emplacou três modelos entre os sete automóveis mais vendidos do país: Song (2.222 unidades, 5º), Dolphin Mini (2.167, 6º) e Dolphin (1.814, 7º). Os três recuaram levemente ante junho (-3,7%, -3,5% e -5,4%), em linha com a queda geral do mercado no início do mês.",
+    "O desempenho confirma a consolidação da marca chinesa entre as líderes de venda no varejo brasileiro, em paralelo à frente de eletrificação do transporte público (ônibus elétricos) e ao plano de ampliação da produção de chassis e baterias no país."
+  ]}
+],"GWM":[],"Volkswagen":[
+  {h:"Volkswagen lidera o mercado brasileiro na parcial de julho com o Polo", f:"Car.Blog.BR", d:"2026-07-13", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-13.html", r:[
+    "Com dados até 12/jul, o VW Polo lidera as vendas de automóveis (2.451 unidades), seguido de T-Cross (3º) e Tera (4º) — três dos cinco carros mais vendidos são da Volkswagen. Ainda assim, todos caem forte ante junho (Polo -35,6%, T-Cross -41,2%, Tera -29,7%), reflexo do fim de promoções e de um começo de mês mais fraco.",
+    "A projeção aponta mercado total acima de 200 mil unidades em julho. A liderança parcial ocorre em meio ao debate global sobre a rentabilidade da VW e relatos de possível descontinuação de modelos na matriz."
   ]}
 ],
-"GM":[],"Hyundai":[],"Toyota":[],
+"Stellantis":[],
+"GM":[],"Hyundai":[
+  {h:"Hyundai Creta salta para a vice-liderança de automóveis em julho (+26,9%)", f:"Car.Blog.BR", d:"2026-07-13", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-13.html", r:[
+    "O Creta aparece em 2º lugar entre os automóveis na parcial de julho (2.443 unidades até 12/jul), com alta de 26,9% sobre junho — na contramão da queda dos rivais. O novo i20 estreia no ranking (1.522 unidades), enquanto o HB20 recua 52,4%.",
+    "O avanço do Creta reforça a força da Hyundai no segmento de SUVs compactos, principal frente de crescimento do mercado brasileiro em 2026."
+  ]}
+],"Toyota":[],
 "Embraer":[
-  {h:"Família E-Jets recebe certificação de tipo da autoridade de aviação civil da Índia", f:"Embraer", d:"2026-07-07", u:"https://embraer.com/media-center/pt?mediatype=NEWS&detail=27171", r:[
-    "A autoridade de aviação civil da Índia (DGCA) concedeu a certificação de tipo à família de jatos comerciais E-Jets da Embraer, habilitando a operação dos modelos no país.",
-    "A homologação abre caminho para vendas e operação dos E-Jets (incluindo os E2) em um dos mercados de aviação que mais crescem, e complementa a estratégia de localização da Embraer na Índia (proposta de linha de montagem do E175 com a Adani e MRO do C-390 com a Mahindra)."
-  ]},
-  {h:"Embraer apresenta o Ipanema 203 pela 1ª vez na Exposición Rural, na Argentina", f:"Embraer", d:"2026-07-08", u:"https://embraer.com/media-center/pt?mediatype=NEWS&detail=27177", r:[
-    "A Embraer exibiu o avião agrícola Ipanema 203 na Exposición Rural de Buenos Aires — a primeira apresentação do modelo na Argentina.",
-    "É parte da estratégia de expandir a aviação agrícola para novos mercados na América Latina. O Ipanema é o único avião agrícola homologado de fábrica para voar com etanol, alinhado à agenda de descarbonização do agronegócio."
+  {h:"Embraer terá presença marcante no Farnborough International Airshow 2026", f:"Embraer", d:"2026-07-13", u:"https://embraer.com/br/pt/noticias?slug=1207404-embraer-tera-presenca-marcante-no-farnborough-airshow", r:[
+    "Em comunicado no media-center oficial (13/jul), a Embraer confirmou 'presença marcante' no Farnborough International Airshow (20 a 24/jul, Inglaterra), levando à exposição estática o E195-E2 (maior E-Jet da família E2) e o cargueiro militar multimissão KC-390 Millennium, além do eVTOL da Eve Air Mobility em tamanho real.",
+    "A companhia chega ao salão com 109 aeronaves entregues no 1S26 (+20% a/a), carteira de pedidos recorde e negociações abertas em ao menos três frentes de defesa com potencial de anúncio durante o evento — o que sustenta a expectativa de novos pedidos nas semanas ao redor de Farnborough."
   ]}
 ]
 };
