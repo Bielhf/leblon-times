@@ -275,7 +275,7 @@ const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
 const DEFAULT_COMPANIES = [
   ["Localiza","Locação"],["Movida","Locação"],
-  ["Rede D'Or","Saúde"],["SulAmérica","Saúde"],["Hapvida","Saúde"],["Fleury","Saúde"],["Amil","Saúde"],["Oncoclínicas","Saúde"],
+  ["Rede D'Or","Saúde"],["SulAmérica","Saúde"],["Hapvida","Saúde"],["Fleury","Saúde"],["Amil","Saúde"],["Oncoclínicas","Saúde"],["Grupo Santa","Saúde"],
   ["BYD","Montadoras & Baterias"],["GWM","Montadoras & Baterias"],["Volkswagen","Montadoras & Baterias"],["Stellantis","Montadoras & Baterias"],["GM","Montadoras & Baterias"],["Hyundai","Montadoras & Baterias"],["Toyota","Montadoras & Baterias"],
   ["Embraer","Aviação"]
 ];
@@ -295,6 +295,7 @@ const NEWS = {
     "A RE abre uma janela de proteção de até 90 dias e restringe-se às dívidas financeiras, sem afetar fornecedores, pacientes e a operação das unidades. O plano pode incluir capitalização por acionistas, conversão de dívida em ações, troca por novos instrumentos e alongamento de prazos — desfecho de uma crise de liquidez agravada em 2025 pelo colapso da Unimed Ferj e pela liquidação do Banco Master."
   ]}
 ],
+"Grupo Santa":[],
 "BYD":[
   {h:"Ônibus elétricos crescem 92,5% no 1S26; BYD é a 3ª fabricante, com 18,5% do mercado", f:"Diário do Transporte", d:"2026-07-14", u:"https://diariodotransporte.com.br/2026/07/14/onibus-eletricos-tem-alta-de-925-no-primeiro-semestre-de-2026-e-eletra-mantem-a-lideranca-com-o-dobro-do-segundo-colocado-diz-abve/", r:[
     "Segundo a ABVE (14/jul), o Brasil emplacou 589 ônibus elétricos no 1º semestre de 2026, alta de 92,5% ante 2025. A BYD ficou em 3º entre as fabricantes, com 18,5% de participação (109 unidades), atrás da Eletra (38%) e da Mercedes-Benz (19,2%); 80% dos ônibus do semestre foram produzidos no país.",
@@ -358,9 +359,12 @@ const EVENTS = [
 const COMUNICADOS = {
   "Localiza":[], "Movida":[],
   "Rede D'Or":[
+    {d:"2026-07-13", title:"Atlântica D'Or conclui inclusão de ativos: hospital em São Conrado (RJ) com a BradSaúde", u:"https://visnoinvest.com.br/news/14198/bradsaude-saud3-conclui-inclusao-de-ativos-em-parceria-com-rede-d-or", src:"Visno Invest", note:"Atlântica Hospitais (controlada da BradSaúde) fecha a inclusão de ativos da Rede D'Or na JV Atlântica D'Or; Rede D'Or 50,01% e Atlântica 49,99%, com gestão médica da Rede D'Or."},
     {d:"2026-07-08", title:"Pagamento de JCP de R$ 400 milhões (R$ 0,1832/ação)", u:"https://br.advfn.com/jornal/2026/06/rede-d-or-aprova-pagamento-de-r-400-milhoes-em-jcp-investidores-acompanham-impacto-nos-dividendos-e-fluxo-de-caixa", src:"ADVFN", note:"Aprovado em jun/26; posição-base 25/06, ações 'ex' desde 26/06."}
   ],
-  "Bradesco Saúde":[],
+  "Bradesco Saúde":[
+    {d:"2026-07-13", title:"Atlântica (BradSaúde) conclui inclusão de ativos da Rede D'Or na JV Atlântica D'Or (São Conrado, RJ)", u:"https://visnoinvest.com.br/news/14198/bradsaude-saud3-conclui-inclusao-de-ativos-em-parceria-com-rede-d-or", src:"Visno Invest", note:"Comunicado da BradSaúde (SAUD3) via DRI José Roberto Pacheco; Atlântica Hospitais fica com 49,99% e Rede D'Or com 50,01% do hospital em São Conrado (RJ)."}
+  ],
   "Embraer":[
     {d:"2026-07-02", title:"Prévia operacional do 2T26: 65 entregas (+48% t/t), melhor 2º tri em 16 anos", u:"https://br.advfn.com/jornal/2026/07/embraer-entrega-65-aeronaves-no-2t26-cresce-48-e-registra-melhor-desempenho-em-16-anos", src:"ADVFN", note:"45 executivos e 20 comerciais; 109 no 1S26 (+20% a/a). Resultado financeiro do 2T26 previsto para 10/08 (agenda de mercado)."}
   ]
