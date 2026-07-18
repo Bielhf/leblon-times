@@ -269,7 +269,7 @@ footer b{color:var(--ink-2);font-weight:600}
 // ====================================================================
 //  DADOS — NOTÍCIAS (busca de 17/07/2026)
 // ====================================================================
-const LAST_UPDATED = "2026-07-17";
+const LAST_UPDATED = "2026-07-18";
 const MAX_DAYS = 14;
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -283,54 +283,58 @@ const DEFAULT_COMPANIES = [
 const NEWS = {
 "Localiza":[],
 "Movida":[
-  {h:"Prévia 2T26: mix migra de seminovos para aluguel, margem consolidada sobe e lucro cresce ~102% a/a", f:"Leblon Times · Prévia", d:"2026-07-16", u:"https://ri.movida.com.br/", r:[
-    "Mix segue migrando de seminovos para aluguel: a venda de seminovos continua em queda enquanto a receita de locação cresce. Os dados de tracker de seminovos já apontavam nessa direção — enquanto a Localiza rejuvenesce a frota (compra novos e gira usados), a Movida segura mais a frota e vende menos usados.",
-    "Margem consolidada sobe com depreciação mais controlada: como a margem de seminovos é menor, a menor participação dessa linha eleva a margem consolidada. O read-through para a Localiza ainda é limitado — a Movida não teve o mesmo problema de D&A que a RENT (porte e representatividade de mercado bem distintos), o que pode blindá-la mais contra a queda no preço de usados, embora a D&A da Movida siga muito questionada pelo mercado.",
-    "Lucro +102% a/a: somando margem consolidada maior, menor despesa de juros e menor carga tributária, o lucro cresceu 102% na comparação anual."
+  {h:"Movida dobra o lucro no 2T26 para R$ 135,6 mi (prévia) e alcança receita bruta recorde de R$ 4 bi", f:"ADVFN", d:"2026-07-16", u:"https://br.advfn.com/jornal/2026/07/movida-dobra-lucro-no-2t26-para-r-135-6-milhoes-e-registra-maior-resultado-trimestral-em-quatro-anos", r:[
+    "A Movida divulgou em 16/jul a prévia (números não auditados) do 2T26, com lucro líquido de R$ 135,6 milhões — mais que o dobro do 2T25 e o maior resultado trimestral em quatro anos, superando o consenso em 15%. Pela primeira vez em cinco anos o lucro do 2º tri ficou acima do 1º, contrariando a sazonalidade do setor. A receita bruta total somou R$ 4 bilhões (+21% a/a), com locação em recorde de R$ 2,6 bi; o EBITDA chegou a R$ 1,7 bi (+22%) e o EBIT superou R$ 1 bi pela primeira vez (+29%).",
+    "O read-through para a Localiza é limitado: a melhora da Movida vem de eficiência operacional, menor despesa de juros e disciplina financeira, com o mix migrando de seminovos para aluguel. A companhia divulgará o balanço completo em 12/08, com detalhes de margens, endividamento e fluxo de caixa. As ações subiram cerca de 2% na quinta após a prévia."
   ]}
 ],
 "Rede D'Or":[],"SulAmérica":[],"Fleury":[],
-"Hapvida":[
-  {h:"Hapvida ultrapassa 600 mil consultas transcritas por IA de janeiro a maio", f:"Medicina S/A", d:"2026-07-14", u:"https://medicinasa.com.br/hapvida-ia/", r:[
-    "A Hapvida atingiu 604.383 consultas transcritas com apoio de inteligência artificial por voz entre janeiro e maio de 2026, segundo reportagem do Medicina S/A. O sistema, desenvolvido internamente, ouve a consulta em tempo real, gera a anamnese e sugere o código CID do diagnóstico.",
-    "A escalada do uso de IA assistencial integra o esforço da Hapvida por eficiência e produtividade médica no modelo verticalizado, num momento em que a operadora busca conter a perda de beneficiários (48,2 mil vidas em abr-mai, segundo o Santander) e melhorar a sinistralidade."
-  ]}
-],
+"Hapvida":[],
 "Amil":[],
-"Oncoclínicas":[
-  {h:"Oncoclínicas protocola recuperação extrajudicial para reestruturar R$ 5,1 bi em dívidas", f:"Medicina S/A", d:"2026-07-14", u:"https://medicinasa.com.br/oncoclinicasco-da-inicio-a-processo-de-recuperacao-extrajudicial/", r:[
-    "Em fato relevante de 14/jul (pedido protocolado em 13/jul), a Oncoclínicas (ONCO3) informou o início de uma Recuperação Extrajudicial para reestruturar cerca de R$ 5,1 bilhões em dívidas financeiras quirografárias e créditos intercompany, já com adesão de credores que representam ~37% dos créditos — percentual suficiente para o ajuizamento.",
-    "A RE abre uma janela de proteção de até 90 dias e restringe-se às dívidas financeiras, sem afetar fornecedores, pacientes e a operação das unidades. O plano pode incluir capitalização por acionistas, conversão de dívida em ações, troca por novos instrumentos e alongamento de prazos — desfecho de uma crise de liquidez agravada em 2025 pelo colapso da Unimed Ferj e pela liquidação do Banco Master."
-  ]}
-],
+"Oncoclínicas":[],
 "Grupo Santa":[],
 "BYD":[
-  {h:"Ônibus elétricos crescem 92,5% no 1S26; BYD é a 3ª fabricante, com 18,5% do mercado", f:"Diário do Transporte", d:"2026-07-14", u:"https://diariodotransporte.com.br/2026/07/14/onibus-eletricos-tem-alta-de-925-no-primeiro-semestre-de-2026-e-eletra-mantem-a-lideranca-com-o-dobro-do-segundo-colocado-diz-abve/", r:[
-    "Segundo a ABVE (14/jul), o Brasil emplacou 589 ônibus elétricos no 1º semestre de 2026, alta de 92,5% ante 2025. A BYD ficou em 3º entre as fabricantes, com 18,5% de participação (109 unidades), atrás da Eletra (38%) e da Mercedes-Benz (19,2%); 80% dos ônibus do semestre foram produzidos no país.",
-    "O resultado foi puxado pela entrega de 500 elétricos a São Paulo em junho, mas o crescimento estrutural (+363,8% sobre o 1S24) sustenta a aposta da BYD, que mantém fábrica de chassis em Campinas e amplia a capacidade para atender à renovação das frotas públicas."
-  ]},
-  {h:"BYD mantém três modelos no Top 8 de autos na parcial de julho; Song fecha o Top 5", f:"Car.Blog.BR", d:"2026-07-15", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-15.html", r:[
-    "No ranking Fenabrave até 14/jul (Car.Blog.BR, 15/jul), a BYD colocou três modelos entre os oito automóveis mais vendidos do país: Song (2.779 unidades, 5º entre autos), Dolphin Mini (2.755) e Dolphin (2.231). O Song recua 3,6% ante junho, em linha com um início de mês mais fraco para todo o setor.",
-    "A presença de três BYD no topo confirma a consolidação da marca chinesa no varejo brasileiro, em paralelo à liderança em eletrificação do transporte público e ao plano de ampliar a produção de chassis e baterias no país — incluindo até R$ 500 mi em sistemas de armazenamento (BESS) a decidir nos próximos 90 dias."
+  {h:"BYD emplaca três modelos no Top 8 de autos na parcial de julho; Song sobe à 4ª posição", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
+    "No ranking Fenabrave consolidado até 16/jul (Car.Blog.BR, 17/jul), a BYD colocou três modelos entre os oito automóveis mais vendidos: Song (3.387 unidades, 4º, subindo uma posição), Dolphin Mini (3.377, 5º) e Dolphin (2.730, 8º). O Song recua apenas 2,1% ante junho, resistindo melhor que os líderes VW num início de mês fraco para todo o setor.",
+    "A presença consistente da BYD no topo confirma a consolidação da marca chinesa no varejo brasileiro, em paralelo à ampliação da produção local: a montadora investe R$ 5,5 bi em Camaçari (BA), estuda até R$ 500 mi em baterias de armazenamento (BESS) — decisão nos próximos 90 dias — e prepara o Dolphin híbrido flex para 2027."
   ]}
-],"GWM":[],"Volkswagen":[
-  {h:"Volkswagen assume a liderança de autos na parcial de julho, com Tera, T-Cross e Polo no Top 3", f:"Car.Blog.BR", d:"2026-07-15", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-15.html", r:[
-    "Com dados até 14/jul (Car.Blog.BR, 15/jul), o VW Tera subiu à liderança dos automóveis (3.103 unidades), seguido por T-Cross (3.084) e Polo (3.072) — três dos quatro carros de passeio mais vendidos são da Volkswagen. Todos, porém, recuam forte ante junho (Tera -23,2%, T-Cross -39,6%, Polo -35,4%), reflexo do fim de promoções e de vendas diretas a locadoras concentradas no início do mês.",
-    "A projeção aponta mercado total acima de 190 mil unidades em julho. A liderança parcial ocorre em meio ao debate global sobre a rentabilidade da VW e ao acirramento competitivo das marcas chinesas no Brasil."
+],
+"GWM":[
+  {h:"GWM oferece bônus de R$ 25 mil no Wey 07 e faz campanha nacional neste fim de semana", f:"Car.Blog.BR", d:"2026-07-16", u:"https://www.car.blog.br/2026/07/gwm-wey-07-suv-hibrido-bonus-linha-2026.html", r:[
+    "A GWM realiza em 18 e 19 de julho uma campanha nacional com bônus de R$ 25 mil no SUV híbrido plug-in Wey 07 (linha 2026), segundo o Car.Blog.BR (16/jul). A ação busca girar estoques e ampliar a participação da marca no segmento de eletrificados premium, no momento em que a montadora inicia a produção local do Haval H6 em Iracemápolis (SP).",
+    "Na parcial de vendas até 16/jul, o Haval H6 aparece em 17º entre os automóveis (1.881 unidades, -8,6% ante junho) e a picape Poer soma 312 emplacamentos. A GWM investe R$ 10 bilhões no Brasil até 2032 e montou o primeiro centro de P&D da marca na América do Sul."
+  ]}
+],
+"Volkswagen":[
+  {h:"Volkswagen domina o pódio de autos na parcial de julho com Tera, Polo e T-Cross, mas vendas caem forte", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
+    "Com dados até 16/jul (Car.Blog.BR, 17/jul), o VW Tera lidera os automóveis (4.286 unidades), seguido por Polo (3.964) e T-Cross (3.658) — três dos quatro carros de passeio mais vendidos são da Volkswagen. Todos, porém, recuam forte ante junho (Tera -11,6%, Polo -30,5%, T-Cross -40,3%), reflexo do fim de promoções e da concentração de vendas diretas a locadoras no início do mês.",
+    "A projeção aponta mercado abaixo de 200 mil unidades em julho. No acumulado do ano, o Polo lidera entre autos (58.055), à frente de T-Cross (51.706) e Tera (45.706). A liderança parcial ocorre em meio ao acirramento competitivo das marcas chinesas no Brasil."
   ]}
 ],
 "Stellantis":[
-  {h:"Fiat Strada segue como o veículo mais vendido do país na parcial de julho (6.165 unidades)", f:"Car.Blog.BR", d:"2026-07-15", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-15.html", r:[
-    "A Fiat Strada, da Stellantis, manteve a liderança geral do mercado brasileiro na parcial de julho (dados até 14/jul, Car.Blog.BR 15/jul), com 6.165 unidades emplacadas — bem à frente do segundo colocado, com Toro (1.921), Fastback, Argo e Pulse também no Top 20.",
-    "O desempenho reforça a dependência da Stellantis do sucesso da Strada e da linha Fiat no Brasil, principal mercado do grupo fora da Europa, num momento de pressão competitiva das montadoras chinesas e revisão do portfólio global."
+  {h:"Fiat Strada segue como o veículo mais vendido do país na parcial de julho (7.312 unidades)", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
+    "A Fiat Strada, da Stellantis, manteve a liderança geral do mercado brasileiro na parcial de julho (dados até 16/jul, Car.Blog.BR 17/jul), com 7.312 unidades — bem à frente do 2º colocado —, além de Toro (2.489, 2ª entre comerciais leves), Fastback (2.424), Argo (2.265) e Pulse (2.036) no Top 20. No ano, a Strada lidera com 90.344 emplacamentos.",
+    "O desempenho reforça a dependência da Stellantis do sucesso da Strada e da linha Fiat no Brasil, principal mercado do grupo fora da Europa, num momento de forte pressão competitiva das montadoras chinesas e de revisão do portfólio global."
   ]}
 ],
-"GM":[],"Hyundai":[
-  {h:"Hyundai Creta sobe para 4º na parcial de julho (+18,6%), na contramão da queda dos rivais", f:"Car.Blog.BR", d:"2026-07-15", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-15.html", r:[
-    "O Creta aparece em 4º entre os automóveis na parcial de julho (2.852 unidades até 14/jul, Car.Blog.BR 15/jul), com alta de 18,6% sobre junho — em sentido oposto ao recuo dos líderes VW. O novo i20 estreia no ranking com 1.637 unidades.",
-    "O avanço do Creta reforça a força da Hyundai nos SUVs compactos, principal frente de crescimento do mercado brasileiro em 2026, ajudando a compensar a perda de fôlego do HB20 no início do mês."
+"GM":[
+  {h:"GM vê Tracker e Onix recuarem na parcial de julho; Onix cai mais de 50% ante junho", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
+    "Na parcial até 16/jul (Car.Blog.BR, 17/jul), a GM aparece com o Tracker (2.049 unidades, -12,5% ante junho) e o Onix (2.046, -50,8%) no Top 20 de autos, além da S10 (1.431) entre os comerciais leves. A queda acentuada do Onix reflete o fim de vendas diretas concentradas no início do mês e a pressão dos SUVs compactos e dos rivais chineses.",
+    "No acumulado do ano, Onix (47.155) e Tracker (31.272) seguem entre os mais vendidos, mas a marca perde fôlego frente ao avanço de VW, Hyundai e das chinesas BYD e GWM no varejo brasileiro."
   ]}
-],"Toyota":[],
+],
+"Hyundai":[
+  {h:"Hyundai Creta sobe 16% na parcial de julho, na contramão da queda dos líderes; i20 estreia no ranking", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
+    "O Creta aparece em 6º entre os automóveis na parcial de julho (3.349 unidades até 16/jul, Car.Blog.BR 17/jul), com alta de 16,0% sobre junho — em sentido oposto ao recuo dos líderes VW. O novo Hyundai i20 estreia no ranking com 1.750 unidades.",
+    "O avanço do Creta reforça a força da Hyundai nos SUVs compactos, principal frente de crescimento do mercado brasileiro em 2026, ajudando a marca a ganhar participação enquanto os modelos de entrada perdem ritmo no início do mês."
+  ]}
+],
+"Toyota":[
+  {h:"Yaris Cross e Corolla Cross crescem cerca de 20% na parcial de julho e sustentam a Toyota na contramão do mercado", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
+    "Na parcial até 16/jul (Car.Blog.BR, 17/jul), o Toyota Yaris Cross avança 21,9% ante junho (2.478 unidades, 9º entre autos) e o Corolla Cross sobe 18,8% (1.940), enquanto a Hilux fica em 4º entre os comerciais leves (1.747). Os SUVs eletrificados da marca crescem num mês de queda generalizada do setor.",
+    "No mesmo dia, a Toyota anunciou, com BMW, Bosch e Repsol, um piloto na Espanha para testar gasolina 100% renovável (Nexa 95) em cerca de 20 veículos de produção, reforçando a aposta da marca em neutralidade tecnológica complementar à eletrificação."
+  ]}
+],
 "Embraer":[
   {h:"Embraer entrega o primeiro C-390 Millennium à Força Aérea Tcheca, 20 meses após a assinatura do contrato", f:"Embraer", d:"2026-07-16", u:"https://www.embraer.com/media-center/pt?mediatype=NEWS&detail=27572", r:[
     "Em release no media-center oficial (16/jul), a Embraer confirmou a entrega do primeiro C-390 Millennium à Força Aérea Tcheca, em cerimônia na Base Aérea de Praga-Kbely — apenas 20 meses após a assinatura do contrato, em outubro de 2024. A Chéquia encomendou dois C-390 por cerca de CZK 11,3 bilhões (~US$ 508 milhões); a segunda aeronave deve chegar entre 2027 e 2028.",
@@ -340,20 +344,16 @@ const NEWS = {
     "A Embraer está em negociações preliminares com a Alliance Air, aérea regional estatal da Índia, para um possível pedido de aeronaves — informação do jornal indiano Financial Express (15/jul), replicada pela LRCA. As famílias E175 e E190-E2 estão entre as avaliadas; a Alliance Air opera ~18 ATR 72, a maior parte em solo por problemas recorrentes, o que motivou a busca por alternativas.",
     "O movimento se soma à certificação da família E-Jet pela DGCA indiana (início de julho), à negociação com a Star Air por até 40-50 jatos e à definição de Dholera (Gujarat) como sede da futura linha de montagem do E175 com o grupo Adani. A Embraer projeta mercado de 500 aeronaves na Índia na próxima década, mas condiciona a fábrica local a pedidos firmes — segundo Arjan Meijer, CEO da Aviação Comercial, ao menos 200 E175."
   ]},
-  {h:"Ethiopian avalia pedido de até 35 jatos narrowbody, com o E195-E2 na disputa", f:"Bloomberg", d:"2026-07-14", u:"https://www.bloomberg.com/news/articles/2026-07-14/ethiopian-air-studies-large-order-that-puts-jet-rivals-in-play", r:[
-    "A Ethiopian Airlines está na reta final de decisão sobre um pedido de 25 jatos de corredor único mais 10 opções (até 35 aeronaves), com o Embraer E195-E2 disputando contra o Boeing 737 MAX 7 e o Airbus A220, segundo a Bloomberg (14/jul, também repercutido pela AeroIn). A companhia avalia ainda até 16 cargueiros, elevando o pacote total para perto de 50 aviões.",
-    "O diretor comercial Lemma Yadecha disse que a decisão sai 'nas próximas semanas' e pode ser anunciada no Farnborough Airshow. Uma vitória seria estratégica para a Embraer: colocaria o E-Jet E2 na frota de uma das maiores aéreas da África — hoje majoritariamente Boeing — e abriria um novo mercado de peso no continente."
+  {h:"Às vésperas de Farnborough, JPMorgan e BTG mantêm compra; anúncio de até US$ 3 bi em pedidos pode elevar a ação", f:"Infomoney", d:"2026-07-17", u:"https://www.infomoney.com.br/mercados/embraer-vai-a-farnborough-air-show-com-expectativa-baixa-e-espaco-para-boas-surpresas/", r:[
+    "Com o Farnborough International Airshow (20-24/jul) à vista, o JPMorgan reiterou overweight e preço-alvo de R$ 98, estimando que cada US$ 1 bi em novos pedidos vale cerca de 4% na ação (EV/backlog de 0,38x); no cenário mais otimista, até US$ 3 bi em encomendas — concentradas em defesa — poderiam elevar o papel cerca de 11%. O BTG manteve compra e alvo de R$ 126 (Infomoney, 17/jul).",
+    "A Embraer chega ao salão em sua melhor posição comercial em anos: 109 aeronaves entregues no 1S26 (+20% a/a), carteira recorde e negociações de defesa abertas em ao menos três frentes com potencial de anúncio durante o evento, incluindo campanhas comerciais com a Ethiopian (E195-E2) e com clientes na Índia."
   ]},
   {h:"Embraer chega ao Farnborough 2026 com E195-E2, KC-390 e eVTOL da Eve em forte expansão", f:"AeroIn", d:"2026-07-15", u:"https://aeroin.net/embraer-levara-jatos-e2-e-kc-390-ao-farnborough-international-airshow-2026-no-reino-unido/", r:[
     "A Embraer confirmou que levará ao Farnborough International Airshow 2026 (20-24/jul, Reino Unido) o E195-E2 — maior membro da família de jatos comerciais E2 — e o cargueiro tático KC-390 Millennium, além do modelo em tamanho real do eVTOL da Eve. A empresa chega ao salão em sua melhor posição comercial em anos, com 109 aeronaves entregues no 1S26 (+20% a/a).",
     "O KC-390 já acumula mais de 60 encomendas e compromissos de 11 países — incluindo o contrato dos Emirados Árabes Unidos (dez firmes + dez opções, assinado em maio) — e negociações de defesa abertas em ao menos três frentes com potencial de anúncio durante o salão, reforçando o momentum comercial e de defesa da companhia."
-  ]},
-  {h:"Embraer lança o Phenom 300EV, com pouso autônomo de emergência e mais alcance", f:"Embraer", d:"2026-07-14", u:"https://www.embraer.com/media-center/pt?mediatype=NEWS&detail=27337", r:[
-    "Em release no media-center oficial (14/jul), a Embraer apresentou o Phenom 300EV, nova evolução do jato leve mais vendido do mundo há 14 anos consecutivos. O modelo estreia o Garmin Emergency Autoland (pouso autônomo de emergência), alcance ampliado para 2.055 mn (3.806 km) e maior carga útil, com entregas previstas para 2028.",
-    "O lançamento, feito às vésperas do Farnborough Airshow, reforça a liderança da Embraer em jatos executivos leves — segmento que respondeu por 45 das 65 entregas do 2T26 — e amplia a diferenciação tecnológica frente a concorrentes como Cessna e Pilatus."
   ]}
 ]
-};
+}
 
 // ====================================================================
 //  DADOS — CALENDÁRIO (RI)
@@ -373,11 +373,14 @@ const EVENTS = [
   {co:"Localiza",      d:"2026-11-06", kind:"web", title:"Webinar de resultados 3T26",    time:"11:00", confirmed:true,  obs:"Fonte: RI Localiza"},
   {co:"Bradesco Saúde",d:"2026-08-05", kind:"res", title:"Resultados 2T26 — Banco Bradesco", time:"", confirmed:false, obs:"Previsto (agenda de mercado, após o fechamento). Bradesco Saúde reporta via Banco Bradesco"},
   {co:"Embraer",       d:"2026-08-10", kind:"res", title:"Resultados 2T26 (antes da abertura)", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI Embraer"},
-  {co:"Movida",        d:"2026-08-12", kind:"res", title:"Divulgação de resultados 2T26", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI"},
+  {co:"Movida",        d:"2026-08-12", kind:"res", title:"Divulgação do balanço completo do 2T26", time:"", confirmed:true, obs:"Data confirmada pela Movida na prévia de 16/07 (prévia já divulgada)"},
   {co:"Rede D'Or",     d:"2026-08-12", kind:"res", title:"Divulgação de resultados 2T26", time:"", confirmed:false, obs:"Previsto (agenda de mercado) · confirmar no RI"}
 ];
 const COMUNICADOS = {
-  "Localiza":[], "Movida":[],
+  "Localiza":[],
+  "Movida":[
+    {d:"2026-07-16", title:"Prévia do 2T26: lucro de R$ 135,6 mi (dobro a/a) e receita bruta recorde de R$ 4 bi", u:"https://br.advfn.com/jornal/2026/07/movida-dobra-lucro-no-2t26-para-r-135-6-milhoes-e-registra-maior-resultado-trimestral-em-quatro-anos", src:"ADVFN", note:"Números não auditados; superou o consenso em 15%. Balanço completo em 12/08."}
+  ],
   "Rede D'Or":[
     {d:"2026-07-13", title:"Atlântica D'Or conclui inclusão de ativos: hospital em São Conrado (RJ) com a BradSaúde", u:"https://visnoinvest.com.br/news/14198/bradsaude-saud3-conclui-inclusao-de-ativos-em-parceria-com-rede-d-or", src:"Visno Invest", note:"Atlântica Hospitais (controlada da BradSaúde) fecha a inclusão de ativos da Rede D'Or na JV Atlântica D'Or; Rede D'Or 50,01% e Atlântica 49,99%, com gestão médica da Rede D'Or."},
     {d:"2026-07-08", title:"Pagamento de JCP de R$ 400 milhões (R$ 0,1832/ação)", u:"https://br.advfn.com/jornal/2026/06/rede-d-or-aprova-pagamento-de-r-400-milhoes-em-jcp-investidores-acompanham-impacto-nos-dividendos-e-fluxo-de-caixa", src:"ADVFN", note:"Aprovado em jun/26; posição-base 25/06, ações 'ex' desde 26/06."}
