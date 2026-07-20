@@ -267,9 +267,9 @@ footer b{color:var(--ink-2);font-weight:600}
 
 <script>
 // ====================================================================
-//  DADOS — NOTÍCIAS (busca de 17/07/2026)
+//  DADOS — NOTÍCIAS (busca de 20/07/2026)
 // ====================================================================
-const LAST_UPDATED = "2026-07-18";
+const LAST_UPDATED = "2026-07-20";
 const MAX_DAYS = 14;
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -282,38 +282,28 @@ const DEFAULT_COMPANIES = [
 
 const NEWS = {
 "Localiza":[],
-"Movida":[
-  {h:"Movida dobra o lucro no 2T26 para R$ 135,6 mi (prévia) e alcança receita bruta recorde de R$ 4 bi", f:"ADVFN", d:"2026-07-16", u:"https://br.advfn.com/jornal/2026/07/movida-dobra-lucro-no-2t26-para-r-135-6-milhoes-e-registra-maior-resultado-trimestral-em-quatro-anos", r:[
-    "A Movida divulgou em 16/jul a prévia (números não auditados) do 2T26, com lucro líquido de R$ 135,6 milhões — mais que o dobro do 2T25 e o maior resultado trimestral em quatro anos, superando o consenso em 15%. Pela primeira vez em cinco anos o lucro do 2º tri ficou acima do 1º, contrariando a sazonalidade do setor. A receita bruta total somou R$ 4 bilhões (+21% a/a), com locação em recorde de R$ 2,6 bi; o EBITDA chegou a R$ 1,7 bi (+22%) e o EBIT superou R$ 1 bi pela primeira vez (+29%).",
-    "O read-through para a Localiza é limitado: a melhora da Movida vem de eficiência operacional, menor despesa de juros e disciplina financeira, com o mix migrando de seminovos para aluguel. A companhia divulgará o balanço completo em 12/08, com detalhes de margens, endividamento e fluxo de caixa. As ações subiram cerca de 2% na quinta após a prévia."
-  ]}
-],
+"Movida":[],
 "Rede D'Or":[],"SulAmérica":[],"Fleury":[],
 "Hapvida":[],
 "Amil":[],
 "Oncoclínicas":[],
 "Grupo Santa":[],
 "BYD":[
-  {h:"BYD emplaca três modelos no Top 8 de autos na parcial de julho; Song sobe à 4ª posição", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
-    "No ranking Fenabrave consolidado até 16/jul (Car.Blog.BR, 17/jul), a BYD colocou três modelos entre os oito automóveis mais vendidos: Song (3.387 unidades, 4º, subindo uma posição), Dolphin Mini (3.377, 5º) e Dolphin (2.730, 8º). O Song recua apenas 2,1% ante junho, resistindo melhor que os líderes VW num início de mês fraco para todo o setor.",
-    "A presença consistente da BYD no topo confirma a consolidação da marca chinesa no varejo brasileiro, em paralelo à ampliação da produção local: a montadora investe R$ 5,5 bi em Camaçari (BA), estuda até R$ 500 mi em baterias de armazenamento (BESS) — decisão nos próximos 90 dias — e prepara o Dolphin híbrido flex para 2027."
+  {h:"BYD mantém Song e Dolphin Mini no Top 5 de autos na parcial de julho (dados até dia 17)", f:"Car.Blog.BR", d:"2026-07-18", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-18.html", r:[
+    "No ranking Fenabrave consolidado até 17/jul (Car.Blog.BR, 18/jul), a BYD manteve dois modelos no Top 5 de automóveis: o Song em 4º lugar (3.659 unidades, -2,4% ante junho) e o Dolphin Mini em 5º (3.631, -0,5%). A marca chinesa resiste melhor que os líderes VW, que recuam forte num início de mês fraco para todo o setor — os dados apontam mercado abaixo de 200 mil unidades em julho.",
+    "A presença consistente no topo confirma a consolidação da BYD no varejo brasileiro, em paralelo à ampliação da produção local: a montadora investe R$ 5,5 bi em Camaçari (BA), estuda até R$ 500 mi em baterias de armazenamento (BESS) e prepara o Dolphin híbrido flex para 2027."
   ]}
 ],
-"GWM":[
-  {h:"GWM oferece bônus de R$ 25 mil no Wey 07 e faz campanha nacional neste fim de semana", f:"Car.Blog.BR", d:"2026-07-16", u:"https://www.car.blog.br/2026/07/gwm-wey-07-suv-hibrido-bonus-linha-2026.html", r:[
-    "A GWM realiza em 18 e 19 de julho uma campanha nacional com bônus de R$ 25 mil no SUV híbrido plug-in Wey 07 (linha 2026), segundo o Car.Blog.BR (16/jul). A ação busca girar estoques e ampliar a participação da marca no segmento de eletrificados premium, no momento em que a montadora inicia a produção local do Haval H6 em Iracemápolis (SP).",
-    "Na parcial de vendas até 16/jul, o Haval H6 aparece em 17º entre os automóveis (1.881 unidades, -8,6% ante junho) e a picape Poer soma 312 emplacamentos. A GWM investe R$ 10 bilhões no Brasil até 2032 e montou o primeiro centro de P&D da marca na América do Sul."
-  ]}
-],
+"GWM":[],
 "Volkswagen":[
-  {h:"Volkswagen domina o pódio de autos na parcial de julho com Tera, Polo e T-Cross, mas vendas caem forte", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
-    "Com dados até 16/jul (Car.Blog.BR, 17/jul), o VW Tera lidera os automóveis (4.286 unidades), seguido por Polo (3.964) e T-Cross (3.658) — três dos quatro carros de passeio mais vendidos são da Volkswagen. Todos, porém, recuam forte ante junho (Tera -11,6%, Polo -30,5%, T-Cross -40,3%), reflexo do fim de promoções e da concentração de vendas diretas a locadoras no início do mês.",
-    "A projeção aponta mercado abaixo de 200 mil unidades em julho. No acumulado do ano, o Polo lidera entre autos (58.055), à frente de T-Cross (51.706) e Tera (45.706). A liderança parcial ocorre em meio ao acirramento competitivo das marcas chinesas no Brasil."
+  {h:"Volkswagen lidera autos na parcial de julho com Tera, Polo e T-Cross, mas trio cai forte ante junho", f:"Car.Blog.BR", d:"2026-07-18", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-18.html", r:[
+    "Com dados até 17/jul (Car.Blog.BR, 18/jul), o VW Tera lidera os automóveis (4.760 unidades, -9,3% ante junho), seguido por Polo (4.464, -27,8%) e T-Cross (3.935, -40,8%) — três dos cinco carros de passeio mais vendidos são da Volkswagen. As quedas refletem o fim de promoções e a concentração de vendas diretas a locadoras no início do mês.",
+    "A liderança parcial ocorre em meio ao acirramento competitivo das marcas chinesas no Brasil. Os dados apontam mercado abaixo de 200 mil unidades em julho; no varejo, a VW segue como a mais forte entre as montadoras tradicionais, colhendo os frutos da renovação de portfólio (Tera, Polo, T-Cross)."
   ]}
 ],
 "Stellantis":[
-  {h:"Fiat Strada segue como o veículo mais vendido do país na parcial de julho (7.312 unidades)", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
-    "A Fiat Strada, da Stellantis, manteve a liderança geral do mercado brasileiro na parcial de julho (dados até 16/jul, Car.Blog.BR 17/jul), com 7.312 unidades — bem à frente do 2º colocado —, além de Toro (2.489, 2ª entre comerciais leves), Fastback (2.424), Argo (2.265) e Pulse (2.036) no Top 20. No ano, a Strada lidera com 90.344 emplacamentos.",
+  {h:"Fiat Strada segue como o veículo mais vendido do país na parcial de julho (7.911 unidades)", f:"Car.Blog.BR", d:"2026-07-18", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-18.html", r:[
+    "A Fiat Strada, da Stellantis, manteve a liderança geral do mercado brasileiro na parcial de julho (dados até 17/jul, Car.Blog.BR 18/jul), com 7.911 unidades (-2,1% ante junho), à frente de todos os automóveis e comerciais. A Fiat Toro subiu 13,8% (2.703, 2ª entre os leves), mas a Strada já é acossada pela VW Saveiro, que avançou 40,9% (2.502).",
     "O desempenho reforça a dependência da Stellantis do sucesso da Strada e da linha Fiat no Brasil, principal mercado do grupo fora da Europa, num momento de forte pressão competitiva das montadoras chinesas e de revisão do portfólio global."
   ]}
 ],
@@ -336,21 +326,13 @@ const NEWS = {
   ]}
 ],
 "Embraer":[
-  {h:"Embraer entrega o primeiro C-390 Millennium à Força Aérea Tcheca, 20 meses após a assinatura do contrato", f:"Embraer", d:"2026-07-16", u:"https://www.embraer.com/media-center/pt?mediatype=NEWS&detail=27572", r:[
-    "Em release no media-center oficial (16/jul), a Embraer confirmou a entrega do primeiro C-390 Millennium à Força Aérea Tcheca, em cerimônia na Base Aérea de Praga-Kbely — apenas 20 meses após a assinatura do contrato, em outubro de 2024. A Chéquia encomendou dois C-390 por cerca de CZK 11,3 bilhões (~US$ 508 milhões); a segunda aeronave deve chegar entre 2027 e 2028.",
-    "A entrega amplia a presença do cargueiro tático na Europa/OTAN e ocorre às vésperas do Farnborough Airshow (20-24/jul), onde a Embraer deve reforçar a agenda comercial e de defesa. O C-390 já acumula mais de 60 encomendas e compromissos de 11 países, sustentando o momentum da divisão de defesa da companhia."
+  {h:"Farnborough abre nesta segunda com Embraer entregando o 1º KC-390 à Chéquia; coletiva anual marcada para 21/jul", f:"Air Data News", d:"2026-07-20", u:"https://www.airdatanews.com/czech-republic-set-to-become-fourth-kc-390-operator-at-farnborough/", r:[
+    "O Farnborough International Airshow abre nesta segunda-feira (20/jul, até 24/jul). A Embraer realiza no dia de abertura a cerimônia de batismo do primeiro KC-390 Millennium da Força Aérea Tcheca — quarto operador do cargueiro na OTAN, após Brasil, Portugal e Hungria — e marcou sua coletiva anual de imprensa para 21/jul (Air Data News, 14/jul). A companhia leva ao salão o KC-390 (em voo e estático), um E195-E2 e o mock-up em tamanho real do eVTOL da Eve.",
+    "A Chéquia encomendou dois C-390 (~US$ 508 mi); a segunda aeronave chega até dez/2027. O salão deve concentrar anúncios comerciais e de defesa: o JPMorgan (overweight, alvo R$ 98) estima que cada US$ 1 bi em encomendas vale cerca de 4% na ação e vê espaço para até US$ 3 bi em pedidos, sobretudo em defesa; o BTG mantém compra (alvo R$ 126). A Embraer chega em sua melhor posição comercial em anos, com 109 entregas no 1S26 (+20% a/a) e backlog recorde."
   ]},
-  {h:"Embraer negocia venda de jatos regionais à estatal indiana Alliance Air; E175 e E190-E2 em avaliação", f:"LRCA Defense Consulting", d:"2026-07-15", u:"https://www.lrcadefenseconsulting.com/2026/07/embraer-negocia-venda-de-jatos.html", r:[
-    "A Embraer está em negociações preliminares com a Alliance Air, aérea regional estatal da Índia, para um possível pedido de aeronaves — informação do jornal indiano Financial Express (15/jul), replicada pela LRCA. As famílias E175 e E190-E2 estão entre as avaliadas; a Alliance Air opera ~18 ATR 72, a maior parte em solo por problemas recorrentes, o que motivou a busca por alternativas.",
-    "O movimento se soma à certificação da família E-Jet pela DGCA indiana (início de julho), à negociação com a Star Air por até 40-50 jatos e à definição de Dholera (Gujarat) como sede da futura linha de montagem do E175 com o grupo Adani. A Embraer projeta mercado de 500 aeronaves na Índia na próxima década, mas condiciona a fábrica local a pedidos firmes — segundo Arjan Meijer, CEO da Aviação Comercial, ao menos 200 E175."
-  ]},
-  {h:"Às vésperas de Farnborough, JPMorgan e BTG mantêm compra; anúncio de até US$ 3 bi em pedidos pode elevar a ação", f:"Infomoney", d:"2026-07-17", u:"https://www.infomoney.com.br/mercados/embraer-vai-a-farnborough-air-show-com-expectativa-baixa-e-espaco-para-boas-surpresas/", r:[
-    "Com o Farnborough International Airshow (20-24/jul) à vista, o JPMorgan reiterou overweight e preço-alvo de R$ 98, estimando que cada US$ 1 bi em novos pedidos vale cerca de 4% na ação (EV/backlog de 0,38x); no cenário mais otimista, até US$ 3 bi em encomendas — concentradas em defesa — poderiam elevar o papel cerca de 11%. O BTG manteve compra e alvo de R$ 126 (Infomoney, 17/jul).",
-    "A Embraer chega ao salão em sua melhor posição comercial em anos: 109 aeronaves entregues no 1S26 (+20% a/a), carteira recorde e negociações de defesa abertas em ao menos três frentes com potencial de anúncio durante o evento, incluindo campanhas comerciais com a Ethiopian (E195-E2) e com clientes na Índia."
-  ]},
-  {h:"Embraer chega ao Farnborough 2026 com E195-E2, KC-390 e eVTOL da Eve em forte expansão", f:"AeroIn", d:"2026-07-15", u:"https://aeroin.net/embraer-levara-jatos-e2-e-kc-390-ao-farnborough-international-airshow-2026-no-reino-unido/", r:[
-    "A Embraer confirmou que levará ao Farnborough International Airshow 2026 (20-24/jul, Reino Unido) o E195-E2 — maior membro da família de jatos comerciais E2 — e o cargueiro tático KC-390 Millennium, além do modelo em tamanho real do eVTOL da Eve. A empresa chega ao salão em sua melhor posição comercial em anos, com 109 aeronaves entregues no 1S26 (+20% a/a).",
-    "O KC-390 já acumula mais de 60 encomendas e compromissos de 11 países — incluindo o contrato dos Emirados Árabes Unidos (dez firmes + dez opções, assinado em maio) — e negociações de defesa abertas em ao menos três frentes com potencial de anúncio durante o salão, reforçando o momentum comercial e de defesa da companhia."
+  {h:"Abra (dona da Gol) perto de encomendar até 20 jatos E2 da Embraer; anúncio pode sair no Farnborough", f:"Bloomberg", d:"2026-07-18", u:"https://www.infomoney.com.br/business/gol-esta-perto-de-fechar-acordo-por-jatos-embraer-e2/", r:[
+    "O Abra Group, controlador de Gol e Avianca, está perto de fechar a compra de até 20 jatos da família E2 da Embraer, com anúncio possível durante o Farnborough International Airshow, segundo a Bloomberg (18/jul), replicada por Infomoney e AeroIn. As aeronaves poderiam ser distribuídas entre Gol, Avianca e a espanhola Wamos Air; Abra, Gol e Embraer não comentaram e não há confirmação do número exato nem da divisão entre as companhias.",
+    "Um pedido dessa magnitude reforçaria a carteira comercial da Embraer, que chega ao salão com 109 entregas no 1S26 (+20% a/a) e backlog recorde. O negócio se soma às campanhas comerciais em aberto na Índia (Alliance Air, Star Air) e às negociações de defesa, com potencial de novos anúncios ao longo da semana em Farnborough."
   ]}
 ]
 }
@@ -367,6 +349,7 @@ const IR = {
   "Embraer":      {cal:"https://ri.embraer.com.br/en/events-e-news/events-calendar/", com:"https://ri.embraer.com.br/", ticker:"EMBR3"}
 };
 const EVENTS = [
+  {co:"Embraer",       d:"2026-07-21", kind:"oth", title:"Coletiva anual de imprensa no Farnborough Airshow", time:"", confirmed:true,  obs:"Salão 20-24/jul · fonte: Air Data News/AeroIn"},
   {co:"Localiza",      d:"2026-08-06", kind:"res", title:"Divulgação de resultados 2T26", time:"18:00", confirmed:true,  obs:"Após o fechamento · fonte: RI Localiza"},
   {co:"Localiza",      d:"2026-08-07", kind:"web", title:"Webinar de resultados 2T26",    time:"11:00", confirmed:true,  obs:"Fonte: RI Localiza"},
   {co:"Localiza",      d:"2026-11-05", kind:"res", title:"Divulgação de resultados 3T26", time:"18:00", confirmed:true,  obs:"Após o fechamento · fonte: RI Localiza"},
@@ -389,7 +372,7 @@ const COMUNICADOS = {
     {d:"2026-07-13", title:"Atlântica (BradSaúde) conclui inclusão de ativos da Rede D'Or na JV Atlântica D'Or (São Conrado, RJ)", u:"https://visnoinvest.com.br/news/14198/bradsaude-saud3-conclui-inclusao-de-ativos-em-parceria-com-rede-d-or", src:"Visno Invest", note:"Comunicado da BradSaúde (SAUD3) via DRI José Roberto Pacheco; Atlântica Hospitais fica com 49,99% e Rede D'Or com 50,01% do hospital em São Conrado (RJ)."}
   ],
   "Embraer":[
-    {d:"2026-07-16", title:"Entrega do primeiro C-390 Millennium à Força Aérea Tcheca (Praga-Kbely)", u:"https://www.embraer.com/media-center/pt?mediatype=NEWS&detail=27572", src:"Embraer", note:"Primeira das duas aeronaves encomendadas em out/2024 (~US$ 508 mi); entrega 20 meses após a assinatura. Segunda unidade prevista para 2027-2028."},
+    {d:"2026-07-16", title:"Entrega do primeiro C-390 Millennium à Força Aérea Tcheca (Praga-Kbely)", u:"https://www.embraer.com/media-center/pt?mediatype=NEWS&detail=27572", src:"Embraer", note:"Primeira das duas aeronaves encomendadas em out/2024 (~US$ 508 mi); entrega 20 meses após a assinatura. Batismo oficial na abertura do Farnborough (20/jul); segunda unidade prevista para 2027-2028."},
     {d:"2026-07-02", title:"Prévia operacional do 2T26: 65 entregas (+48% t/t), melhor 2º tri em 16 anos", u:"https://br.advfn.com/jornal/2026/07/embraer-entrega-65-aeronaves-no-2t26-cresce-48-e-registra-melhor-desempenho-em-16-anos", src:"ADVFN", note:"45 executivos e 20 comerciais; 109 no 1S26 (+20% a/a). Resultado financeiro do 2T26 previsto para 10/08 (agenda de mercado)."}
   ]
 };
