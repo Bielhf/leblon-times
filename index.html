@@ -267,9 +267,9 @@ footer b{color:var(--ink-2);font-weight:600}
 
 <script>
 // ====================================================================
-//  DADOS — NOTÍCIAS (busca de 20/07/2026)
+//  DADOS — NOTÍCIAS (busca de 21/07/2026)
 // ====================================================================
-const LAST_UPDATED = "2026-07-20";
+const LAST_UPDATED = "2026-07-21";
 const MAX_DAYS = 14;
 const SECTORS = ["Locação","Saúde","Montadoras & Baterias","Aviação"];
 
@@ -289,46 +289,55 @@ const NEWS = {
 "Oncoclínicas":[],
 "Grupo Santa":[],
 "BYD":[
-  {h:"BYD mantém Song e Dolphin Mini no Top 5 de autos na parcial de julho (dados até dia 17)", f:"Car.Blog.BR", d:"2026-07-18", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-18.html", r:[
-    "No ranking Fenabrave consolidado até 17/jul (Car.Blog.BR, 18/jul), a BYD manteve dois modelos no Top 5 de automóveis: o Song em 4º lugar (3.659 unidades, -2,4% ante junho) e o Dolphin Mini em 5º (3.631, -0,5%). A marca chinesa resiste melhor que os líderes VW, que recuam forte num início de mês fraco para todo o setor — os dados apontam mercado abaixo de 200 mil unidades em julho.",
-    "A presença consistente no topo confirma a consolidação da BYD no varejo brasileiro, em paralelo à ampliação da produção local: a montadora investe R$ 5,5 bi em Camaçari (BA), estuda até R$ 500 mi em baterias de armazenamento (BESS) e prepara o Dolphin híbrido flex para 2027."
+  {h:"BYD emplaca três modelos no Top 8 de autos na parcial de julho (Song, Dolphin Mini e Dolphin)", f:"Car.Blog.BR", d:"2026-07-20", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-20.html", r:[
+    "No ranking Fenabrave consolidado até 19/jul (Car.Blog.BR, 20/jul), a BYD colocou três modelos entre os oito automóveis mais vendidos: Song em 4º (3.668 unidades, -2,1% ante junho), Dolphin Mini em 5º (3.651, estável) e Dolphin em 8º (2.982, -4,3%). A marca chinesa resiste melhor que os líderes VW num início de mês fraco para todo o setor, que caminha para menos de 200 mil unidades em julho.",
+    "A presença consistente no topo confirma a consolidação da BYD no varejo brasileiro, em paralelo à ampliação da produção local: a montadora investe R$ 5,5 bi em Camaçari (BA), expande a montagem de baterias e a fábrica de chassis de ônibus elétricos em Campinas (de 2 mil para quase 5 mil chassis/ano) e integrou 207 novos aprendizes na unidade de baterias no início de julho."
   ]}
 ],
-"GWM":[],
+"GWM":[
+  {h:"GWM Haval H6 fica em 17º entre os autos na parcial de julho (2.042 unidades)", f:"Car.Blog.BR", d:"2026-07-20", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-20.html", r:[
+    "Na parcial Fenabrave até 19/jul (Car.Blog.BR, 20/jul), o GWM Haval H6 aparece em 17º entre os automóveis, com 2.042 unidades (-8,4% ante junho), além da picape Poer entre os comerciais leves (337). O SUV híbrido sustenta a presença da GWM no Top 20 num mês de queda generalizada do mercado.",
+    "O desempenho ocorre em meio ao avanço das marcas chinesas no varejo brasileiro — BYD, GWM e Geely disputam espaço com as tradicionais —, enquanto a GWM segue ampliando a operação local na fábrica de Iracemápolis (SP)."
+  ]}
+],
 "Volkswagen":[
-  {h:"Volkswagen lidera autos na parcial de julho com Tera, Polo e T-Cross, mas trio cai forte ante junho", f:"Car.Blog.BR", d:"2026-07-18", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-18.html", r:[
-    "Com dados até 17/jul (Car.Blog.BR, 18/jul), o VW Tera lidera os automóveis (4.760 unidades, -9,3% ante junho), seguido por Polo (4.464, -27,8%) e T-Cross (3.935, -40,8%) — três dos cinco carros de passeio mais vendidos são da Volkswagen. As quedas refletem o fim de promoções e a concentração de vendas diretas a locadoras no início do mês.",
+  {h:"Volkswagen domina o Top 3 de autos na parcial de julho (Tera, Polo, T-Cross), mas trio recua forte ante junho", f:"Car.Blog.BR", d:"2026-07-20", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-20.html", r:[
+    "Com dados até 19/jul (Car.Blog.BR, 20/jul), o VW Tera lidera os automóveis (4.764 unidades, -9,3% ante junho), seguido por Polo (4.466, -27,8%) e T-Cross (3.942, -40,7%) — os três carros de passeio mais vendidos são da Volkswagen. Entre os comerciais, a Saveiro avança 41,2% (2.508). As quedas refletem o fim de promoções e a concentração de vendas diretas a locadoras no início do mês.",
     "A liderança parcial ocorre em meio ao acirramento competitivo das marcas chinesas no Brasil. Os dados apontam mercado abaixo de 200 mil unidades em julho; no varejo, a VW segue como a mais forte entre as montadoras tradicionais, colhendo os frutos da renovação de portfólio (Tera, Polo, T-Cross)."
   ]}
 ],
 "Stellantis":[
-  {h:"Fiat Strada segue como o veículo mais vendido do país na parcial de julho (7.911 unidades)", f:"Car.Blog.BR", d:"2026-07-18", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-18.html", r:[
-    "A Fiat Strada, da Stellantis, manteve a liderança geral do mercado brasileiro na parcial de julho (dados até 17/jul, Car.Blog.BR 18/jul), com 7.911 unidades (-2,1% ante junho), à frente de todos os automóveis e comerciais. A Fiat Toro subiu 13,8% (2.703, 2ª entre os leves), mas a Strada já é acossada pela VW Saveiro, que avançou 40,9% (2.502).",
+  {h:"Fiat Strada segue líder absoluta do mercado na parcial de julho (7.928 unidades); Toro sobe 14%", f:"Car.Blog.BR", d:"2026-07-20", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-20.html", r:[
+    "A Fiat Strada, da Stellantis, manteve a liderança geral do mercado brasileiro na parcial de julho (dados até 19/jul, Car.Blog.BR 20/jul), com 7.928 unidades (-1,9% ante junho), à frente de todos os automóveis e comerciais. A Fiat Toro subiu 14,1% (2.709), e a linha ainda emplacou Fastback (2.586), Argo (2.391, -57,0%), Pulse (2.128) e o Jeep Compass (2.032) no Top 20 geral.",
     "O desempenho reforça a dependência da Stellantis do sucesso da Strada e da linha Fiat no Brasil, principal mercado do grupo fora da Europa, num momento de forte pressão competitiva das montadoras chinesas e de revisão do portfólio global."
   ]}
 ],
 "GM":[
-  {h:"GM vê Tracker e Onix recuarem na parcial de julho; Onix cai mais de 50% ante junho", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
-    "Na parcial até 16/jul (Car.Blog.BR, 17/jul), a GM aparece com o Tracker (2.049 unidades, -12,5% ante junho) e o Onix (2.046, -50,8%) no Top 20 de autos, além da S10 (1.431) entre os comerciais leves. A queda acentuada do Onix reflete o fim de vendas diretas concentradas no início do mês e a pressão dos SUVs compactos e dos rivais chineses.",
-    "No acumulado do ano, Onix (47.155) e Tracker (31.272) seguem entre os mais vendidos, mas a marca perde fôlego frente ao avanço de VW, Hyundai e das chinesas BYD e GWM no varejo brasileiro."
+  {h:"Onix e Tracker recuam na parcial de julho; Onix cai mais de 50% ante junho", f:"Car.Blog.BR", d:"2026-07-20", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-20.html", r:[
+    "Na parcial até 19/jul (Car.Blog.BR, 20/jul), a GM aparece com Onix (2.241 unidades, -50,3% ante junho, 16º) e Tracker (2.218, -12,6%, 17º) no Top 20 de autos, além da S10 (1.514) e da Montana (751) entre os comerciais leves. A queda acentuada do Onix reflete o fim das vendas diretas concentradas no início do mês e a pressão dos SUVs compactos e dos rivais chineses.",
+    "No acumulado do ano, Onix (47.350) e Tracker (31.441) seguem entre os mais vendidos, mas a marca perde fôlego frente ao avanço de VW, Hyundai e das chinesas BYD, GWM e Geely no varejo brasileiro."
   ]}
 ],
 "Hyundai":[
-  {h:"Hyundai Creta sobe 16% na parcial de julho, na contramão da queda dos líderes; i20 estreia no ranking", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
-    "O Creta aparece em 6º entre os automóveis na parcial de julho (3.349 unidades até 16/jul, Car.Blog.BR 17/jul), com alta de 16,0% sobre junho — em sentido oposto ao recuo dos líderes VW. O novo Hyundai i20 estreia no ranking com 1.750 unidades.",
+  {h:"Hyundai Creta sobe 13,8% na parcial de julho, na contramão da queda dos líderes VW", f:"Car.Blog.BR", d:"2026-07-20", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-20.html", r:[
+    "O Creta aparece em 6º entre os automóveis na parcial de julho (3.559 unidades até 19/jul, Car.Blog.BR 20/jul), com alta de 13,8% sobre junho — em sentido oposto ao recuo dos líderes VW, e único modelo não-chinês em alta no topo do ranking.",
     "O avanço do Creta reforça a força da Hyundai nos SUVs compactos, principal frente de crescimento do mercado brasileiro em 2026, ajudando a marca a ganhar participação enquanto os modelos de entrada perdem ritmo no início do mês."
   ]}
 ],
 "Toyota":[
-  {h:"Yaris Cross e Corolla Cross crescem cerca de 20% na parcial de julho e sustentam a Toyota na contramão do mercado", f:"Car.Blog.BR", d:"2026-07-17", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-17.html", r:[
-    "Na parcial até 16/jul (Car.Blog.BR, 17/jul), o Toyota Yaris Cross avança 21,9% ante junho (2.478 unidades, 9º entre autos) e o Corolla Cross sobe 18,8% (1.940), enquanto a Hilux fica em 4º entre os comerciais leves (1.747). Os SUVs eletrificados da marca crescem num mês de queda generalizada do setor.",
-    "No mesmo dia, a Toyota anunciou, com BMW, Bosch e Repsol, um piloto na Espanha para testar gasolina 100% renovável (Nexa 95) em cerca de 20 veículos de produção, reforçando a aposta da marca em neutralidade tecnológica complementar à eletrificação."
+  {h:"Yaris Cross e Corolla Cross sobem cerca de 20% na parcial de julho e sustentam a Toyota na contramão do mercado", f:"Car.Blog.BR", d:"2026-07-20", u:"https://www.car.blog.br/2026/07/carros-mais-vendidos-julho-2026-dia-20.html", r:[
+    "Na parcial até 19/jul (Car.Blog.BR, 20/jul), o Toyota Yaris Cross avança 21,8% ante junho (2.683 unidades, 9º entre autos) e o Corolla Cross sobe 16,9% (2.068), enquanto a Hilux fica em 4º entre os comerciais leves (1.885, -14,2%). Os SUVs eletrificados da marca crescem num mês de queda generalizada do setor.",
+    "O ritmo dos híbridos da Toyota reforça a aposta da marca em neutralidade tecnológica complementar à eletrificação, num varejo em que os SUVs compactos concentram o crescimento e as chinesas ganham participação."
   ]}
 ],
 "Embraer":[
-  {h:"Farnborough abre nesta segunda com Embraer entregando o 1º KC-390 à Chéquia; coletiva anual marcada para 21/jul", f:"Air Data News", d:"2026-07-20", u:"https://www.airdatanews.com/czech-republic-set-to-become-fourth-kc-390-operator-at-farnborough/", r:[
-    "O Farnborough International Airshow abre nesta segunda-feira (20/jul, até 24/jul). A Embraer realiza no dia de abertura a cerimônia de batismo do primeiro KC-390 Millennium da Força Aérea Tcheca — quarto operador do cargueiro na OTAN, após Brasil, Portugal e Hungria — e marcou sua coletiva anual de imprensa para 21/jul (Air Data News, 14/jul). A companhia leva ao salão o KC-390 (em voo e estático), um E195-E2 e o mock-up em tamanho real do eVTOL da Eve.",
-    "A Chéquia encomendou dois C-390 (~US$ 508 mi); a segunda aeronave chega até dez/2027. O salão deve concentrar anúncios comerciais e de defesa: o JPMorgan (overweight, alvo R$ 98) estima que cada US$ 1 bi em encomendas vale cerca de 4% na ação e vê espaço para até US$ 3 bi em pedidos, sobretudo em defesa; o BTG mantém compra (alvo R$ 126). A Embraer chega em sua melhor posição comercial em anos, com 109 entregas no 1S26 (+20% a/a) e backlog recorde."
+  {h:"Farnborough começa com Embraer batizando o 1º KC-390 tcheco; coletiva de aviação comercial com Arjan Meijer em 21/jul", f:"AeroIn", d:"2026-07-20", u:"https://aeroin.net/embraer-levara-jatos-e2-e-kc-390-ao-farnborough-international-airshow-2026-no-reino-unido/", r:[
+    "O Farnborough International Airshow abriu nesta segunda (20/jul, até 24/jul). Na abertura, a Embraer realizou o batismo do primeiro KC-390 Millennium da Força Aérea Tcheca — 4º operador do cargueiro na OTAN, entregue em Praga-Kbely em 16/jul. A companhia leva ao salão o KC-390 (em voo e estático), um E195-E2 e o mock-up em tamanho real do eVTOL da Eve; o CEO de Aviação Comercial, Arjan Meijer, dá coletiva em 21/jul sobre perspectivas de narrowbodies pequenos e encomendas recentes.",
+    "A Embraer chega em sua melhor posição comercial em anos, com 109 entregas no 1S26 (+20% a/a) e backlog recorde de US$ 32,1 bi (1T26). O JPMorgan (overweight) vê espaço para anúncios, sobretudo em defesa, com três frentes em negociação; a fabricante também conversa em estágio inicial com a indiana Alliance Air por jatos regionais (E175/E190-E2)."
+  ]},
+  {h:"Eve (Embraer) fecha cartas de intenção por até 46 eVTOLs em Farnborough: 30 com a Moov (Cabo Verde) e 16 com a Shearwater", f:"AeroTime", d:"2026-07-19", u:"https://www.aerotime.aero/articles/eve-reports-new-orders-noise-certification-framework-ahead-of-farnborough-2026", r:[
+    "A Eve Air Mobility, da Embraer, assinou em 19/jul, no Farnborough, uma carta de intenções (LOI) com a suíça Moov por até 30 eVTOLs para turismo e mobilidade regional em Cabo Verde e na Europa, e outra com a Shearwater Global Capital pelo financiamento de até 16 aeronaves — somando 46 unidades sob LOI anunciadas no salão.",
+    "Os acordos reforçam a carteira de intenções do eVTOL da Eve, cujo mock-up em tamanho real está exposto em Farnborough. A Moov mira o projeto 'Atlantic Gateway' em Cabo Verde (voos panorâmicos e conexões entre aeroportos, portos e resorts nas ilhas), com potencial ainda em transporte médico e inspeção de infraestrutura."
   ]},
   {h:"Abra (dona da Gol) perto de encomendar até 20 jatos E2 da Embraer; anúncio pode sair no Farnborough", f:"Bloomberg", d:"2026-07-18", u:"https://www.infomoney.com.br/business/gol-esta-perto-de-fechar-acordo-por-jatos-embraer-e2/", r:[
     "O Abra Group, controlador de Gol e Avianca, está perto de fechar a compra de até 20 jatos da família E2 da Embraer, com anúncio possível durante o Farnborough International Airshow, segundo a Bloomberg (18/jul), replicada por Infomoney e AeroIn. As aeronaves poderiam ser distribuídas entre Gol, Avianca e a espanhola Wamos Air; Abra, Gol e Embraer não comentaram e não há confirmação do número exato nem da divisão entre as companhias.",
@@ -349,7 +358,7 @@ const IR = {
   "Embraer":      {cal:"https://ri.embraer.com.br/en/events-e-news/events-calendar/", com:"https://ri.embraer.com.br/", ticker:"EMBR3"}
 };
 const EVENTS = [
-  {co:"Embraer",       d:"2026-07-21", kind:"oth", title:"Coletiva anual de imprensa no Farnborough Airshow", time:"", confirmed:true,  obs:"Salão 20-24/jul · fonte: Air Data News/AeroIn"},
+  {co:"Embraer",       d:"2026-07-21", kind:"oth", title:"Coletiva de aviação comercial no Farnborough Airshow (Arjan Meijer)", time:"", confirmed:true,  obs:"Salão 20-24/jul · fonte: AeroIn/Aviation Week"},
   {co:"Localiza",      d:"2026-08-06", kind:"res", title:"Divulgação de resultados 2T26", time:"18:00", confirmed:true,  obs:"Após o fechamento · fonte: RI Localiza"},
   {co:"Localiza",      d:"2026-08-07", kind:"web", title:"Webinar de resultados 2T26",    time:"11:00", confirmed:true,  obs:"Fonte: RI Localiza"},
   {co:"Localiza",      d:"2026-11-05", kind:"res", title:"Divulgação de resultados 3T26", time:"18:00", confirmed:true,  obs:"Após o fechamento · fonte: RI Localiza"},
